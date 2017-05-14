@@ -1,0 +1,17 @@
+Projekt Akademia C# Dawid Czubak, Karol Fischbach.
+BakeryAssistant – niezbêdnik piekarza.
+
+1.	Krótki opis programu
+Aplikacja ma u³atwiaæ w³aœcicielowi zarz¹dzanie piekarni¹ oraz ma optymalizowaæ dzia³anie przedsiêbiorstwa. Ma s³u¿yæ jako zaawansowany pó³automatyczny dziennik. U¿ytkownik bêdzie mia³ mo¿liwoœæ tworzenia wirtualnych produktów z dostêpnych sk³adników. Dla przyk³adu, kierownik chce wprowadziæ do piekarni nowy produkt – chleb z ¿urawin¹, w tym celu musi zdefiniowaæ nowy przepis sk³adaj¹cy siê z pojedynczych produktów(iloœci), a je¿eli produktu nie ma w bazie danych, to musi go dodaæ poprzez podanie jego nazwy oraz ceny. U¿ytkownik równie¿ bêdzie mia³ dostêp do informacji o iloœci sk³adników znajduj¹cych siê na magazynie, oraz dodatkowo bêdzie zmuszony do wprowadzania dokonanych zakupów(tak ¿eby stan sk³adników by³ aktualny). Dodatkowo aplikacja bêdzie wyœwietla³a raport o brakuj¹cych sk³adnikach oraz przypomina³a o koniecznoœci ich uzupe³nienia. Do aplikacji bêdzie mo¿na równie¿ wprowadzaæ i odczytywaæ zamówienia(data, produkty, iloœæ, adres, cena). Aplikacja bêdzie przedstawia³a raporty dobowe i miesiêczne na podstawie ró¿nicy wyprodukowanych i sprzedanych wypieków tak aby mo¿na by³o zoptymalizowaæ zyski.
+2.	Techniki które zostan¹ u¿yte w programie
+-windows forms
+-enum
+-dekoratory
+-zmienne s³ownikowe oraz listy
+-zapytania sql
+-klasy i kolekcje
+-dziedziczenie
+-referencje
+3.	Podzia³ obowi¹zków
+Program bêdzie tworzony wspólnymi si³ami w wolnym czasie. Karol Fischbach bêdzie odpowiedzialny za organizacjê windows forms oraz tworzenie przedmiotów. Dawid Czubak zajmie siê bazami danych, sql oraz organizacj¹ programu. Wspólnie z³o¿¹ to wszystko w dzia³aj¹c¹ ca³oœæ.
+
