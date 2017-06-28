@@ -34,9 +34,22 @@ namespace BakeryAssistant
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();                                         // Hide form languageSelect
-            MainWindow s = new MainWindow();                               // Create new form - Login
-            s.Show();
+            //Checking if user is logged
+            string u1 = textBox1.Text;
+            string p1 = textBox2.Text;
+            string username = "Stasiek";
+            string password = "1234";
+            if (u1 == username)
+                if (p1 == password)
+                {
+                    this.Hide();                                                   // Hide form languageSelect
+                    MainWindow s = new MainWindow();                               // Create new form - Login
+                    s.Show();
+                }
+            else
+                {
+                    MessageBox.Show("Wez sie tato ;d");
+                }
         }
     }
 }
