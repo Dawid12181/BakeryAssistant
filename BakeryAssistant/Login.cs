@@ -15,23 +15,28 @@ namespace BakeryAssistant
         public Login()
         {
             InitializeComponent();
-            textBox2.PasswordChar = '*';
-            textBox2.MaxLength = 14;
+            textBox2.PasswordChar = '*';   //Hashing password
+            textBox2.MaxLength = 14;       //Password max length = 14
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-            textBox2.PasswordChar = '*';
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            textBox2.PasswordChar = '*';
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();                                         // Hide form languageSelect
+            MainWindow s = new MainWindow();                               // Create new form - Login
+            s.Show();
         }
     }
 }

@@ -32,3 +32,4 @@ C:\Users\DawidC\Desktop\cekratka\28.06\BakeryAssistant\BakeryAssistant\obj\Debug
 C:\Users\DawidC\Desktop\cekratka\28.06\BakeryAssistant\BakeryAssistant\bin\Debug\dje\BakeryAssistant.resources.dll
 C:\Users\DawidC\Desktop\cekratka\28.06\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.LanguageSelect.dje.resources
 C:\Users\DawidC\Desktop\cekratka\28.06\BakeryAssistant\BakeryAssistant\obj\Debug\dje\BakeryAssistant.resources.dll
+C:\Users\DawidC\Desktop\cekratka\28.06\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.MainWindow.resources
