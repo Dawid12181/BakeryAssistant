@@ -18,3 +18,17 @@ C:\Users\DawidC\Desktop\Studia\Akademia\git\ba\BakeryAssistant\BakeryAssistant\o
 C:\Users\DawidC\Desktop\Studia\Akademia\git\ba\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.csproj.GenerateResource.Cache
 C:\Users\DawidC\Desktop\Studia\Akademia\git\ba\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.exe
 C:\Users\DawidC\Desktop\Studia\Akademia\git\ba\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.pdb
+C:\Users\DawidC\Desktop\cekratka\28.06\BakeryAssistant\BakeryAssistant\bin\Debug\BakeryAssistant.exe.config
+C:\Users\DawidC\Desktop\cekratka\28.06\BakeryAssistant\BakeryAssistant\bin\Debug\BakeryAssistant.exe
+C:\Users\DawidC\Desktop\cekratka\28.06\BakeryAssistant\BakeryAssistant\bin\Debug\BakeryAssistant.pdb
+C:\Users\DawidC\Desktop\cekratka\28.06\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.csprojResolveAssemblyReference.cache
+C:\Users\DawidC\Desktop\cekratka\28.06\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.Form1.resources
+C:\Users\DawidC\Desktop\cekratka\28.06\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.LanguageSelect.resources
+C:\Users\DawidC\Desktop\cekratka\28.06\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.Login.resources
+C:\Users\DawidC\Desktop\cekratka\28.06\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.Properties.Resources.resources
+C:\Users\DawidC\Desktop\cekratka\28.06\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.csproj.GenerateResource.Cache
+C:\Users\DawidC\Desktop\cekratka\28.06\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.exe
+C:\Users\DawidC\Desktop\cekratka\28.06\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.pdb
+C:\Users\DawidC\Desktop\cekratka\28.06\BakeryAssistant\BakeryAssistant\bin\Debug\dje\BakeryAssistant.resources.dll
+C:\Users\DawidC\Desktop\cekratka\28.06\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.LanguageSelect.dje.resources
+C:\Users\DawidC\Desktop\cekratka\28.06\BakeryAssistant\BakeryAssistant\obj\Debug\dje\BakeryAssistant.resources.dll

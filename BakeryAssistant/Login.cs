@@ -15,11 +15,23 @@ namespace BakeryAssistant
         public Login()
         {
             InitializeComponent();
+            textBox2.PasswordChar = '*';
+            textBox2.MaxLength = 14;
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
+            textBox2.PasswordChar = '*';
+        }
 
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            textBox2.PasswordChar = '*';
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

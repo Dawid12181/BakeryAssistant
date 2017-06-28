@@ -86,6 +86,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LanguageSelect.dje.resx">
+      <DependentUpon>LanguageSelect.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LanguageSelect.resx">
       <DependentUpon>LanguageSelect.cs</DependentUpon>
     </EmbeddedResource>
