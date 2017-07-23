@@ -47,7 +47,7 @@ namespace BakeryAssistant
                 }
             else
                 {
-                    textBox1.BackColor = Color.White;
+                    textBox1.BackColor = Color.White;                              // Changing the color of textbox
                     MessageBox.Show("Błędne hasło");
                     textBox2.BackColor = Color.Red;
                 }
