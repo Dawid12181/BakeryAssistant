@@ -31,7 +31,6 @@ namespace BakeryAssistant
         {
             Application.Exit();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             //Checking if user is logged
@@ -48,8 +47,17 @@ namespace BakeryAssistant
                 }
             else
                 {
-                    MessageBox.Show("Wez sie tato ;d");
+                    textBox1.BackColor = Color.White;
+                    MessageBox.Show("Błędne hasło");
+                    textBox2.BackColor = Color.Red;
                 }
-        }
+            else
+            {
+                MessageBox.Show("Błędny login");
+                textBox1.BackColor = Color.Red;
+                textBox2.BackColor = Color.Red;
+            }
+        } 
+        
     }
 }
