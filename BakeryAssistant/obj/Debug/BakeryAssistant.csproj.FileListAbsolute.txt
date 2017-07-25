@@ -63,3 +63,4 @@ C:\Users\DawidC\Desktop\cekratka\25.07\BakeryAssistant\BakeryAssistant\obj\Debug
 C:\Users\DawidC\Desktop\cekratka\25.07\BakeryAssistant\BakeryAssistant\obj\Debug\dje\BakeryAssistant.resources.dll
 C:\Users\DawidC\Desktop\cekratka\25.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.exe
 C:\Users\DawidC\Desktop\cekratka\25.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.pdb
+D:\Karol\PG\BakeryAssistant\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.AddNewProduct.resources
