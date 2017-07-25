@@ -51,7 +51,22 @@ namespace BakeryAssistant
         {
 
         }
+        private void ListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            DependencyObject obj = (DependencyObject)e.OriginalSource;
 
+            while (obj != null && obj != myListView)
+            {
+                if (obj.GetType() == typeof(ListViewItem))
+                {
+                    // Do something here
+                    MessageBox.Show("A ListViewItem was double clicked!");
+
+                    break;
+                }
+                obj = VisualTreeHelper.GetParent(obj);
+            }
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             //just checking \/ listView; check for urself, dont think it will work because too much text for "Zamówienie" 
