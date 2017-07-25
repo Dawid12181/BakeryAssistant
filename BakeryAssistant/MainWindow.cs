@@ -19,7 +19,7 @@ namespace BakeryAssistant
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            MessageBox.Show("You are in the ListView.ItemActivate event.");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -51,30 +51,28 @@ namespace BakeryAssistant
         {
 
         }
-        private void ListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void ListView1_ItemActivate(Object sender, EventArgs e)
         {
-            DependencyObject obj = (DependencyObject)e.OriginalSource;
 
-            while (obj != null && obj != myListView)
-            {
-                if (obj.GetType() == typeof(ListViewItem))
-                {
-                    // Do something here
-                    MessageBox.Show("A ListViewItem was double clicked!");
-
-                    break;
-                }
-                obj = VisualTreeHelper.GetParent(obj);
-            }
         }
         private void button2_Click(object sender, EventArgs e)
         {
+            this.Hide();                                                   // Hide form languageSelect
+            DodajZamowienie s = new DodajZamowienie();                               // Create new form - Login
+            s.Show();
             //just checking \/ listView; check for urself, dont think it will work because too much text for "Zamówienie" 
             ListViewItem order = new ListViewItem("Pani Zosia G.");
             order.SubItems.Add("Topolowa 24");
             order.SubItems.Add("codziennie od 5:00-5:30 oprócz sobót");
             order.SubItems.Add("3x bulka paryska, 5x chleb razowy, 10x bulka pszenna, 6x drozdzowka z makiem + paczki jak bedą robione");
             listView1.Items.Add(order);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string zamowienie;
+            zamowienie = listView1.SelectedItems[0].SubItems[3].Text;
+            MessageBox.Show("Twoje zamowienie to:" + zamowienie);
         }
     }
 }
