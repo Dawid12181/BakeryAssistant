@@ -27,7 +27,8 @@ namespace BakeryAssistant
                 foreach (XmlNode Dana in DaneNodesList)
                 {
                     my_orders.Add(new Zamowienie(Dana.FirstChild.InnerText, Dana.FirstChild.NextSibling.InnerText, Dana.LastChild.PreviousSibling.PreviousSibling.InnerText, Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
-                    ListViewItem order = new ListViewItem(my_orders[my_orders.Count - 1].Odbiorca);
+                    ListViewItem order = new ListViewItem(my_orders[my_orders.Count - 1].ID);
+                    order.SubItems.Add(my_orders[my_orders.Count - 1].Odbiorca);
                     order.SubItems.Add(my_orders[my_orders.Count - 1].Adres);
                     order.SubItems.Add(my_orders[my_orders.Count - 1].Data);
                     order.SubItems.Add(my_orders[my_orders.Count - 1].Zamowienie_tekst);
@@ -37,7 +38,7 @@ namespace BakeryAssistant
             catch
             {
             }
-            textBox5.Text = (my_orders.Count+1).ToString();
+            textBox5.Text = (Int32.Parse(my_orders[my_orders.Count-1].ID) + 1).ToString();
         }
         private void DodajZamowienie_Load(object sender, EventArgs e)
         {
@@ -55,18 +56,20 @@ namespace BakeryAssistant
             textBox2.Text = String.Empty;
             textBox3.Text = String.Empty;
             textBox4.Text = String.Empty;
-            ListViewItem order = new ListViewItem(my_orders[my_orders.Count-1].Odbiorca);
+            ListViewItem order = new ListViewItem(my_orders[my_orders.Count-1].ID);
+            order.SubItems.Add(my_orders[my_orders.Count-1].Odbiorca);
             order.SubItems.Add(my_orders[my_orders.Count-1].Adres);
             order.SubItems.Add(my_orders[my_orders.Count-1].Data);
             order.SubItems.Add(my_orders[my_orders.Count-1].Zamowienie_tekst);
             listView1.Items.Add(order);
+            textBox5.Text = (Int32.Parse(my_orders[my_orders.Count - 1].ID) + 1).ToString();
         }
         private void button2_Click_1(object sender, EventArgs e)
         {
             string zamowienie;
             try
             {
-                zamowienie = listView1.SelectedItems[0].SubItems[3].Text;
+                zamowienie = listView1.SelectedItems[0].SubItems[4].Text;
                 MessageBox.Show("Twoje zamowienie to:  " + zamowienie);
             }
             catch
@@ -103,6 +106,25 @@ namespace BakeryAssistant
             this.Hide();                                                   // Hide form AddNewProduct
             MainWindow s = new MainWindow();                               // Create new form - MainWindow
             s.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int iteracja=0;
+            bool jest=false;
+            Zamowienie usun = new Zamowienie(listView1.SelectedItems[0].SubItems[0].Text, listView1.SelectedItems[0].SubItems[1].Text, listView1.SelectedItems[0].SubItems[2].Text, listView1.SelectedItems[0].SubItems[3].Text, listView1.SelectedItems[0].SubItems[4].Text);
+            listView1.SelectedItems[0].Remove();
+            foreach (Zamowienie item in my_orders)
+            {
+                if (item.ID == usun.ID)
+                {
+                    jest = true;
+                    break;
+                }
+                iteracja++;
+            }
+            if(jest)
+            my_orders.RemoveAt(iteracja);
         }
     }
 }

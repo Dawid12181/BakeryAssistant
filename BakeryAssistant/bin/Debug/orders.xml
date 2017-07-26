@@ -1,52 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Orders xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Zamowienie>
-    <ID>1</ID>
-    <Odbiorca>Dawid</Odbiorca>
-    <Adres>Gdansk</Adres>
-    <Data>23.03.2017</Data>
-    <Zamowienie_tekst>Chleb i bulki</Zamowienie_tekst>
-  </Zamowienie>
-  <Zamowienie>
-    <ID>2</ID>
-    <Odbiorca>Dawid</Odbiorca>
-    <Adres>Gdansk</Adres>
-    <Data>23.03.2017</Data>
-    <Zamowienie_tekst>Chleb i bulki</Zamowienie_tekst>
-  </Zamowienie>
-  <Zamowienie>
-    <ID>3</ID>
-    <Odbiorca>Dawid</Odbiorca>
-    <Adres>Gdansk</Adres>
-    <Data>23.03.2017</Data>
-    <Zamowienie_tekst>Chleb i bulki</Zamowienie_tekst>
-  </Zamowienie>
-  <Zamowienie>
-    <ID>4</ID>
-    <Odbiorca>Ktośtam</Odbiorca>
-    <Adres>ldkfjhdk</Adres>
-    <Data>2908398</Data>
-    <Zamowienie_tekst>kjghdkjgdfdf</Zamowienie_tekst>
-  </Zamowienie>
-  <Zamowienie>
-    <ID>5</ID>
-    <Odbiorca>Ktośtamznowu</Odbiorca>
-    <Adres>kdjfhkdfj</Adres>
-    <Data>2938387</Data>
-    <Zamowienie_tekst>askfjhskfjefdfdfdfdfdf</Zamowienie_tekst>
-  </Zamowienie>
-  <Zamowienie>
-    <ID>6</ID>
-    <Odbiorca>Odbiorca6</Odbiorca>
-    <Adres>skdjhaksd</Adres>
-    <Data>283478372</Data>
-    <Zamowienie_tekst>aslkdjalkjgfsd</Zamowienie_tekst>
-  </Zamowienie>
-  <Zamowienie>
     <ID>7</ID>
-    <Odbiorca>odbiorca7</Odbiorca>
-    <Adres>Adres7</Adres>
-    <Data>2398746</Data>
+    <Odbiorca>Tadeusz</Odbiorca>
+    <Adres>Kraków</Adres>
+    <Data>03.10.2017</Data>
+    <Zamowienie_tekst>Bułki bez Chlepa</Zamowienie_tekst>
+  </Zamowienie>
+  <Zamowienie>
+    <ID>11</ID>
+    <Odbiorca>Andrzej</Odbiorca>
+    <Adres>Kosiny</Adres>
+    <Data>23.05.2017</Data>
+    <Zamowienie_tekst>Chlep tostowy</Zamowienie_tekst>
+  </Zamowienie>
+  <Zamowienie>
+    <ID>12</ID>
+    <Odbiorca>Radosław</Odbiorca>
+    <Adres>Warszawa</Adres>
+    <Data>23.03.2017</Data>
+    <Zamowienie_tekst>Chlep, Chlep, Chlep</Zamowienie_tekst>
+  </Zamowienie>
+  <Zamowienie>
+    <ID>14</ID>
+    <Odbiorca>Dawid</Odbiorca>
+    <Adres>Gdańsk</Adres>
+    <Data>23.06.2017</Data>
     <Zamowienie_tekst>Chlep i Bułki</Zamowienie_tekst>
+  </Zamowienie>
+  <Zamowienie>
+    <ID>15</ID>
+    <Odbiorca>Karol</Odbiorca>
+    <Adres>Tczew</Adres>
+    <Data>23.09.2017</Data>
+    <Zamowienie_tekst>Bułki i Chlep</Zamowienie_tekst>
   </Zamowienie>
 </Orders>

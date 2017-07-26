@@ -41,11 +41,12 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(1013, 18);
+            this.monthCalendar1.Location = new System.Drawing.Point(1013, 433);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 0;
             // 
@@ -59,7 +60,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(78, 293);
+            this.button1.Location = new System.Drawing.Point(33, 186);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(186, 37);
             this.button1.TabIndex = 3;
@@ -75,7 +76,7 @@
             "Chleb",
             "Kanapki",
             "Drozdzkowka z serem "});
-            this.listBox1.Location = new System.Drawing.Point(78, 46);
+            this.listBox1.Location = new System.Drawing.Point(23, 37);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(210, 134);
             this.listBox1.TabIndex = 5;
@@ -83,8 +84,9 @@
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(136, 18);
+            this.textBox1.Location = new System.Drawing.Point(80, 12);
             this.textBox1.Name = "textBox1";
             this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox1.Size = new System.Drawing.Size(100, 13);
@@ -95,10 +97,13 @@
             // 
             // textBox2
             // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Location = new System.Drawing.Point(775, 274);
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox2.Location = new System.Drawing.Point(923, 27);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 13);
+            this.textBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBox2.Size = new System.Drawing.Size(110, 23);
             this.textBox2.TabIndex = 8;
             this.textBox2.Text = "Zamówienia";
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
@@ -107,13 +112,14 @@
             // 
             this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader2});
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(533, 293);
+            this.listView1.Location = new System.Drawing.Point(658, 66);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(630, 177);
             this.listView1.TabIndex = 9;
@@ -124,42 +130,47 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "Odbiorca";
-            this.columnHeader3.Width = 175;
+            this.columnHeader3.Width = 122;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Adres";
-            this.columnHeader4.Width = 119;
+            this.columnHeader4.Width = 125;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Data";
-            this.columnHeader5.Width = 94;
+            this.columnHeader5.Width = 83;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Zamówienie";
-            this.columnHeader2.Width = 231;
+            this.columnHeader2.Width = 283;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(756, 476);
+            this.button2.Location = new System.Drawing.Point(658, 249);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(186, 37);
             this.button2.TabIndex = 10;
-            this.button2.Text = "Dodaj nowe zamówienie";
+            this.button2.Text = "Dodaj/usuń zamówienie";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(1013, 483);
+            this.button3.Location = new System.Drawing.Point(865, 249);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(107, 23);
+            this.button3.Size = new System.Drawing.Size(423, 37);
             this.button3.TabIndex = 11;
             this.button3.Text = "Pokaż więcej";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            this.columnHeader1.Width = 25;
             // 
             // MainWindow
             // 
@@ -181,6 +192,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BakeryAssistant";
+            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,5 +213,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         public System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }

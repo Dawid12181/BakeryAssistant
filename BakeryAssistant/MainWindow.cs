@@ -26,7 +26,8 @@ namespace BakeryAssistant
                 foreach (XmlNode Dana in DaneNodesList)
                 {
                     my_orders.Add(new Zamowienie(Dana.FirstChild.InnerText, Dana.FirstChild.NextSibling.InnerText, Dana.LastChild.PreviousSibling.PreviousSibling.InnerText, Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
-                    ListViewItem order = new ListViewItem(my_orders[my_orders.Count - 1].Odbiorca);
+                    ListViewItem order = new ListViewItem(my_orders[my_orders.Count - 1].ID);
+                    order.SubItems.Add(my_orders[my_orders.Count - 1].Odbiorca);
                     order.SubItems.Add(my_orders[my_orders.Count - 1].Adres);
                     order.SubItems.Add(my_orders[my_orders.Count - 1].Data);
                     order.SubItems.Add(my_orders[my_orders.Count - 1].Zamowienie_tekst);
@@ -88,8 +89,13 @@ namespace BakeryAssistant
         private void button3_Click(object sender, EventArgs e)
         {
             string zamowienie;
-            zamowienie = listView1.SelectedItems[0].SubItems[3].Text;
+            zamowienie = listView1.SelectedItems[0].SubItems[4].Text;
             MessageBox.Show("Twoje zamowienie to: " + zamowienie);
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
