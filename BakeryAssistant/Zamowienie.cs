@@ -8,6 +8,7 @@ namespace BakeryAssistant
 {
     public class Zamowienie
     {
+<<<<<<< HEAD
         public string ID { get; set; }
         public string Odbiorca { get; set; }
         public string Adres { get; set; }
@@ -27,3 +28,12 @@ namespace BakeryAssistant
         }
     }
 }
+=======
+        public string ID;
+        public string Odbiorca;
+        public string Adres;
+        public string Data;
+        public string Zamowienie_tekst;
+    }
+}
+>>>>>>> a8bb7e16cb1e5b8c5dad3b5072afa86dec0f9489

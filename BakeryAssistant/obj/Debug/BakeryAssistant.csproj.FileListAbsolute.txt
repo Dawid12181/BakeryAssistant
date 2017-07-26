@@ -64,6 +64,7 @@ C:\Users\DawidC\Desktop\cekratka\25.07\BakeryAssistant\BakeryAssistant\obj\Debug
 C:\Users\DawidC\Desktop\cekratka\25.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.exe
 C:\Users\DawidC\Desktop\cekratka\25.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.pdb
 C:\Users\DawidC\Desktop\cekratka\25.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.DodajZamowienie.resources
+<<<<<<< HEAD
 C:\Users\DawidC\Desktop\25.07\BakeryAssistant\BakeryAssistant\bin\Debug\BakeryAssistant.exe.config
 C:\Users\DawidC\Desktop\25.07\BakeryAssistant\BakeryAssistant\bin\Debug\BakeryAssistant.exe
 C:\Users\DawidC\Desktop\25.07\BakeryAssistant\BakeryAssistant\bin\Debug\BakeryAssistant.pdb
@@ -81,3 +82,5 @@ C:\Users\DawidC\Desktop\25.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAs
 C:\Users\DawidC\Desktop\25.07\BakeryAssistant\BakeryAssistant\obj\Debug\dje\BakeryAssistant.resources.dll
 C:\Users\DawidC\Desktop\25.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.exe
 C:\Users\DawidC\Desktop\25.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.pdb
+=======
+>>>>>>> a8bb7e16cb1e5b8c5dad3b5072afa86dec0f9489

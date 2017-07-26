@@ -63,12 +63,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="AddNewProduct.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddNewProduct.Designer.cs">
       <DependentUpon>AddNewProduct.cs</DependentUpon>
     </Compile>
+=======
+>>>>>>> a8bb7e16cb1e5b8c5dad3b5072afa86dec0f9489
     <Compile Include="DodajZamowienie.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,9 +105,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Zamowienie.cs" />
+<<<<<<< HEAD
     <EmbeddedResource Include="AddNewProduct.resx">
       <DependentUpon>AddNewProduct.cs</DependentUpon>
     </EmbeddedResource>
+=======
+>>>>>>> a8bb7e16cb1e5b8c5dad3b5072afa86dec0f9489
     <EmbeddedResource Include="DodajZamowienie.resx">
       <DependentUpon>DodajZamowienie.cs</DependentUpon>
     </EmbeddedResource>
