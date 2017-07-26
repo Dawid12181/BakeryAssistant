@@ -42,7 +42,7 @@ namespace BakeryAssistant
                 if (p1 == password)
                 {
                     this.Hide();                                                   // Hide form languageSelect
-                    MainWindow s = new MainWindow();                               // Create new form - Login
+                    MainWindow s = new MainWindow();                               // Create new form - MainWindow
                     s.Show();
                 }
             else
