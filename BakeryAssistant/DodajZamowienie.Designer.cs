@@ -45,10 +45,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-<<<<<<< HEAD
             this.button3 = new System.Windows.Forms.Button();
-=======
->>>>>>> a8bb7e16cb1e5b8c5dad3b5072afa86dec0f9489
             this.SuspendLayout();
             // 
             // listView1
@@ -165,11 +162,7 @@
             // 
             // button2
             // 
-<<<<<<< HEAD
             this.button2.Location = new System.Drawing.Point(536, 368);
-=======
-            this.button2.Location = new System.Drawing.Point(12, 365);
->>>>>>> a8bb7e16cb1e5b8c5dad3b5072afa86dec0f9489
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(138, 26);
             this.button2.TabIndex = 11;
@@ -193,7 +186,6 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "Identyfikator";
             // 
-<<<<<<< HEAD
             // button3
             // 
             this.button3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -213,13 +205,6 @@
             this.CancelButton = this.button3;
             this.ClientSize = new System.Drawing.Size(686, 425);
             this.Controls.Add(this.button3);
-=======
-            // DodajZamowienie
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 425);
->>>>>>> a8bb7e16cb1e5b8c5dad3b5072afa86dec0f9489
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.button2);
@@ -262,9 +247,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label5;
-<<<<<<< HEAD
         private System.Windows.Forms.Button button3;
-=======
->>>>>>> a8bb7e16cb1e5b8c5dad3b5072afa86dec0f9489
     }
 }

@@ -80,7 +80,6 @@ namespace BakeryAssistant
         }
         private void button2_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             this.Hide();                                                   // Hide form MainWindow
             DodajZamowienie zamowienia = new DodajZamowienie();                     // Create new form - DodajZamowienie
             zamowienia.Show();
@@ -91,24 +90,6 @@ namespace BakeryAssistant
             string zamowienie;
             zamowienie = listView1.SelectedItems[0].SubItems[3].Text;
             MessageBox.Show("Twoje zamowienie to: " + zamowienie);
-=======
-            this.Hide();                                                   // Hide form languageSelect
-            DodajZamowienie s = new DodajZamowienie();                               // Create new form - Login
-            s.Show();
-            //just checking \/ listView; check for urself, dont think it will work because too much text for "Zamówienie" 
-            ListViewItem order = new ListViewItem("Pani Zosia G.");
-            order.SubItems.Add("Topolowa 24");
-            order.SubItems.Add("codziennie od 5:00-5:30 oprócz sobót");
-            order.SubItems.Add("3x bulka paryska, 5x chleb razowy, 10x bulka pszenna, 6x drozdzowka z makiem + paczki jak bedą robione");
-            listView1.Items.Add(order);
->>>>>>> a8bb7e16cb1e5b8c5dad3b5072afa86dec0f9489
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            string zamowienie;
-            zamowienie = listView1.SelectedItems[0].SubItems[3].Text;
-            MessageBox.Show("Twoje zamowienie to:" + zamowienie);
         }
     }
 }
