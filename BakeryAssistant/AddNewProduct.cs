@@ -36,7 +36,7 @@ namespace BakeryAssistant
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            checkedListBox1.ClearSelected();
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -58,12 +58,36 @@ namespace BakeryAssistant
         {
             if (checkedListBox1.CheckedItems.Count > 1) //checking if there are no more checked products than one 
                 MessageBox.Show("Proszę wybrać tylko jeden produkt na raz!");
-            if (checkedListBox1.CheckedItems.Count == 0) //checking if there are any checked products
-                MessageBox.Show("Nie wybrano żadnego produktu!");
-            if (string.IsNullOrWhiteSpace(textBox1.Text))
-                MessageBox.Show("      Nie podano ilości!      ");
-            if (comboBox1.SelectedItem == null)
-                MessageBox.Show("    Nie wybrano jednostki!   ");
+            else
+            {
+                if (checkedListBox1.CheckedItems.Count == 0) //checking if there are any checked products
+                    MessageBox.Show("Nie wybrano żadnego produktu!");
+                else
+                {
+                    if (string.IsNullOrWhiteSpace(textBox1.Text))//checking if is not empty quantity
+                        MessageBox.Show("      Nie podano ilości!      ");
+                    else
+                    {
+                        if (comboBox1.SelectedItem == null)//unit not choosed
+                            MessageBox.Show("    Nie wybrano jednostki!   ");
+                        else
+                        {
+                           
+                            int quantity; //quantity of component measured in gram/piece
+                            int.TryParse(textBox1.Text,out quantity);//just parsing to int; need to objects count raports etc.
+                            string unit = comboBox1.SelectedItem.ToString(); //unit of component gram/piecie
+                            string name="";//name of component send from checkedListBox to ListBox
+                            foreach (string s in checkedListBox1.CheckedItems)//getting the name of all checked items(our case it can be only 1 checked item)
+                                name = s; //writing this name to our
+                            string ComponentString = name + ' ' + quantity.ToString()+ ' ' + unit; //final message to listBox
+                            listBox1.Items.Add(ComponentString);//sending to listBox
+                            foreach (int indx in checkedListBox1.CheckedIndices) //uncheck checkBoxList after adding new component to our product
+                                checkedListBox1.SetItemCheckState(indx, CheckState.Unchecked);
+                        }
+                    }
+                }
+            }
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -72,6 +96,11 @@ namespace BakeryAssistant
         }
 
         private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Orders xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Zamowienie>
-    <ID>7</ID>
-    <Odbiorca>Tadeusz</Odbiorca>
-    <Adres>Kraków</Adres>
-    <Data>03.10.2017</Data>
-    <Zamowienie_tekst>Bułki bez Chlepa</Zamowienie_tekst>
-  </Zamowienie>
-  <Zamowienie>
     <ID>11</ID>
     <Odbiorca>Andrzej</Odbiorca>
     <Adres>Kosiny</Adres>
@@ -34,5 +27,12 @@
     <Adres>Tczew</Adres>
     <Data>23.09.2017</Data>
     <Zamowienie_tekst>Bułki i Chlep</Zamowienie_tekst>
+  </Zamowienie>
+  <Zamowienie>
+    <ID>69</ID>
+    <Odbiorca>Jarek</Odbiorca>
+    <Adres>Kwiatowa3</Adres>
+    <Data>27.16.20</Data>
+    <Zamowienie_tekst>drozdzowki x 10 z makiem i wielki wuj. dostarczyc przed 6:00!!!!</Zamowienie_tekst>
   </Zamowienie>
 </Orders>
