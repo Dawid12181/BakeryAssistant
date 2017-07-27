@@ -35,18 +35,27 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label1 = new System.Windows.Forms.Label();
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(1013, 433);
+            this.monthCalendar1.Location = new System.Drawing.Point(302, 61);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 0;
             // 
@@ -127,6 +136,11 @@
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged_1);
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            this.columnHeader1.Width = 25;
+            // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Odbiorca";
@@ -167,16 +181,87 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // columnHeader1
+            // label1
             // 
-            this.columnHeader1.Text = "ID";
-            this.columnHeader1.Width = 25;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(813, 323);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(321, 25);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Produkty potrzebujące uzupełnienia";
+            // 
+            // listView2
+            // 
+            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader10,
+            this.columnHeader9});
+            this.listView2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.listView2.FullRowSelect = true;
+            this.listView2.GridLines = true;
+            this.listView2.Location = new System.Drawing.Point(762, 372);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(426, 170);
+            this.listView2.TabIndex = 13;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.Details;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(762, 548);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(186, 41);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "Zamów brakujące produkty";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(971, 548);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(217, 41);
+            this.button5.TabIndex = 15;
+            this.button5.Text = "Edycja/Więcej informacji";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "ID";
+            this.columnHeader6.Width = 28;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Nazwa Składnika";
+            this.columnHeader7.Width = 109;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Pozostała Ilość";
+            this.columnHeader8.Width = 87;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Jednostka";
+            this.columnHeader9.Width = 61;
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Minimalna wymagana ilość";
+            this.columnHeader10.Width = 137;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1300, 613);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.listView2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.listView1);
@@ -214,5 +299,14 @@
         private System.Windows.Forms.Button button3;
         public System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }

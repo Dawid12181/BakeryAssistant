@@ -97,5 +97,12 @@ namespace BakeryAssistant
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Hide();                                                   // Hide form MainWindow
+            Magazyn magazyn = new Magazyn();                     // Create new form - Magazyn
+            magazyn.Show();
+        }
     }
 }
