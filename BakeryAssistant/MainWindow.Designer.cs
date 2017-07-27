@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.button1 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
@@ -44,20 +43,14 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.listView2 = new System.Windows.Forms.ListView();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Location = new System.Drawing.Point(302, 61);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 0;
             // 
             // menuStrip1
             // 
@@ -209,6 +202,31 @@
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "ID";
+            this.columnHeader6.Width = 28;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Nazwa Składnika";
+            this.columnHeader7.Width = 109;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Pozostała Ilość";
+            this.columnHeader8.Width = 87;
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Minimalna wymagana ilość";
+            this.columnHeader10.Width = 137;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Jednostka";
+            this.columnHeader9.Width = 61;
+            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(762, 548);
@@ -228,31 +246,6 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "ID";
-            this.columnHeader6.Width = 28;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Nazwa Składnika";
-            this.columnHeader7.Width = 109;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Pozostała Ilość";
-            this.columnHeader8.Width = 87;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "Jednostka";
-            this.columnHeader9.Width = 61;
-            // 
-            // columnHeader10
-            // 
-            this.columnHeader10.Text = "Minimalna wymagana ilość";
-            this.columnHeader10.Width = 137;
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -269,7 +262,6 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(1);
@@ -284,8 +276,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox listBox1;
