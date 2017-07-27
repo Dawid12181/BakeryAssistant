@@ -133,3 +133,4 @@ C:\Users\DawidC\Desktop\cekratka\27.07\BakeryAssistant\BakeryAssistant\obj\Debug
 C:\Users\DawidC\Desktop\cekratka\27.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.exe
 C:\Users\DawidC\Desktop\cekratka\27.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.pdb
 C:\Users\DawidC\Desktop\cekratka\27.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.Magazyn.resources
+D:\Karol\PG\Baker2\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.Magazyn.resources

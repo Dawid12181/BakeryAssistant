@@ -64,8 +64,9 @@ namespace BakeryAssistant
                     MessageBox.Show("Nie wybrano żadnego produktu!");
                 else
                 {
-                    if (string.IsNullOrWhiteSpace(textBox1.Text))//checking if is not empty quantity
-                        MessageBox.Show("      Nie podano ilości!      ");
+                    int quantity; //quantity of component measured in gram/piece
+                    if (string.IsNullOrWhiteSpace(textBox1.Text) || !int.TryParse(textBox1.Text, out quantity))//checking if is not empty quantity
+                        MessageBox.Show("Nie podano ilości lub źle wprowadzono ilość!");
                     else
                     {
                         if (comboBox1.SelectedItem == null)//unit not choosed
@@ -73,7 +74,7 @@ namespace BakeryAssistant
                         else
                         {
                            
-                            int quantity; //quantity of component measured in gram/piece
+                           
                             int.TryParse(textBox1.Text,out quantity);//just parsing to int; need to objects count raports etc.
                             string unit = comboBox1.SelectedItem.ToString(); //unit of component gram/piecie
                             string name="";//name of component send from checkedListBox to ListBox
@@ -102,7 +103,12 @@ namespace BakeryAssistant
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+        }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndices.Count>0)
+                listBox1.Items.Remove(listBox1.SelectedItems[0]);
         }
     }
 }

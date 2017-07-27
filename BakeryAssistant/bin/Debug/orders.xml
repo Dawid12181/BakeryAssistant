@@ -8,13 +8,6 @@
     <Zamowienie_tekst>Chlep tostowy</Zamowienie_tekst>
   </Zamowienie>
   <Zamowienie>
-    <ID>12</ID>
-    <Odbiorca>Radosław</Odbiorca>
-    <Adres>Warszawa</Adres>
-    <Data>23.03.2017</Data>
-    <Zamowienie_tekst>Chlep, Chlep, Chlep</Zamowienie_tekst>
-  </Zamowienie>
-  <Zamowienie>
     <ID>14</ID>
     <Odbiorca>Dawid</Odbiorca>
     <Adres>Gdańsk</Adres>
