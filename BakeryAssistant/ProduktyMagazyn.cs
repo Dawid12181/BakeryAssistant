@@ -6,28 +6,33 @@ using System.Threading.Tasks;
 
 namespace BakeryAssistant
 {
-    class ProduktyMagazyn: Produkty
+    public class ProduktyMagazyn
 
     {
-        public int ilosc_na_hurtowni { get; set; }
+        public int ID { get; set; }
+        public string nazwa { get; set; }
+        public string jednostka { get; set; }
+        public int ilosc { get; set; }
+        public int wymagana_ilosc { get; set; }
         public double cena_zakupu { get; set; }
-        public int wymagana_minimalna_ilosc { get; set; }
+        public double cena { get; set; }
         public ProduktyMagazyn()
         {
 
         }
-        public ProduktyMagazyn(Produkty skladnik, int ilosc, int wymagana_ilosc, double cena_zakupu)
+        public ProduktyMagazyn(int sID, string snazwa, string sjednostka,  int silosc, int swymagana_ilosc, double scena_zakupu, double scena)
         {
-            ID = skladnik.ID;
-            komponent = skladnik.komponent;
-            ilosc_na_hurtowni = ilosc;
-            jednostka = skladnik.jednostka;
-            wymagana_minimalna_ilosc = wymagana_ilosc;
-            this.cena_zakupu = cena_zakupu;
+            ID = sID;
+            nazwa = snazwa;
+            wymagana_ilosc = swymagana_ilosc;
+            jednostka = sjednostka;
+            ilosc = silosc;
+            cena_zakupu = scena_zakupu;
+            cena = scena;
         }
-        int KomponentyNaStanie(Produkty produkt)
+        int KomponentyNaStanie(ProduktyMagazyn skladnik)
         {
-            return ilosc_na_hurtowni - produkt.ilosc;
+            return skladnik.wymagana_ilosc - skladnik.ilosc;
         }
     }
 }

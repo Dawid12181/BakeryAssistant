@@ -14,6 +14,7 @@ namespace BakeryAssistant
 {
     public partial class MainWindow : Form
     {
+        List<Produkty> produkt = new List<Produkty>();
         List<Zamowienie> my_orders = new List<Zamowienie>();
         public MainWindow()
         {
@@ -32,6 +33,21 @@ namespace BakeryAssistant
                     order.SubItems.Add(my_orders[my_orders.Count - 1].Data);
                     order.SubItems.Add(my_orders[my_orders.Count - 1].Zamowienie_tekst);
                     listView1.Items.Add(order);
+                }
+            }
+            catch
+            {
+            }
+            XmlDocument oXm3Document = new XmlDocument();
+            try
+            {
+                oXm3Document.Load("produkty.xml");
+                XmlNodeList DaneNodesList3 = oXm3Document.GetElementsByTagName("Produkty");
+                foreach (XmlNode Dana in DaneNodesList3)
+                {
+                    produkt.Add(new Produkty(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Int32.Parse(Dana.FirstChild.NextSibling.NextSibling.InnerText), Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText, Double.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText), Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
+                    listBox1.Items.Add(produkt[produkt.Count - 1].nazwa);
+                    MessageBox.Show(produkt[produkt.Count - 1].nazwa);
                 }
             }
             catch
@@ -89,8 +105,15 @@ namespace BakeryAssistant
         private void button3_Click(object sender, EventArgs e)
         {
             string zamowienie;
-            zamowienie = listView1.SelectedItems[0].SubItems[4].Text;
-            MessageBox.Show("Twoje zamowienie to: " + zamowienie);
+            try
+            {
+                zamowienie = listView1.SelectedItems[0].SubItems[4].Text;
+                MessageBox.Show("Twoje zamowienie to:  " + zamowienie);
+            }
+            catch
+            {
+                MessageBox.Show("Proszę podświetlić interesujące Cię zamówienie.");
+            }
         }
 
         private void MainWindow_Load(object sender, EventArgs e)

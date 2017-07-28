@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Products xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Produkty>
+    <ID>1</ID>
+    <nazwa>Dupa</nazwa>
+    <ilosc>1</ilosc>
+    <jednostka>szt</jednostka>
+    <cena>12</cena>
+    <idskladnika> 1 2 5</idskladnika>
+    <iloscproduktu> 1 1 1</iloscproduktu>
+  </Produkty>
+</Products>
