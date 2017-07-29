@@ -71,7 +71,6 @@
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.Name = "LanguageSelect";
-            this.ShowIcon = false;
             this.ResumeLayout(false);
             this.PerformLayout();
 

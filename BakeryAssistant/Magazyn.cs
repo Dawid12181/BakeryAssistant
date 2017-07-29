@@ -15,8 +15,9 @@ namespace BakeryAssistant
 {
     public partial class Magazyn : Form
     {
+        List<Produkty> produkty = new List<Produkty>();
         List<ProduktyMagazyn> my_magasin = new List<ProduktyMagazyn>();
-        public Magazyn()
+        public Magazyn(List<Produkty> produkt)
         {
             InitializeComponent();
             XmlDocument oXm2Document = new XmlDocument();
@@ -26,7 +27,7 @@ namespace BakeryAssistant
                 XmlNodeList DaneNodesList = oXm2Document.GetElementsByTagName("ProduktyMagazyn");
                 foreach (XmlNode Dana in DaneNodesList)
                 {
-                    my_magasin.Add(new ProduktyMagazyn(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Dana.FirstChild.NextSibling.NextSibling.InnerText, Int32.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText), Int32.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText), Double.Parse(Dana.LastChild.PreviousSibling.InnerText), Double.Parse(Dana.LastChild.InnerText)));
+                    my_magasin.Add(new ProduktyMagazyn(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Dana.FirstChild.NextSibling.NextSibling.InnerText, Int32.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText), Int32.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText), Double.Parse(Dana.LastChild.PreviousSibling.InnerText.Replace('.', ',')), Double.Parse(Dana.LastChild.InnerText.Replace('.', ','))));
                     ListViewItem order = new ListViewItem(my_magasin[my_magasin.Count - 1].ID.ToString());
                     order.SubItems.Add(my_magasin[my_magasin.Count - 1].nazwa);
                     order.SubItems.Add(my_magasin[my_magasin.Count - 1].ilosc.ToString());
@@ -39,15 +40,49 @@ namespace BakeryAssistant
             catch
             {
             }
+            textBox2.Text = (my_magasin[my_magasin.Count - 1].ID + 1).ToString();
+            produkty = produkt;
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            int iteracja = 0;
+            bool jest = false;
+            string skladnikid = listView1.SelectedItems[0].SubItems[0].Text;
+            listView1.SelectedItems[0].Remove();
+            foreach (ProduktyMagazyn item in my_magasin)
+            {
+                if (item.ID == Int32.Parse(skladnikid))
+                {
+                    jest = true;
+                    break;
+                }
+                iteracja++;
+            }
+            if (jest)
+            {
+                my_magasin[iteracja].ilosc = my_magasin[iteracja].ilosc + Int32.Parse(textBox1.Text);
+                listView1.Items.Clear();
+                int item=0;
+                foreach(ProduktyMagazyn ite in my_magasin)
+                {
+                    ListViewItem order = new ListViewItem(my_magasin[item].ID.ToString());
+                    order.SubItems.Add(my_magasin[item].nazwa);
+                    order.SubItems.Add(my_magasin[item].ilosc.ToString());
+                    order.SubItems.Add(my_magasin[item].wymagana_ilosc.ToString());
+                    order.SubItems.Add("To Do");
+                    order.SubItems.Add(my_magasin[item].jednostka);
+                    listView1.Items.Add(order);
+                    item++;
+                }
+                item = 0;
+            }
+
 
         }
 
@@ -66,6 +101,7 @@ namespace BakeryAssistant
             order.SubItems.Add(my_magasin[my_magasin.Count - 1].nazwa);
             order.SubItems.Add(my_magasin[my_magasin.Count - 1].ilosc.ToString());
             order.SubItems.Add(my_magasin[my_magasin.Count - 1].wymagana_ilosc.ToString());
+            order.SubItems.Add("To Do");
             order.SubItems.Add(my_magasin[my_magasin.Count - 1].jednostka);
             listView1.Items.Add(order);
             }
@@ -102,6 +138,11 @@ namespace BakeryAssistant
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

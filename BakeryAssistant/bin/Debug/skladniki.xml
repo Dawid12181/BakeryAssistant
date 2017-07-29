@@ -2,47 +2,47 @@
 <Skladniki xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProduktyMagazyn>
     <ID>1</ID>
-    <nazwa>asd</nazwa>
-    <jednostka>szt</jednostka>
-    <ilosc>1</ilosc>
-    <wymagana_ilosc>2</wymagana_ilosc>
-    <cena_zakupu>3</cena_zakupu>
-    <cena>4</cena>
+    <nazwa>Mąka</nazwa>
+    <jednostka>gram</jednostka>
+    <ilosc>1000</ilosc>
+    <wymagana_ilosc>200000</wymagana_ilosc>
+    <cena_zakupu>0.03</cena_zakupu>
+    <cena>0.05</cena>
   </ProduktyMagazyn>
   <ProduktyMagazyn>
     <ID>2</ID>
-    <nazwa>asd</nazwa>
+    <nazwa>Mleko</nazwa>
     <jednostka>szt</jednostka>
-    <ilosc>1</ilosc>
-    <wymagana_ilosc>2</wymagana_ilosc>
+    <ilosc>7</ilosc>
+    <wymagana_ilosc>30</wymagana_ilosc>
     <cena_zakupu>3</cena_zakupu>
     <cena>4</cena>
   </ProduktyMagazyn>
   <ProduktyMagazyn>
     <ID>3</ID>
-    <nazwa>asddd</nazwa>
-    <jednostka>szt</jednostka>
-    <ilosc>12</ilosc>
-    <wymagana_ilosc>23</wymagana_ilosc>
-    <cena_zakupu>31</cena_zakupu>
-    <cena>4</cena>
+    <nazwa>Kakao</nazwa>
+    <jednostka>gram</jednostka>
+    <ilosc>1100</ilosc>
+    <wymagana_ilosc>1000</wymagana_ilosc>
+    <cena_zakupu>0.1</cena_zakupu>
+    <cena>0.13</cena>
   </ProduktyMagazyn>
   <ProduktyMagazyn>
     <ID>4</ID>
-    <nazwa>rodzynki</nazwa>
-    <jednostka>j</jednostka>
-    <ilosc>2</ilosc>
-    <wymagana_ilosc>12</wymagana_ilosc>
-    <cena_zakupu>12</cena_zakupu>
-    <cena>22</cena>
+    <nazwa>Rodzynki</nazwa>
+    <jednostka>gram</jednostka>
+    <ilosc>100</ilosc>
+    <wymagana_ilosc>300</wymagana_ilosc>
+    <cena_zakupu>0.12</cena_zakupu>
+    <cena>0.15</cena>
   </ProduktyMagazyn>
   <ProduktyMagazyn>
     <ID>5</ID>
-    <nazwa>rodzynki</nazwa>
+    <nazwa>Cukier</nazwa>
     <jednostka>gram</jednostka>
-    <ilosc>2</ilosc>
-    <wymagana_ilosc>12</wymagana_ilosc>
-    <cena_zakupu>12</cena_zakupu>
-    <cena>22</cena>
+    <ilosc>25001</ilosc>
+    <wymagana_ilosc>50000</wymagana_ilosc>
+    <cena_zakupu>0.04</cena_zakupu>
+    <cena>0.06</cena>
   </ProduktyMagazyn>
 </Skladniki>

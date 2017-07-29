@@ -2,11 +2,65 @@
 <Products xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Produkty>
     <ID>1</ID>
-    <nazwa>Dupa</nazwa>
+    <nazwa>Produkt</nazwa>
     <ilosc>1</ilosc>
     <jednostka>szt</jednostka>
-    <cena>12</cena>
-    <idskladnika> 1 2 5</idskladnika>
-    <iloscproduktu> 1 1 1</iloscproduktu>
+    <cena>1.52</cena>
+    <idskladnika>2</idskladnika>
+    <iloscproduktu>1</iloscproduktu>
+  </Produkty>
+  <Produkty>
+    <ID>2</ID>
+    <nazwa>Pp2</nazwa>
+    <ilosc>1</ilosc>
+    <jednostka>gram</jednostka>
+    <cena>1.99</cena>
+    <idskladnika>5</idskladnika>
+    <iloscproduktu>1</iloscproduktu>
+  </Produkty>
+  <Produkty>
+    <ID>3</ID>
+    <nazwa>Pp3</nazwa>
+    <ilosc>1</ilosc>
+    <jednostka>szt</jednostka>
+    <cena>1.99999</cena>
+    <idskladnika>5</idskladnika>
+    <iloscproduktu>1</iloscproduktu>
+  </Produkty>
+  <Produkty>
+    <ID>4</ID>
+    <nazwa>Pp4</nazwa>
+    <ilosc>1</ilosc>
+    <jednostka>szt</jednostka>
+    <cena>1.22</cena>
+    <idskladnika>5</idskladnika>
+    <iloscproduktu>2</iloscproduktu>
+  </Produkty>
+  <Produkty>
+    <ID>5</ID>
+    <nazwa>Mąka z rodzynkami</nazwa>
+    <ilosc>1</ilosc>
+    <jednostka>szt</jednostka>
+    <cena>10.24</cena>
+    <idskladnika>1,4</idskladnika>
+    <iloscproduktu>1,3</iloscproduktu>
+  </Produkty>
+  <Produkty>
+    <ID>6</ID>
+    <nazwa>Naleśniki</nazwa>
+    <ilosc>1</ilosc>
+    <jednostka>szt</jednostka>
+    <cena>1.87</cena>
+    <idskladnika>1,3</idskladnika>
+    <iloscproduktu>100,100</iloscproduktu>
+  </Produkty>
+  <Produkty>
+    <ID>7</ID>
+    <nazwa>Kakao z cukrem z rodzynkami</nazwa>
+    <ilosc>1</ilosc>
+    <jednostka>szt</jednostka>
+    <cena>69.69</cena>
+    <idskladnika>5,3,4</idskladnika>
+    <iloscproduktu>1,3,31</iloscproduktu>
   </Produkty>
 </Products>

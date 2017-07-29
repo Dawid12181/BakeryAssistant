@@ -16,6 +16,7 @@ namespace BakeryAssistant
     {
         List<Produkty> nowy_produkt = new List<Produkty>();
         List<ProduktyMagazyn> my_magasin = new List<ProduktyMagazyn>();
+
         string idskladnika, iloscskladnika;
         public AddNewProduct()
         {
@@ -27,7 +28,7 @@ namespace BakeryAssistant
                 XmlNodeList DaneNodesList2 = oXm2Document.GetElementsByTagName("ProduktyMagazyn");
                 foreach (XmlNode Dana in DaneNodesList2)
                 {
-                    my_magasin.Add(new ProduktyMagazyn(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Dana.FirstChild.NextSibling.NextSibling.InnerText, Int32.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText), Int32.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText), Double.Parse(Dana.LastChild.PreviousSibling.InnerText), Double.Parse(Dana.LastChild.InnerText)));
+                    my_magasin.Add(new ProduktyMagazyn(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Dana.FirstChild.NextSibling.NextSibling.InnerText, Int32.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText), Int32.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText), Double.Parse(Dana.LastChild.PreviousSibling.InnerText.Replace('.', ',')), Double.Parse(Dana.LastChild.InnerText.Replace('.', ','))));
                     checkedListBox1.Items.Insert(my_magasin[my_magasin.Count - 1].ID-1, my_magasin[my_magasin.Count - 1].nazwa);
                     /* Adding components from list my_magasin to checkedlistbox, IMPORTANT ID-1! */
                 }
@@ -42,7 +43,7 @@ namespace BakeryAssistant
                 XmlNodeList DaneNodesList3 = oXm3Document.GetElementsByTagName("Produkty");
                 foreach (XmlNode Dana in DaneNodesList3)
                 {
-                    nowy_produkt.Add(new Produkty(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Int32.Parse(Dana.FirstChild.NextSibling.NextSibling.InnerText), Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText, Double.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText), Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
+                    nowy_produkt.Add(new Produkty(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Int32.Parse(Dana.FirstChild.NextSibling.NextSibling.InnerText), Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText, Double.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText.Replace('.', ',')), Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
                     checkedListBox2.Items.Insert(nowy_produkt[nowy_produkt.Count - 1].ID - 1, nowy_produkt[nowy_produkt.Count - 1].nazwa);
                 }
             }
@@ -88,7 +89,7 @@ namespace BakeryAssistant
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e) //button dodaj
         {
             if (checkedListBox1.CheckedItems.Count > 1) //checking if there are no more checked products than one 
                 MessageBox.Show("Proszę wybrać tylko jeden produkt na raz!");
@@ -117,8 +118,12 @@ namespace BakeryAssistant
                             foreach( int id in checkedListBox1.CheckedIndices)
                             {
                                 int index = id+1;
-                                idskladnika = idskladnika + " " + index.ToString();
-                                iloscskladnika = iloscskladnika + " " + quantity.ToString();
+                                if (listBox1.Items.Count!=0)
+                                    idskladnika = idskladnika + ",";
+                                idskladnika = idskladnika + index.ToString();
+                                if (listBox1.Items.Count != 0)
+                                    iloscskladnika = iloscskladnika + ",";
+                                iloscskladnika = iloscskladnika + quantity.ToString();
                             }
                             string ComponentString = name + ' ' + quantity.ToString()+ ' ' + unit; //final message to listBox
                             listBox1.Items.Add(ComponentString);//sending to listBox
@@ -160,8 +165,9 @@ namespace BakeryAssistant
                 jednostka = "gram";
             else
                 MessageBox.Show("Prosze wybrać jednostkę");
-            nowy_produkt.Add(new Produkty(nowy_produkt.Count + 1,textBox3.Text, Int32.Parse(textBox4.Text), jednostka, Double.Parse(textBox5.Text), idskladnika, iloscskladnika));
+            nowy_produkt.Add(new Produkty(nowy_produkt.Count + 1,textBox3.Text, 1, jednostka, Double.Parse(textBox5.Text), idskladnika, iloscskladnika));
             /* Początek serializacji */
+
             XmlRootAttribute oRootAttr = new XmlRootAttribute();
             oRootAttr.ElementName = "Products";
             oRootAttr.IsNullable = true;
