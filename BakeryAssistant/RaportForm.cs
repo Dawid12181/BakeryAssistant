@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BakeryAssistant
 {
-    public partial class Form1 : Form
+    public partial class RaportForm : Form
     {
-        public Form1()
+        public RaportForm()
         {
             InitializeComponent();
         }

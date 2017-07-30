@@ -20,6 +20,8 @@ namespace BakeryAssistant
         List<Skladnik> skladnik = new List<Skladnik>();
         List<Produkty> produkty_do_zrobienia = new List<Produkty>();
         List<Produkty> produkty_zrobione = new List<Produkty>();
+        string data = DateTime.Now.ToString("dd_MM_yyyy");
+
         public MainWindow()
         {
             InitializeComponent();
@@ -95,10 +97,11 @@ namespace BakeryAssistant
             catch
             {
             }
+            
             XmlDocument oXm4Document = new XmlDocument();
             try
             {
-                oXm4Document.Load("produkty_do_zrobienia.xml");
+                oXm4Document.Load(data + "do_zrobienia.xml");
                 XmlNodeList DaneNodesList4 = oXm4Document.GetElementsByTagName("Produkty");
                 foreach (XmlNode Dana in DaneNodesList4)
                 {
@@ -119,7 +122,7 @@ namespace BakeryAssistant
             XmlDocument oXm5Document = new XmlDocument();
             try
             {
-                oXm5Document.Load("produkty_zrobione.xml");
+                oXm5Document.Load(data + "zrobione.xml");
                 XmlNodeList DaneNodesList5 = oXm5Document.GetElementsByTagName("Produkty");
                 foreach (XmlNode Dana in DaneNodesList5)
                 {
@@ -151,7 +154,7 @@ namespace BakeryAssistant
             StreamWriter oStreamWriter = null;
             try
             {
-                oStreamWriter = new StreamWriter("produkty_do_zrobienia.xml");
+                oStreamWriter = new StreamWriter(data + "do_zrobienia.xml");
                 oSerializer.Serialize(oStreamWriter, produkty_do_zrobienia);
             }
             catch (Exception oException)
@@ -175,7 +178,7 @@ namespace BakeryAssistant
             StreamWriter oStreamWriter2 = null;
             try
             {
-                oStreamWriter2 = new StreamWriter("produkty_zrobione.xml");
+                oStreamWriter2 = new StreamWriter(data + "zrobione.xml");
                 oSerializer2.Serialize(oStreamWriter2, produkty_zrobione);
             }
             catch (Exception oException)
@@ -258,7 +261,7 @@ namespace BakeryAssistant
             StreamWriter oStreamWriter = null;
             try
             {
-                oStreamWriter = new StreamWriter("produkty_do_zrobienia.xml");
+                oStreamWriter = new StreamWriter(data + "do_zrobienia.xml");
                 oSerializer.Serialize(oStreamWriter, produkty_do_zrobienia);
             }
             catch (Exception oException)
@@ -282,7 +285,7 @@ namespace BakeryAssistant
             StreamWriter oStreamWriter2 = null;
             try
             {
-                oStreamWriter2 = new StreamWriter("produkty_zrobione.xml");
+                oStreamWriter2 = new StreamWriter(data + "zrobione.xml");
                 oSerializer2.Serialize(oStreamWriter2, produkty_zrobione);
             }
             catch (Exception oException)
@@ -332,7 +335,7 @@ namespace BakeryAssistant
             StreamWriter oStreamWriter = null;
             try
             {
-                oStreamWriter = new StreamWriter("produkty_do_zrobienia.xml");
+                oStreamWriter = new StreamWriter(data + "do_zrobienia.xml");
                 oSerializer.Serialize(oStreamWriter, produkty_do_zrobienia);
             }
             catch (Exception oException)
@@ -356,7 +359,7 @@ namespace BakeryAssistant
             StreamWriter oStreamWriter2 = null;
             try
             {
-                oStreamWriter2 = new StreamWriter("produkty_zrobione.xml");
+                oStreamWriter2 = new StreamWriter(data + "zrobione.xml");
                 oSerializer2.Serialize(oStreamWriter2, produkty_zrobione);
             }
             catch (Exception oException)
@@ -517,7 +520,7 @@ namespace BakeryAssistant
             StreamWriter oStreamWriter = null;
             try
             {
-                oStreamWriter = new StreamWriter("produkty_do_zrobienia.xml");
+                oStreamWriter = new StreamWriter(data + "do_zrobienia.xml");
                 oSerializer.Serialize(oStreamWriter, produkty_do_zrobienia);
             }
             catch (Exception oException)
@@ -541,7 +544,7 @@ namespace BakeryAssistant
             StreamWriter oStreamWriter2 = null;
             try
             {
-                oStreamWriter2 = new StreamWriter("produkty_zrobione.xml");
+                oStreamWriter2 = new StreamWriter(data + "zrobionea.xml");
                 oSerializer2.Serialize(oStreamWriter2, produkty_zrobione);
             }
             catch (Exception oException)
@@ -592,6 +595,11 @@ namespace BakeryAssistant
                 myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
                 return myCp;
             }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
