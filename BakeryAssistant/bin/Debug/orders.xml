@@ -22,17 +22,17 @@
     <Zamowienie_tekst>Bułki i Chlep</Zamowienie_tekst>
   </Zamowienie>
   <Zamowienie>
-    <ID>69</ID>
-    <Odbiorca>Jarek</Odbiorca>
-    <Adres>Kwiatowa3</Adres>
-    <Data>27.16.20</Data>
-    <Zamowienie_tekst>drozdzowki x 10 z makiem i wielki wuj. dostarczyc przed 6:00!!!!</Zamowienie_tekst>
-  </Zamowienie>
-  <Zamowienie>
     <ID>70</ID>
     <Odbiorca>Ktośtam</Odbiorca>
     <Adres>Jakiśtam</Adres>
     <Data>25.02.2012</Data>
     <Zamowienie_tekst>Cośtam</Zamowienie_tekst>
+  </Zamowienie>
+  <Zamowienie>
+    <ID>71</ID>
+    <Odbiorca>Jaro Dziekan</Odbiorca>
+    <Adres>PG ETI</Adres>
+    <Data>21.37.69</Data>
+    <Zamowienie_tekst>Placek z haszem</Zamowienie_tekst>
   </Zamowienie>
 </Orders>

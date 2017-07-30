@@ -43,7 +43,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -200,20 +199,11 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Składniki potrzebujące uzupełnienia";
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(762, 548);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(186, 41);
-            this.button4.TabIndex = 14;
-            this.button4.Text = "Zamów brakujące produkty";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(971, 548);
+            this.button5.Location = new System.Drawing.Point(847, 543);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(217, 41);
+            this.button5.Size = new System.Drawing.Size(267, 41);
             this.button5.TabIndex = 15;
             this.button5.Text = "Edycja/Więcej informacji";
             this.button5.UseVisualStyleBackColor = true;
@@ -293,11 +283,11 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(434, 285);
+            this.button6.Location = new System.Drawing.Point(399, 285);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.Size = new System.Drawing.Size(146, 23);
             this.button6.TabIndex = 19;
-            this.button6.Text = "Done bulwo";
+            this.button6.Text = "Zamówienie zrealizowane";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
@@ -402,11 +392,11 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(179, 92);
+            this.button7.Location = new System.Drawing.Point(170, 105);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
+            this.button7.Size = new System.Drawing.Size(100, 56);
             this.button7.TabIndex = 26;
-            this.button7.Text = "Dodaj";
+            this.button7.Text = "Dodaj produkt do zrobienia";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
@@ -414,6 +404,7 @@
             // 
             this.button8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button8.BackgroundImage")));
+            this.button8.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button8.Font = new System.Drawing.Font("Comic Sans MS", 37F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button8.ForeColor = System.Drawing.Color.White;
             this.button8.Location = new System.Drawing.Point(29, 445);
@@ -438,6 +429,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.button8;
             this.ClientSize = new System.Drawing.Size(1300, 613);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
@@ -452,7 +444,6 @@
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -467,7 +458,7 @@
             this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BakeryAssistant";
+            this.Text = "Bakery Assistant";
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -489,7 +480,6 @@
         public System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;

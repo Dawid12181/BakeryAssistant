@@ -544,7 +544,7 @@ namespace BakeryAssistant
             StreamWriter oStreamWriter2 = null;
             try
             {
-                oStreamWriter2 = new StreamWriter(data + "zrobionea.xml");
+                oStreamWriter2 = new StreamWriter(data + "zrobione.xml");
                 oSerializer2.Serialize(oStreamWriter2, produkty_zrobione);
             }
             catch (Exception oException)
@@ -598,6 +598,85 @@ namespace BakeryAssistant
         }
 
         private void button9_Click(object sender, EventArgs e)
+        {
+            /* Początek serializacji */
+            XmlRootAttribute oRootAttr = new XmlRootAttribute();
+            oRootAttr.ElementName = "Products";
+            oRootAttr.IsNullable = true;
+            XmlSerializer oSerializer = new XmlSerializer(typeof(List<Produkty>), oRootAttr);
+            StreamWriter oStreamWriter = null;
+            try
+            {
+                oStreamWriter = new StreamWriter(data + "do_zrobienia.xml");
+                oSerializer.Serialize(oStreamWriter, produkty_do_zrobienia);
+            }
+            catch (Exception oException)
+            {
+                Console.WriteLine("Aplikacja wygenerowała następujący wyjątek: " + oException.Message);
+            }
+            finally
+            {
+                if (null != oStreamWriter)
+                {
+                    oStreamWriter.Dispose();
+                }
+            }
+            /* Koniec serializacji do pliku skladniki.xml*/
+            /* Początek serializacji */
+
+            XmlRootAttribute oRootAttr2 = new XmlRootAttribute();
+            oRootAttr2.ElementName = "Products";
+            oRootAttr2.IsNullable = true;
+            XmlSerializer oSerializer2 = new XmlSerializer(typeof(List<Produkty>), oRootAttr2);
+            StreamWriter oStreamWriter2 = null;
+            try
+            {
+                oStreamWriter2 = new StreamWriter(data + "zrobione.xml");
+                oSerializer2.Serialize(oStreamWriter2, produkty_zrobione);
+            }
+            catch (Exception oException)
+            {
+                Console.WriteLine("Aplikacja wygenerowała następujący wyjątek: " + oException.Message);
+            }
+            finally
+            {
+                if (null != oStreamWriter2)
+                {
+                    oStreamWriter2.Dispose();
+                }
+            }
+            /* Koniec serializacji do pliku skladniki.xml*/
+            /* Początek serializacji */// MAGAZYNU
+
+            XmlRootAttribute oRootAttr3 = new XmlRootAttribute();
+            oRootAttr3.ElementName = "Skladniki";
+            oRootAttr3.IsNullable = true;
+            XmlSerializer oSerializer3 = new XmlSerializer(typeof(List<ProduktyMagazyn>), oRootAttr3);
+            StreamWriter oStreamWriter3 = null;
+            try
+            {
+                oStreamWriter3 = new StreamWriter("skladniki.xml");
+                oSerializer3.Serialize(oStreamWriter3, my_magasin);
+            }
+            catch (Exception oException)
+            {
+                Console.WriteLine("Aplikacja wygenerowała następujący wyjątek: " + oException.Message);
+            }
+            finally
+            {
+                if (null != oStreamWriter3)
+                {
+                    oStreamWriter3.Dispose();
+                }
+            }
+            /* Koniec serializacji do pliku skladniki.xml*/
+
+            this.Hide();                                                   // Hide form MainWindow
+            RaportForm raport = new RaportForm();                     // Create new form - Magazyn
+            raport.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
         {
 
         }

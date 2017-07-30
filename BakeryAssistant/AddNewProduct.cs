@@ -44,7 +44,6 @@ namespace BakeryAssistant
                 foreach (XmlNode Dana in DaneNodesList3)
                 {
                     nowy_produkt.Add(new Produkty(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Int32.Parse(Dana.FirstChild.NextSibling.NextSibling.InnerText), Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText, Double.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText.Replace('.', ',')), Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
-                    checkedListBox2.Items.Insert(nowy_produkt[nowy_produkt.Count - 1].ID - 1, nowy_produkt[nowy_produkt.Count - 1].nazwa);
                 }
             }
             catch
@@ -193,6 +192,16 @@ namespace BakeryAssistant
             this.Hide();                                                   // Hide form AddNewProduct
             MainWindow s = new MainWindow();                               // Create new form - MainWindow
             s.Show();
+        }
+        private const int CP_NOCLOSE_BUTTON = 0x200;      // X Button kill
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams myCp = base.CreateParams;
+                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
+                return myCp;
+            }
         }
     }
 }

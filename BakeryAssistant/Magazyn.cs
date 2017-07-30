@@ -32,7 +32,6 @@ namespace BakeryAssistant
                     order.SubItems.Add(my_magasin[my_magasin.Count - 1].nazwa);
                     order.SubItems.Add(my_magasin[my_magasin.Count - 1].ilosc.ToString());
                     order.SubItems.Add(my_magasin[my_magasin.Count - 1].wymagana_ilosc.ToString());
-                    order.SubItems.Add("To Do");
                     order.SubItems.Add(my_magasin[my_magasin.Count - 1].jednostka);
                     listView1.Items.Add(order);
                 }
@@ -40,7 +39,6 @@ namespace BakeryAssistant
             catch
             {
             }
-            textBox2.Text = (my_magasin[my_magasin.Count - 1].ID + 1).ToString();
             produkty = produkt;
         }
 
@@ -75,7 +73,6 @@ namespace BakeryAssistant
                     order.SubItems.Add(my_magasin[item].nazwa);
                     order.SubItems.Add(my_magasin[item].ilosc.ToString());
                     order.SubItems.Add(my_magasin[item].wymagana_ilosc.ToString());
-                    order.SubItems.Add("To Do");
                     order.SubItems.Add(my_magasin[item].jednostka);
                     listView1.Items.Add(order);
                     item++;
@@ -96,12 +93,11 @@ namespace BakeryAssistant
                 jednostka = "gram";
             else
                 MessageBox.Show("Prosze wybrać jednostkę");
-            my_magasin.Add(new ProduktyMagazyn(my_magasin.Count + 1,textBox3.Text, jednostka, Int32.Parse(textBox4.Text), Int32.Parse(textBox5.Text), Double.Parse(textBox6.Text), Double.Parse(textBox7.Text)));
+            my_magasin.Add(new ProduktyMagazyn(my_magasin.Count + 1,textBox3.Text, jednostka, Int32.Parse(textBox4.Text), Int32.Parse(textBox5.Text), Double.Parse(textBox6.Text), 11.23));  //wyjebać cenedetal
             ListViewItem order = new ListViewItem(my_magasin[my_magasin.Count - 1].ID.ToString());
             order.SubItems.Add(my_magasin[my_magasin.Count - 1].nazwa);
             order.SubItems.Add(my_magasin[my_magasin.Count - 1].ilosc.ToString());
             order.SubItems.Add(my_magasin[my_magasin.Count - 1].wymagana_ilosc.ToString());
-            order.SubItems.Add("To Do");
             order.SubItems.Add(my_magasin[my_magasin.Count - 1].jednostka);
             listView1.Items.Add(order);
             }
@@ -143,6 +139,16 @@ namespace BakeryAssistant
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             
+        }
+        private const int CP_NOCLOSE_BUTTON = 0x200;      // X Button kill
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams myCp = base.CreateParams;
+                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
+                return myCp;
+            }
         }
     }
 }

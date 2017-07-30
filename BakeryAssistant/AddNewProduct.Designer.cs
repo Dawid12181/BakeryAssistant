@@ -46,13 +46,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(13, 13);
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button1.Location = new System.Drawing.Point(517, 455);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(123, 23);
             this.button1.TabIndex = 0;
@@ -63,9 +63,9 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(521, 437);
+            this.button2.Location = new System.Drawing.Point(322, 408);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(117, 35);
+            this.button2.Size = new System.Drawing.Size(102, 35);
             this.button2.TabIndex = 1;
             this.button2.Text = "Dodaj";
             this.button2.UseVisualStyleBackColor = false;
@@ -218,22 +218,13 @@
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 35;
             // 
-            // checkedListBox2
-            // 
-            this.checkedListBox2.CheckOnClick = true;
-            this.checkedListBox2.FormattingEnabled = true;
-            this.checkedListBox2.Location = new System.Drawing.Point(13, 321);
-            this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(184, 124);
-            this.checkedListBox2.TabIndex = 46;
-            this.checkedListBox2.ThreeDCheckBoxes = true;
-            // 
             // AddNewProduct
             // 
+            this.AcceptButton = this.button2;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.button1;
             this.ClientSize = new System.Drawing.Size(660, 499);
-            this.Controls.Add(this.checkedListBox2);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label9);
@@ -254,7 +245,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddNewProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DodajProdukt";
+            this.Text = "Bakery Assistant";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,6 +270,5 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.CheckedListBox checkedListBox2;
     }
 }

@@ -38,7 +38,6 @@ namespace BakeryAssistant
             catch
             {
             }
-            textBox5.Text = (Int32.Parse(my_orders[my_orders.Count-1].ID) + 1).ToString();
         }
         private void DodajZamowienie_Load(object sender, EventArgs e)
         {
@@ -51,7 +50,7 @@ namespace BakeryAssistant
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            my_orders.Add(new Zamowienie((int.Parse(textBox5.Text)).ToString(), textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text));
+            my_orders.Add(new Zamowienie((Int32.Parse(my_orders[my_orders.Count - 1].ID)+1).ToString(), textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text));
             textBox1.Text = String.Empty;
             textBox2.Text = String.Empty;
             textBox3.Text = String.Empty;
@@ -62,7 +61,6 @@ namespace BakeryAssistant
             order.SubItems.Add(my_orders[my_orders.Count-1].Data);
             order.SubItems.Add(my_orders[my_orders.Count-1].Zamowienie_tekst);
             listView1.Items.Add(order);
-            textBox5.Text = (Int32.Parse(my_orders[my_orders.Count - 1].ID) + 1).ToString();
         }
         private void button2_Click_1(object sender, EventArgs e)
         {
@@ -125,6 +123,16 @@ namespace BakeryAssistant
             }
             if(jest)
             my_orders.RemoveAt(iteracja);
+        }
+        private const int CP_NOCLOSE_BUTTON = 0x200;      // X Button kill
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams myCp = base.CreateParams;
+                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
+                return myCp;
+            }
         }
     }
 }

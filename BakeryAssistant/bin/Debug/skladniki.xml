@@ -4,7 +4,7 @@
     <ID>1</ID>
     <nazwa>Mąka</nazwa>
     <jednostka>gram</jednostka>
-    <ilosc>988</ilosc>
+    <ilosc>542</ilosc>
     <wymagana_ilosc>200000</wymagana_ilosc>
     <cena_zakupu>0.03</cena_zakupu>
     <cena>0.05</cena>
@@ -31,7 +31,7 @@
     <ID>4</ID>
     <nazwa>Rodzynki</nazwa>
     <jednostka>gram</jednostka>
-    <ilosc>100</ilosc>
+    <ilosc>600</ilosc>
     <wymagana_ilosc>300</wymagana_ilosc>
     <cena_zakupu>0.12</cena_zakupu>
     <cena>0.15</cena>

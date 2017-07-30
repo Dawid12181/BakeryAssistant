@@ -47,9 +47,9 @@
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(99, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(342, 18);
+            this.label1.Size = new System.Drawing.Size(347, 18);
             this.label1.TabIndex = 1;
-            this.label1.Text = "BakeryAssistant - niezbednik piekarza";
+            this.label1.Text = "Bakery Assistant - niezbędnik piekarza";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -63,19 +63,19 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(377, 18);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Zaloguj sie aby moc korzystac z programu";
+            this.label2.Text = "Zaloguj sie aby móc korzystać z programu";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(257, 105);
+            this.textBox1.Location = new System.Drawing.Point(257, 94);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(151, 20);
             this.textBox1.TabIndex = 3;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(257, 145);
+            this.textBox2.Location = new System.Drawing.Point(257, 134);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(151, 20);
             this.textBox2.TabIndex = 4;
@@ -86,21 +86,21 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(99, 105);
+            this.label3.Location = new System.Drawing.Point(99, 94);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(148, 16);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Nazwa uzytkownika: ";
+            this.label3.Text = "Nazwa użytkownika: ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(193, 145);
+            this.label4.Location = new System.Drawing.Point(193, 134);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 16);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Haslo: ";
+            this.label4.Text = "Hasło: ";
             // 
             // button1
             // 
@@ -119,7 +119,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(117, 53);
             this.button2.TabIndex = 8;
-            this.button2.Text = "Wyjdz";
+            this.button2.Text = "Wyjdź";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -142,7 +142,7 @@
             this.MaximizeBox = false;
             this.Name = "Logowanie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BakeryAssistant-login";
+            this.Text = "Bakery Assistant";
             this.ResumeLayout(false);
             this.PerformLayout();
 
