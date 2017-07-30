@@ -90,11 +90,12 @@
     <Compile Include="LanguageSelect.Designer.cs">
       <DependentUpon>LanguageSelect.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="Login.cs" />
+    <Compile Include="Logowanie.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="Logowanie.Designer.cs">
+      <DependentUpon>Logowanie.cs</DependentUpon>
     </Compile>
     <Compile Include="Magazyn.cs">
       <SubType>Form</SubType>
@@ -129,8 +130,8 @@
     <EmbeddedResource Include="LanguageSelect.resx">
       <DependentUpon>LanguageSelect.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="Logowanie.resx">
+      <DependentUpon>Logowanie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Magazyn.resx">
       <DependentUpon>Magazyn.cs</DependentUpon>

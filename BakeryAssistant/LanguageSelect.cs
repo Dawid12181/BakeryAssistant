@@ -19,14 +19,14 @@ namespace BakeryAssistant
         private void button2_Click(object sender, EventArgs e)   // Choosing polish
         {
             this.Hide();                                         // Hide form languageSelect
-            Login s = new Login();                               // Create new form - Login
+            Logowanie s = new Logowanie();                               // Create new form - Login
             s.Show();                                            // Show window
         }
 
         private void button1_Click_1(object sender, EventArgs e) // Choosing english
         {
             this.Hide();                                         // Hide form languageSelect
-            Login s = new Login();                               // Create new form - Login
+            Logowanie s = new Logowanie();                               // Create new form - Login
             s.Show();                                            // Show window
         }
     }

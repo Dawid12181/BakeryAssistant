@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,54 +7,69 @@ using System.Windows.Forms;
 
 namespace BakeryAssistant
 {
-    public partial class Login : Form
+    public class Login
     {
+        public string Username { get; set; }
+        public string Password { get; set; }
+
         public Login()
         {
-            InitializeComponent();
-            textBox2.PasswordChar = '*';   //Hashing password
-            textBox2.MaxLength = 14;       //Password max length = 14
+
+        }
+        public Login(string sUsername, string sPassword)
+        {
+            Username = sUsername;
+            Password = sPassword;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //Checking if user is logged
-            string u1 = textBox1.Text;
-            string p1 = textBox2.Text;
-            string username = "Stasiek";
-            string password = "1234";
-            if (u1 == username)
-                if (p1 == password)
-                {
-                    this.Hide();                                                   // Hide form languageSelect
-                    MainWindow s = new MainWindow();                               // Create new form - MainWindow
-                    s.Show();
-                }
-            else
-                {
-                    textBox1.BackColor = Color.White;                              // Changing the color of textbox
-                    MessageBox.Show("Błędne hasło");
-                    textBox2.BackColor = Color.Red;
-                }
-            else
+        public string Cipher(string name)
+        {   
+            string ciphered_name = "";
+            string alph = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789";
+            Dictionary<int, char> alphabet = new Dictionary<int, char>();
+            for (int i = 0; i < alph.Length; i++)
             {
-                MessageBox.Show("Błędny login");
-                textBox1.BackColor = Color.Red;
-                textBox2.BackColor = Color.Red;
+                alphabet.Add(i, alph[i]);
             }
-        } 
-        
+
+            for (int i = 0; i < name.Length; i++)
+            {
+                var char_query = alphabet.Select(n => n).Where(n => n.Value == name[i]).ToList();
+                int indx = char_query[0].Key + 7;      
+                if (indx >= alphabet.Count())
+                {
+                    indx = indx - alphabet.Count();
+                }
+                var newChar_query = alphabet.Select(n => n).Where(n => n.Key == indx).ToList();
+                
+                ciphered_name = ciphered_name + newChar_query[0].Value;
+                 //MessageBox.Show(ciphered_name);
+            }
+            return ciphered_name;
+
+        }
+
+        public string Decipher(string name)
+        {
+            string deciphered_name = "";
+            string alph = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789";
+            Dictionary<int, char> alphabet = new Dictionary<int, char>();
+            for (int i = 0; i < alph.Length; i++)
+            {
+                alphabet.Add(i, alph[i]);
+            }
+            for (int i = 0; i < name.Length; i++)
+            {
+                var char_query = alphabet.Select(n => n).Where(n => n.Value == name[i]).ToList();
+                int indx = char_query[0].Key - 7;
+                if(indx<0)
+                {
+                    indx = alphabet.Count + indx;
+                }
+                var newChar_query = alphabet.Select(n => n).Where(n => n.Key == indx).ToList();
+                deciphered_name = deciphered_name + newChar_query[0].Value;
+            }
+            return deciphered_name;
+        }
     }
 }
