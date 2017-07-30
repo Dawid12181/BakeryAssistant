@@ -90,4 +90,13 @@
     <idskladnika>1</idskladnika>
     <iloscproduktu>1</iloscproduktu>
   </Produkty>
+  <Produkty>
+    <ID>5</ID>
+    <nazwa>Mąka z rodzynkami</nazwa>
+    <ilosc>10</ilosc>
+    <jednostka>szt</jednostka>
+    <cena>10.24</cena>
+    <idskladnika>1,4</idskladnika>
+    <iloscproduktu>1,3</iloscproduktu>
+  </Produkty>
 </Products>

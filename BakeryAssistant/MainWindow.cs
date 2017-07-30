@@ -445,7 +445,7 @@ namespace BakeryAssistant
                             {
                                 //MessageBox.Show("id: " + prod.ID.ToString());
                                 //MessageBox.Show("ilosc: " + s.ilosc[p].ToString());
-                                my_magasin[o].ilosc = my_magasin[o].ilosc - s.ilosc[p];
+                                my_magasin[o].ilosc = my_magasin[o].ilosc - s.ilosc[p] * produkt[usunID-1].ilosc;
                             }
                             o++;
                         }
@@ -491,7 +491,7 @@ namespace BakeryAssistant
                 if (item.ID == ID)
                 {
                     produkty_do_zrobienia.Add(item);
-                    produkty_do_zrobienia[produkty_do_zrobienia.Count - 1].ilosc = Int32.Parse(textBox5.Text);
+                    produkt[ID-1].ilosc = Int32.Parse(textBox5.Text);
                     ListViewItem order = new ListViewItem(produkty_do_zrobienia[produkty_do_zrobienia.Count - 1].ID.ToString());
                     order.SubItems.Add(produkty_do_zrobienia[produkty_do_zrobienia.Count - 1].nazwa);
                     order.SubItems.Add(produkty_do_zrobienia[produkty_do_zrobienia.Count - 1].ilosc.ToString());

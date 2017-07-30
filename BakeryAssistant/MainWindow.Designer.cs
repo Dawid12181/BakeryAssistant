@@ -411,12 +411,16 @@
             // 
             // button8
             // 
+            this.button8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button8.BackgroundImage")));
+            this.button8.Font = new System.Drawing.Font("Comic Sans MS", 37F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button8.ForeColor = System.Drawing.Color.White;
             this.button8.Location = new System.Drawing.Point(29, 445);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(241, 126);
             this.button8.TabIndex = 27;
-            this.button8.Text = "Wyjsście";
-            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Text = "Wyjście";
+            this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // MainWindow

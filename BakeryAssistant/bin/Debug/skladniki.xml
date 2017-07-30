@@ -4,7 +4,7 @@
     <ID>1</ID>
     <nazwa>Mąka</nazwa>
     <jednostka>gram</jednostka>
-    <ilosc>998</ilosc>
+    <ilosc>988</ilosc>
     <wymagana_ilosc>200000</wymagana_ilosc>
     <cena_zakupu>0.03</cena_zakupu>
     <cena>0.05</cena>
