@@ -10,7 +10,7 @@ namespace BakeryAssistant
     {
         public List<int> ID;
         public List<int> ilosc;
-        int IDproduktu;
+        public int IDproduktu;
         public Skladnik()
         {
 

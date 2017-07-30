@@ -4,7 +4,7 @@
     <ID>1</ID>
     <nazwa>Mąka</nazwa>
     <jednostka>gram</jednostka>
-    <ilosc>1000</ilosc>
+    <ilosc>998</ilosc>
     <wymagana_ilosc>200000</wymagana_ilosc>
     <cena_zakupu>0.03</cena_zakupu>
     <cena>0.05</cena>
@@ -44,5 +44,14 @@
     <wymagana_ilosc>50000</wymagana_ilosc>
     <cena_zakupu>0.04</cena_zakupu>
     <cena>0.06</cena>
+  </ProduktyMagazyn>
+  <ProduktyMagazyn>
+    <ID>6</ID>
+    <nazwa>Jajka</nazwa>
+    <jednostka>szt</jednostka>
+    <ilosc>120</ilosc>
+    <wymagana_ilosc>20</wymagana_ilosc>
+    <cena_zakupu>0.25</cena_zakupu>
+    <cena>0.4</cena>
   </ProduktyMagazyn>
 </Skladniki>
