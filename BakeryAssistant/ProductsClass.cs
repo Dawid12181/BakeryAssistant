@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BakeryAssistant
 {
-    public class Produkty
+    public class ProductsClass
     {
         public int ID { get; set; }
         public string nazwa { get; set; }
@@ -15,11 +15,11 @@ namespace BakeryAssistant
         public double cena { get; set; }
         public string idskladnika { get; set; }
         public string iloscproduktu { get; set; }
-        public Produkty()
+        public ProductsClass()
         {
 
         }
-        public Produkty(int sID, string snazwa, int silosc, string sjednostka, double scena, string sidskladnika, string siloscproduktu )
+        public ProductsClass(int sID, string snazwa, int silosc, string sjednostka, double scena, string sidskladnika, string siloscproduktu )
         {
             ID = sID;
             nazwa = snazwa;

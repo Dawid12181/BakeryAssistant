@@ -16,7 +16,7 @@ namespace BakeryAssistant
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Logowanie());                       //Choose the starting form
+            Application.Run(new RaportForm());                       //Choose the starting form
         }
     }
 }

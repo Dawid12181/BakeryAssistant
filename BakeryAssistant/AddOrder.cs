@@ -13,10 +13,10 @@ using System.Xml.Serialization;
 
 namespace BakeryAssistant
 {
-    public partial class DodajZamowienie : Form
+    public partial class AddOrder : Form
     {
-        List<Zamowienie> my_orders = new List<Zamowienie>();
-        public DodajZamowienie()
+        List<Order> my_orders = new List<Order>();
+        public AddOrder()
         {
             InitializeComponent();
             XmlDocument oXmlDocument = new XmlDocument();
@@ -26,7 +26,7 @@ namespace BakeryAssistant
                 XmlNodeList DaneNodesList = oXmlDocument.GetElementsByTagName("Zamowienie");
                 foreach (XmlNode Dana in DaneNodesList)
                 {
-                    my_orders.Add(new Zamowienie(Dana.FirstChild.InnerText, Dana.FirstChild.NextSibling.InnerText, Dana.LastChild.PreviousSibling.PreviousSibling.InnerText, Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
+                    my_orders.Add(new Order(Dana.FirstChild.InnerText, Dana.FirstChild.NextSibling.InnerText, Dana.LastChild.PreviousSibling.PreviousSibling.InnerText, Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
                     ListViewItem order = new ListViewItem(my_orders[my_orders.Count - 1].ID);
                     order.SubItems.Add(my_orders[my_orders.Count - 1].Odbiorca);
                     order.SubItems.Add(my_orders[my_orders.Count - 1].Adres);
@@ -50,7 +50,7 @@ namespace BakeryAssistant
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            my_orders.Add(new Zamowienie((Int32.Parse(my_orders[my_orders.Count - 1].ID)+1).ToString(), textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text));
+            my_orders.Add(new Order((Int32.Parse(my_orders[my_orders.Count - 1].ID)+1).ToString(), textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text));
             textBox1.Text = String.Empty;
             textBox2.Text = String.Empty;
             textBox3.Text = String.Empty;
@@ -76,43 +76,23 @@ namespace BakeryAssistant
             }
         }
        
-        private void button3_Click(object sender, EventArgs e) //Przycisk Powrót, serializacja i powrót do mainwindow
+        private void button3_Click(object sender, EventArgs e) // Button Powrót
         {
-            /* Początek serializacji */
-            XmlRootAttribute oRootAttr = new XmlRootAttribute();
-            oRootAttr.ElementName = "Orders";
-            oRootAttr.IsNullable = true;
-            XmlSerializer oSerializer = new XmlSerializer(typeof(List<Zamowienie>), oRootAttr);
-            StreamWriter oStreamWriter = null;
-            try
-            {
-                oStreamWriter = new StreamWriter("orders.xml");
-                oSerializer.Serialize(oStreamWriter, my_orders);
-            }
-            catch (Exception oException)
-            {
-                Console.WriteLine("Aplikacja wygenerowała następujący wyjątek: " + oException.Message);
-            }
-            finally
-            {
-                if (null != oStreamWriter)
-                {
-                    oStreamWriter.Dispose();
-                }
-            }
-            /* Koniec serializacji do pliku orders.xml*/
-            this.Hide();                                                   // Hide form AddNewProduct
+            /* Starting serialization */
+            SaveData.serialization(("orders.xml"), my_orders, "Orders");
+            /* Ending serialization */
+            this.Hide();                                                   // Hide form Orders
             MainWindow s = new MainWindow();                               // Create new form - MainWindow
             s.Show();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e) // Button Usuń zamówienie
         {
             int iteracja=0;
             bool jest=false;
-            Zamowienie usun = new Zamowienie(listView1.SelectedItems[0].SubItems[0].Text, listView1.SelectedItems[0].SubItems[1].Text, listView1.SelectedItems[0].SubItems[2].Text, listView1.SelectedItems[0].SubItems[3].Text, listView1.SelectedItems[0].SubItems[4].Text);
+            Order usun = new Order(listView1.SelectedItems[0].SubItems[0].Text, listView1.SelectedItems[0].SubItems[1].Text, listView1.SelectedItems[0].SubItems[2].Text, listView1.SelectedItems[0].SubItems[3].Text, listView1.SelectedItems[0].SubItems[4].Text);
             listView1.SelectedItems[0].Remove();
-            foreach (Zamowienie item in my_orders)
+            foreach (Order item in my_orders)
             {
                 if (item.ID == usun.ID)
                 {

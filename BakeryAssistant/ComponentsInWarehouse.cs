@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BakeryAssistant
 {
-    public class ProduktyMagazyn
+    public class ComponentsInWarehouse
 
     {
         public int ID { get; set; }
@@ -15,12 +15,11 @@ namespace BakeryAssistant
         public int ilosc { get; set; }
         public int wymagana_ilosc { get; set; }
         public double cena_zakupu { get; set; }
-        public double cena { get; set; }
-        public ProduktyMagazyn()
+        public ComponentsInWarehouse()
         {
 
         }
-        public ProduktyMagazyn(int sID, string snazwa, string sjednostka,  int silosc, int swymagana_ilosc, double scena_zakupu, double scena)
+        public ComponentsInWarehouse(int sID, string snazwa, string sjednostka,  int silosc, int swymagana_ilosc, double scena_zakupu)
         {
             ID = sID;
             nazwa = snazwa;
@@ -28,9 +27,8 @@ namespace BakeryAssistant
             jednostka = sjednostka;
             ilosc = silosc;
             cena_zakupu = scena_zakupu;
-            cena = scena;
         }
-        int KomponentyNaStanie(ProduktyMagazyn skladnik)
+        int KomponentyNaStanie(ComponentsInWarehouse skladnik)
         {
             return skladnik.wymagana_ilosc - skladnik.ilosc;
         }

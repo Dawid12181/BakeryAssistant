@@ -14,12 +14,12 @@ namespace BakeryAssistant
 {
     public partial class MainWindow : Form
     {
-        List<Produkty> produkt = new List<Produkty>();
-        List<Zamowienie> my_orders = new List<Zamowienie>();
-        List<ProduktyMagazyn> my_magasin = new List<ProduktyMagazyn>();
+        List<ProductsClass> produkt = new List<ProductsClass>();
+        List<Order> my_orders = new List<Order>();
+        List<ComponentsInWarehouse> my_magasin = new List<ComponentsInWarehouse>();
         List<Skladnik> skladnik = new List<Skladnik>();
-        List<Produkty> produkty_do_zrobienia = new List<Produkty>();
-        List<Produkty> produkty_zrobione = new List<Produkty>();
+        List<ProductsClass> produkty_do_zrobienia = new List<ProductsClass>();
+        List<ProductsClass> produkty_zrobione = new List<ProductsClass>();
         string data = DateTime.Now.ToString("dd_MM_yyyy");
 
         public MainWindow()
@@ -32,7 +32,7 @@ namespace BakeryAssistant
                 XmlNodeList DaneNodesList = oXmlDocument.GetElementsByTagName("Zamowienie");
                 foreach (XmlNode Dana in DaneNodesList)
                 {
-                    my_orders.Add(new Zamowienie(Dana.FirstChild.InnerText, Dana.FirstChild.NextSibling.InnerText, Dana.LastChild.PreviousSibling.PreviousSibling.InnerText, Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
+                    my_orders.Add(new Order(Dana.FirstChild.InnerText, Dana.FirstChild.NextSibling.InnerText, Dana.LastChild.PreviousSibling.PreviousSibling.InnerText, Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
                     ListViewItem order = new ListViewItem(my_orders[my_orders.Count - 1].ID);
                     order.SubItems.Add(my_orders[my_orders.Count - 1].Odbiorca);
                     order.SubItems.Add(my_orders[my_orders.Count - 1].Adres);
@@ -48,14 +48,14 @@ namespace BakeryAssistant
             try
             {
                 oXm2Document.Load("skladniki.xml");
-                XmlNodeList DaneNodesList = oXm2Document.GetElementsByTagName("ProduktyMagazyn");
+                XmlNodeList DaneNodesList = oXm2Document.GetElementsByTagName("ComponentsInWarehouse");
                 foreach (XmlNode Dana in DaneNodesList)
                 {
-                    my_magasin.Add(new ProduktyMagazyn(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Dana.FirstChild.NextSibling.NextSibling.InnerText, Int32.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText), Int32.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText), Double.Parse(Dana.LastChild.PreviousSibling.InnerText.Replace('.', ',')), Double.Parse(Dana.LastChild.InnerText.Replace('.', ','))));
+                    my_magasin.Add(new ComponentsInWarehouse(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Dana.FirstChild.NextSibling.NextSibling.InnerText, Int32.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText), Int32.Parse(Dana.LastChild.PreviousSibling.InnerText), Double.Parse(Dana.LastChild.InnerText.Replace('.', ','))));
                 }
                 int k = 0;
                 int item = 0;
-                foreach (ProduktyMagazyn ite in my_magasin)
+                foreach (ComponentsInWarehouse ite in my_magasin)
                 {
 
                     if (my_magasin[item].ilosc < my_magasin[item].wymagana_ilosc)
@@ -64,7 +64,7 @@ namespace BakeryAssistant
                         order.SubItems.Add(my_magasin[item].nazwa);
                         order.SubItems.Add(my_magasin[item].ilosc.ToString());
                         order.SubItems.Add(my_magasin[item].wymagana_ilosc.ToString());
-                        order.SubItems.Add("To Do");
+                        order.SubItems.Add("To Do");         //o kurwa do zrobienia ;d
                         order.SubItems.Add(my_magasin[item].jednostka);
                         listView2.Items.Add(order);
                         if (my_magasin[item].ilosc < my_magasin[item].wymagana_ilosc)
@@ -87,10 +87,10 @@ namespace BakeryAssistant
             try
             {
                 oXm3Document.Load("produkty.xml");
-                XmlNodeList DaneNodesList3 = oXm3Document.GetElementsByTagName("Produkty");
+                XmlNodeList DaneNodesList3 = oXm3Document.GetElementsByTagName("ProductsClass");
                 foreach (XmlNode Dana in DaneNodesList3)
                 {
-                    produkt.Add(new Produkty(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Int32.Parse(Dana.FirstChild.NextSibling.NextSibling.InnerText), Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText, Double.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText.Replace('.', ',')), Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
+                    produkt.Add(new ProductsClass(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Int32.Parse(Dana.FirstChild.NextSibling.NextSibling.InnerText), Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText, Double.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText.Replace('.', ',')), Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
                     listBox1.Items.Add(produkt[produkt.Count - 1].nazwa);
                 }
             }
@@ -102,10 +102,10 @@ namespace BakeryAssistant
             try
             {
                 oXm4Document.Load(data + "do_zrobienia.xml");
-                XmlNodeList DaneNodesList4 = oXm4Document.GetElementsByTagName("Produkty");
+                XmlNodeList DaneNodesList4 = oXm4Document.GetElementsByTagName("ProductsClass");
                 foreach (XmlNode Dana in DaneNodesList4)
                 {
-                    produkty_do_zrobienia.Add(new Produkty(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Int32.Parse(Dana.FirstChild.NextSibling.NextSibling.InnerText), Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText, Double.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText.Replace('.', ',')), Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
+                    produkty_do_zrobienia.Add(new ProductsClass(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Int32.Parse(Dana.FirstChild.NextSibling.NextSibling.InnerText), Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText, Double.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText.Replace('.', ',')), Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
                     ListViewItem order = new ListViewItem(produkty_do_zrobienia[produkty_do_zrobienia.Count - 1].ID.ToString());
                     order.SubItems.Add(produkty_do_zrobienia[produkty_do_zrobienia.Count - 1].nazwa);
                     order.SubItems.Add(produkty_do_zrobienia[produkty_do_zrobienia.Count - 1].ilosc.ToString());
@@ -123,10 +123,10 @@ namespace BakeryAssistant
             try
             {
                 oXm5Document.Load(data + "zrobione.xml");
-                XmlNodeList DaneNodesList5 = oXm5Document.GetElementsByTagName("Produkty");
+                XmlNodeList DaneNodesList5 = oXm5Document.GetElementsByTagName("ProductsClass");
                 foreach (XmlNode Dana in DaneNodesList5)
                 {
-                    produkty_zrobione.Add(new Produkty(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Int32.Parse(Dana.FirstChild.NextSibling.NextSibling.InnerText), Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText, Double.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText.Replace('.', ',')), Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
+                    produkty_zrobione.Add(new ProductsClass(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Int32.Parse(Dana.FirstChild.NextSibling.NextSibling.InnerText), Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText, Double.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText.Replace('.', ',')), Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
                     ListViewItem order = new ListViewItem(produkty_zrobione[produkty_zrobione.Count - 1].ID.ToString());
                     order.SubItems.Add(produkty_zrobione[produkty_zrobione.Count - 1].nazwa);
                     order.SubItems.Add(produkty_zrobione[produkty_zrobione.Count - 1].ilosc.ToString());
@@ -146,53 +146,11 @@ namespace BakeryAssistant
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /* Początek serializacji */
-            XmlRootAttribute oRootAttr = new XmlRootAttribute();
-            oRootAttr.ElementName = "Products";
-            oRootAttr.IsNullable = true;
-            XmlSerializer oSerializer = new XmlSerializer(typeof(List<Produkty>), oRootAttr);
-            StreamWriter oStreamWriter = null;
-            try
-            {
-                oStreamWriter = new StreamWriter(data + "do_zrobienia.xml");
-                oSerializer.Serialize(oStreamWriter, produkty_do_zrobienia);
-            }
-            catch (Exception oException)
-            {
-                Console.WriteLine("Aplikacja wygenerowała następujący wyjątek: " + oException.Message);
-            }
-            finally
-            {
-                if (null != oStreamWriter)
-                {
-                    oStreamWriter.Dispose();
-                }
-            }
-            /* Koniec serializacji do pliku skladniki.xml*/
-            /* Początek serializacji */
-
-            XmlRootAttribute oRootAttr2 = new XmlRootAttribute();
-            oRootAttr2.ElementName = "Products";
-            oRootAttr2.IsNullable = true;
-            XmlSerializer oSerializer2 = new XmlSerializer(typeof(List<Produkty>), oRootAttr2);
-            StreamWriter oStreamWriter2 = null;
-            try
-            {
-                oStreamWriter2 = new StreamWriter(data + "zrobione.xml");
-                oSerializer2.Serialize(oStreamWriter2, produkty_zrobione);
-            }
-            catch (Exception oException)
-            {
-                Console.WriteLine("Aplikacja wygenerowała następujący wyjątek: " + oException.Message);
-            }
-            finally
-            {
-                if (null != oStreamWriter2)
-                {
-                    oStreamWriter2.Dispose();
-                }
-            }
-            /* Koniec serializacji do pliku skladniki.xml*/
+            /* Starting serialization */
+            SaveData.serialization((data + "do_zrobienia.xml"), produkty_do_zrobienia, "Products");
+            SaveData.serialization((data + "zrobione.xml"), produkty_zrobione, "Products");
+            SaveData.serialization(("skladniki.xml"), my_magasin, "Skladniki");
+            /* Ending serialization */
 
             this.Hide();                                                   // Hide form MainWindow
             AddNewProduct produkt = new AddNewProduct();                   // Create new form - AddNewProduct
@@ -229,80 +187,13 @@ namespace BakeryAssistant
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            /* Początek serializacji */// MAGAZYNU
-
-            XmlRootAttribute oRootAttr3 = new XmlRootAttribute();
-            oRootAttr3.ElementName = "Skladniki";
-            oRootAttr3.IsNullable = true;
-            XmlSerializer oSerializer3 = new XmlSerializer(typeof(List<ProduktyMagazyn>), oRootAttr3);
-            StreamWriter oStreamWriter3 = null;
-            try
-            {
-                oStreamWriter3 = new StreamWriter("skladniki.xml");
-                oSerializer3.Serialize(oStreamWriter3, my_magasin);
-            }
-            catch (Exception oException)
-            {
-                Console.WriteLine("Aplikacja wygenerowała następujący wyjątek: " + oException.Message);
-            }
-            finally
-            {
-                if (null != oStreamWriter3)
-                {
-                    oStreamWriter3.Dispose();
-                }
-            }
-            /* Koniec serializacji do pliku skladniki.xml*/
-            /* Początek serializacji */
-            XmlRootAttribute oRootAttr = new XmlRootAttribute();
-            oRootAttr.ElementName = "Products";
-            oRootAttr.IsNullable = true;
-            XmlSerializer oSerializer = new XmlSerializer(typeof(List<Produkty>), oRootAttr);
-            StreamWriter oStreamWriter = null;
-            try
-            {
-                oStreamWriter = new StreamWriter(data + "do_zrobienia.xml");
-                oSerializer.Serialize(oStreamWriter, produkty_do_zrobienia);
-            }
-            catch (Exception oException)
-            {
-                Console.WriteLine("Aplikacja wygenerowała następujący wyjątek: " + oException.Message);
-            }
-            finally
-            {
-                if (null != oStreamWriter)
-                {
-                    oStreamWriter.Dispose();
-                }
-            }
-            /* Koniec serializacji do pliku skladniki.xml*/
-            /* Początek serializacji */
-
-            XmlRootAttribute oRootAttr2 = new XmlRootAttribute();
-            oRootAttr2.ElementName = "Products";
-            oRootAttr2.IsNullable = true;
-            XmlSerializer oSerializer2 = new XmlSerializer(typeof(List<Produkty>), oRootAttr2);
-            StreamWriter oStreamWriter2 = null;
-            try
-            {
-                oStreamWriter2 = new StreamWriter(data + "zrobione.xml");
-                oSerializer2.Serialize(oStreamWriter2, produkty_zrobione);
-            }
-            catch (Exception oException)
-            {
-                Console.WriteLine("Aplikacja wygenerowała następujący wyjątek: " + oException.Message);
-            }
-            finally
-            {
-                if (null != oStreamWriter2)
-                {
-                    oStreamWriter2.Dispose();
-                }
-            }
-            /* Koniec serializacji do pliku skladniki.xml*/
-
+            /* Starting serialization */
+            SaveData.serialization((data + "do_zrobienia.xml"), produkty_do_zrobienia, "Products");
+            SaveData.serialization((data + "zrobione.xml"), produkty_zrobione, "Products");
+            SaveData.serialization(("skladniki.xml"), my_magasin, "Skladniki");
+            /* Ending serialization */
             this.Hide();                                                   // Hide form MainWindow
-            DodajZamowienie zamowienia = new DodajZamowienie();                     // Create new form - DodajZamowienie
+            AddOrder zamowienia = new AddOrder();                     // Create new form - DodajZamowienie
             zamowienia.Show();
         }
 
@@ -327,89 +218,23 @@ namespace BakeryAssistant
 
         private void button5_Click(object sender, EventArgs e)
         {
-            /* Początek serializacji */
-            XmlRootAttribute oRootAttr = new XmlRootAttribute();
-            oRootAttr.ElementName = "Products";
-            oRootAttr.IsNullable = true;
-            XmlSerializer oSerializer = new XmlSerializer(typeof(List<Produkty>), oRootAttr);
-            StreamWriter oStreamWriter = null;
-            try
-            {
-                oStreamWriter = new StreamWriter(data + "do_zrobienia.xml");
-                oSerializer.Serialize(oStreamWriter, produkty_do_zrobienia);
-            }
-            catch (Exception oException)
-            {
-                Console.WriteLine("Aplikacja wygenerowała następujący wyjątek: " + oException.Message);
-            }
-            finally
-            {
-                if (null != oStreamWriter)
-                {
-                    oStreamWriter.Dispose();
-                }
-            }
-            /* Koniec serializacji do pliku skladniki.xml*/
-            /* Początek serializacji */
-
-            XmlRootAttribute oRootAttr2 = new XmlRootAttribute();
-            oRootAttr2.ElementName = "Products";
-            oRootAttr2.IsNullable = true;
-            XmlSerializer oSerializer2 = new XmlSerializer(typeof(List<Produkty>), oRootAttr2);
-            StreamWriter oStreamWriter2 = null;
-            try
-            {
-                oStreamWriter2 = new StreamWriter(data + "zrobione.xml");
-                oSerializer2.Serialize(oStreamWriter2, produkty_zrobione);
-            }
-            catch (Exception oException)
-            {
-                Console.WriteLine("Aplikacja wygenerowała następujący wyjątek: " + oException.Message);
-            }
-            finally
-            {
-                if (null != oStreamWriter2)
-                {
-                    oStreamWriter2.Dispose();
-                }
-            }
-            /* Koniec serializacji do pliku skladniki.xml*/
-            /* Początek serializacji */// MAGAZYNU
-
-            XmlRootAttribute oRootAttr3 = new XmlRootAttribute();
-            oRootAttr3.ElementName = "Skladniki";
-            oRootAttr3.IsNullable = true;
-            XmlSerializer oSerializer3 = new XmlSerializer(typeof(List<ProduktyMagazyn>), oRootAttr3);
-            StreamWriter oStreamWriter3 = null;
-            try
-            {
-                oStreamWriter3 = new StreamWriter("skladniki.xml");
-                oSerializer3.Serialize(oStreamWriter3, my_magasin);
-            }
-            catch (Exception oException)
-            {
-                Console.WriteLine("Aplikacja wygenerowała następujący wyjątek: " + oException.Message);
-            }
-            finally
-            {
-                if (null != oStreamWriter3)
-                {
-                    oStreamWriter3.Dispose();
-                }
-            }
-            /* Koniec serializacji do pliku skladniki.xml*/
+            /* Starting serialization */
+            SaveData.serialization((data + "do_zrobienia.xml"), produkty_do_zrobienia, "Products");
+            SaveData.serialization((data + "zrobione.xml"), produkty_zrobione, "Products");
+            SaveData.serialization(("skladniki.xml"), my_magasin, "Skladniki");
+            /* Ending serialization */
             this.Hide();                                                   // Hide form MainWindow
-            Magazyn magazyn = new Magazyn(produkt);                     // Create new form - Magazyn
+            Warehouse magazyn = new Warehouse(produkt);                     // Create new form - Magazyn
             magazyn.Show();
         }
 
-        private void button6_Click(object sender, EventArgs e) // przycisk done
+        private void button6_Click(object sender, EventArgs e) // done button
         {
             int usunID = Int32.Parse(listView3.SelectedItems[0].SubItems[0].Text);
             listView3.SelectedItems[0].Remove();
             int iteracja = 0;
             bool jest = false;
-            foreach (Produkty item in produkty_do_zrobienia)
+            foreach (ProductsClass item in produkty_do_zrobienia)
             {
                 if (item.ID == usunID)
                 {
@@ -423,7 +248,7 @@ namespace BakeryAssistant
                 produkty_do_zrobienia.RemoveAt(iteracja);
             listView4.Items.Clear();
             int it = 0;
-            foreach (Produkty ite in produkty_zrobione)
+            foreach (ProductsClass ite in produkty_zrobione)
             {
                 ListViewItem order = new ListViewItem(produkty_zrobione[it].ID.ToString());
                 order.SubItems.Add(produkty_zrobione[it].nazwa);
@@ -442,7 +267,7 @@ namespace BakeryAssistant
                     foreach (int k in s.ID)
                     {
                         int o = 0;
-                        foreach (ProduktyMagazyn prod in my_magasin)
+                        foreach (ComponentsInWarehouse prod in my_magasin)
                         {
                             if (prod.ID == k)
                             {
@@ -460,7 +285,7 @@ namespace BakeryAssistant
             listView2.Items.Clear();
             int l = 0;
             int op = 0;
-            foreach (ProduktyMagazyn ite in my_magasin)
+            foreach (ComponentsInWarehouse ite in my_magasin)
             {
                 if (my_magasin[op].ilosc < my_magasin[op].wymagana_ilosc)
                 {
@@ -489,7 +314,7 @@ namespace BakeryAssistant
         {
             int ID;
             ID = listBox1.SelectedIndex+1;
-            foreach (Produkty item in produkt)
+            foreach (ProductsClass item in produkt)
             {
                 if (item.ID == ID)
                 {
@@ -512,78 +337,11 @@ namespace BakeryAssistant
 
         private void button8_Click(object sender, EventArgs e)
         {
-            /* Początek serializacji */
-            XmlRootAttribute oRootAttr = new XmlRootAttribute();
-            oRootAttr.ElementName = "Products";
-            oRootAttr.IsNullable = true;
-            XmlSerializer oSerializer = new XmlSerializer(typeof(List<Produkty>), oRootAttr);
-            StreamWriter oStreamWriter = null;
-            try
-            {
-                oStreamWriter = new StreamWriter(data + "do_zrobienia.xml");
-                oSerializer.Serialize(oStreamWriter, produkty_do_zrobienia);
-            }
-            catch (Exception oException)
-            {
-                Console.WriteLine("Aplikacja wygenerowała następujący wyjątek: " + oException.Message);
-            }
-            finally
-            {
-                if (null != oStreamWriter)
-                {
-                    oStreamWriter.Dispose();
-                }
-            }
-            /* Koniec serializacji do pliku skladniki.xml*/
-            /* Początek serializacji */
-
-            XmlRootAttribute oRootAttr2 = new XmlRootAttribute();
-            oRootAttr2.ElementName = "Products";
-            oRootAttr2.IsNullable = true;
-            XmlSerializer oSerializer2 = new XmlSerializer(typeof(List<Produkty>), oRootAttr2);
-            StreamWriter oStreamWriter2 = null;
-            try
-            {
-                oStreamWriter2 = new StreamWriter(data + "zrobione.xml");
-                oSerializer2.Serialize(oStreamWriter2, produkty_zrobione);
-            }
-            catch (Exception oException)
-            {
-                Console.WriteLine("Aplikacja wygenerowała następujący wyjątek: " + oException.Message);
-            }
-            finally
-            {
-                if (null != oStreamWriter2)
-                {
-                    oStreamWriter2.Dispose();
-                }
-            }
-            /* Koniec serializacji do pliku skladniki.xml*/
-            /* Początek serializacji */// MAGAZYNU
-
-            XmlRootAttribute oRootAttr3 = new XmlRootAttribute();
-            oRootAttr3.ElementName = "Skladniki";
-            oRootAttr3.IsNullable = true;
-            XmlSerializer oSerializer3 = new XmlSerializer(typeof(List<ProduktyMagazyn>), oRootAttr3);
-            StreamWriter oStreamWriter3 = null;
-            try
-            {
-                oStreamWriter3 = new StreamWriter("skladniki.xml");
-                oSerializer3.Serialize(oStreamWriter3, my_magasin);
-            }
-            catch (Exception oException)
-            {
-                Console.WriteLine("Aplikacja wygenerowała następujący wyjątek: " + oException.Message);
-            }
-            finally
-            {
-                if (null != oStreamWriter3)
-                {
-                    oStreamWriter3.Dispose();
-                }
-            }
-            /* Koniec serializacji do pliku skladniki.xml*/
-
+            /* Starting serialization */
+            SaveData.serialization((data + "do_zrobienia.xml"), produkty_do_zrobienia, "Products");
+            SaveData.serialization((data + "zrobione.xml"), produkty_zrobione, "Products");
+            SaveData.serialization(("skladniki.xml"), my_magasin, "Skladniki");
+            /* Ending serialization */
             Application.Exit();
         }
         private const int CP_NOCLOSE_BUTTON = 0x200;      // X Button kill
@@ -597,85 +355,17 @@ namespace BakeryAssistant
             }
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void button9_Click(object sender, EventArgs e)     // Button which opens RaportForm
         {
-            /* Początek serializacji */
-            XmlRootAttribute oRootAttr = new XmlRootAttribute();
-            oRootAttr.ElementName = "Products";
-            oRootAttr.IsNullable = true;
-            XmlSerializer oSerializer = new XmlSerializer(typeof(List<Produkty>), oRootAttr);
-            StreamWriter oStreamWriter = null;
-            try
-            {
-                oStreamWriter = new StreamWriter(data + "do_zrobienia.xml");
-                oSerializer.Serialize(oStreamWriter, produkty_do_zrobienia);
-            }
-            catch (Exception oException)
-            {
-                Console.WriteLine("Aplikacja wygenerowała następujący wyjątek: " + oException.Message);
-            }
-            finally
-            {
-                if (null != oStreamWriter)
-                {
-                    oStreamWriter.Dispose();
-                }
-            }
-            /* Koniec serializacji do pliku skladniki.xml*/
-            /* Początek serializacji */
-
-            XmlRootAttribute oRootAttr2 = new XmlRootAttribute();
-            oRootAttr2.ElementName = "Products";
-            oRootAttr2.IsNullable = true;
-            XmlSerializer oSerializer2 = new XmlSerializer(typeof(List<Produkty>), oRootAttr2);
-            StreamWriter oStreamWriter2 = null;
-            try
-            {
-                oStreamWriter2 = new StreamWriter(data + "zrobione.xml");
-                oSerializer2.Serialize(oStreamWriter2, produkty_zrobione);
-            }
-            catch (Exception oException)
-            {
-                Console.WriteLine("Aplikacja wygenerowała następujący wyjątek: " + oException.Message);
-            }
-            finally
-            {
-                if (null != oStreamWriter2)
-                {
-                    oStreamWriter2.Dispose();
-                }
-            }
-            /* Koniec serializacji do pliku skladniki.xml*/
-            /* Początek serializacji */// MAGAZYNU
-
-            XmlRootAttribute oRootAttr3 = new XmlRootAttribute();
-            oRootAttr3.ElementName = "Skladniki";
-            oRootAttr3.IsNullable = true;
-            XmlSerializer oSerializer3 = new XmlSerializer(typeof(List<ProduktyMagazyn>), oRootAttr3);
-            StreamWriter oStreamWriter3 = null;
-            try
-            {
-                oStreamWriter3 = new StreamWriter("skladniki.xml");
-                oSerializer3.Serialize(oStreamWriter3, my_magasin);
-            }
-            catch (Exception oException)
-            {
-                Console.WriteLine("Aplikacja wygenerowała następujący wyjątek: " + oException.Message);
-            }
-            finally
-            {
-                if (null != oStreamWriter3)
-                {
-                    oStreamWriter3.Dispose();
-                }
-            }
-            /* Koniec serializacji do pliku skladniki.xml*/
-
+            /* Starting serialization */
+            SaveData.serialization((data + "do_zrobienia.xml"), produkty_do_zrobienia, "Products");
+            SaveData.serialization((data + "zrobione.xml"), produkty_zrobione, "Products");
+            SaveData.serialization(("skladniki.xml"), my_magasin, "Skladniki");
+            /* Ending serialization */
             this.Hide();                                                   // Hide form MainWindow
-            RaportForm raport = new RaportForm();                     // Create new form - Magazyn
+            RaportForm raport = new RaportForm();                          // Create new form - RaportFrom
             raport.Show();
         }
-
         private void button4_Click(object sender, EventArgs e)
         {
 

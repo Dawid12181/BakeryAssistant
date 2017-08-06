@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Products xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProductsClass>
-    <ID>2</ID>
-    <nazwa>Test1</nazwa>
-    <ilosc>2</ilosc>
-    <jednostka>szt</jednostka>
-    <cena>12</cena>
-    <idskladnika>7,8,9</idskladnika>
-    <iloscproduktu>10,11,12</iloscproduktu>
-  </ProductsClass>
-  <ProductsClass>
     <ID>3</ID>
     <nazwa>Test2</nazwa>
     <ilosc>3</ilosc>

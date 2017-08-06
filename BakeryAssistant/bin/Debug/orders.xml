@@ -22,17 +22,17 @@
     <Zamowienie_tekst>Bułki i Chlep</Zamowienie_tekst>
   </Zamowienie>
   <Zamowienie>
-    <ID>70</ID>
-    <Odbiorca>Ktośtam</Odbiorca>
-    <Adres>Jakiśtam</Adres>
-    <Data>25.02.2012</Data>
-    <Zamowienie_tekst>Cośtam</Zamowienie_tekst>
-  </Zamowienie>
-  <Zamowienie>
     <ID>71</ID>
     <Odbiorca>Jaro Dziekan</Odbiorca>
     <Adres>PG ETI</Adres>
     <Data>21.37.69</Data>
     <Zamowienie_tekst>Placek z haszem</Zamowienie_tekst>
+  </Zamowienie>
+  <Zamowienie>
+    <ID>72</ID>
+    <Odbiorca>Kamil</Odbiorca>
+    <Adres>Gdańsk</Adres>
+    <Data>23.08.15</Data>
+    <Zamowienie_tekst>5x Chleb razowy i 3 bagietki </Zamowienie_tekst>
   </Zamowienie>
 </Orders>

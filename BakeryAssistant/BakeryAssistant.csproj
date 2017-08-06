@@ -72,13 +72,14 @@
     <Compile Include="AddNewProduct.Designer.cs">
       <DependentUpon>AddNewProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="baker.cs" />
+    <Compile Include="Baker.cs" />
+    <Compile Include="SaveData.cs" />
     <Compile Include="raport_decorators\ChoroboweDekorator.cs" />
-    <Compile Include="DodajZamowienie.cs">
+    <Compile Include="AddOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DodajZamowienie.Designer.cs">
-      <DependentUpon>DodajZamowienie.cs</DependentUpon>
+    <Compile Include="AddOrder.Designer.cs">
+      <DependentUpon>AddOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="raport_decorators\driver.cs" />
     <Compile Include="raport_decorators\NadgodzinyDekorator.cs" />
@@ -90,17 +91,17 @@
       <DependentUpon>RaportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs" />
-    <Compile Include="Logowanie.cs">
+    <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Logowanie.Designer.cs">
-      <DependentUpon>Logowanie.cs</DependentUpon>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Magazyn.cs">
+    <Compile Include="Warehouse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Magazyn.Designer.cs">
-      <DependentUpon>Magazyn.cs</DependentUpon>
+    <Compile Include="Warehouse.Designer.cs">
+      <DependentUpon>Warehouse.cs</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
@@ -108,8 +109,8 @@
     <Compile Include="MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Produkty.cs" />
-    <Compile Include="ProduktyMagazyn.cs" />
+    <Compile Include="ProductsClass.cs" />
+    <Compile Include="ComponentsInWarehouse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="raport_decorators\salesman.cs" />
@@ -117,21 +118,21 @@
     <Compile Include="raport_decorators\WeekendyDekorator.cs" />
     <Compile Include="raport_decorators\worker.cs" />
     <Compile Include="raport_decorators\WorkerDecorator.cs" />
-    <Compile Include="Zamowienie.cs" />
+    <Compile Include="Order.cs" />
     <EmbeddedResource Include="AddNewProduct.resx">
       <DependentUpon>AddNewProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DodajZamowienie.resx">
-      <DependentUpon>DodajZamowienie.cs</DependentUpon>
+    <EmbeddedResource Include="AddOrder.resx">
+      <DependentUpon>AddOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RaportForm.resx">
       <DependentUpon>RaportForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Logowanie.resx">
-      <DependentUpon>Logowanie.cs</DependentUpon>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Magazyn.resx">
-      <DependentUpon>Magazyn.cs</DependentUpon>
+    <EmbeddedResource Include="Warehouse.resx">
+      <DependentUpon>Warehouse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>

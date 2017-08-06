@@ -14,8 +14,8 @@ namespace BakeryAssistant
 {
     public partial class AddNewProduct : Form
     {
-        List<Produkty> nowy_produkt = new List<Produkty>();
-        List<ProduktyMagazyn> my_magasin = new List<ProduktyMagazyn>();
+        List<ProductsClass> nowy_produkt = new List<ProductsClass>();
+        List<ComponentsInWarehouse> my_magasin = new List<ComponentsInWarehouse>();
 
         string idskladnika, iloscskladnika;
         public AddNewProduct()
@@ -25,10 +25,10 @@ namespace BakeryAssistant
             try
             {
                 oXm2Document.Load("skladniki.xml");
-                XmlNodeList DaneNodesList2 = oXm2Document.GetElementsByTagName("ProduktyMagazyn");
+                XmlNodeList DaneNodesList2 = oXm2Document.GetElementsByTagName("ComponentsInWarehouse");
                 foreach (XmlNode Dana in DaneNodesList2)
                 {
-                    my_magasin.Add(new ProduktyMagazyn(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Dana.FirstChild.NextSibling.NextSibling.InnerText, Int32.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText), Int32.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText), Double.Parse(Dana.LastChild.PreviousSibling.InnerText.Replace('.', ',')), Double.Parse(Dana.LastChild.InnerText.Replace('.', ','))));
+                    my_magasin.Add(new ComponentsInWarehouse(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Dana.FirstChild.NextSibling.NextSibling.InnerText, Int32.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText), Int32.Parse(Dana.LastChild.PreviousSibling.InnerText), Double.Parse(Dana.LastChild.InnerText.Replace('.', ','))));
                     checkedListBox1.Items.Insert(my_magasin[my_magasin.Count - 1].ID-1, my_magasin[my_magasin.Count - 1].nazwa);
                     /* Adding components from list my_magasin to checkedlistbox, IMPORTANT ID-1! */
                 }
@@ -40,10 +40,10 @@ namespace BakeryAssistant
             try
             {
                 oXm3Document.Load("produkty.xml");
-                XmlNodeList DaneNodesList3 = oXm3Document.GetElementsByTagName("Produkty");
+                XmlNodeList DaneNodesList3 = oXm3Document.GetElementsByTagName("ProductsClass");
                 foreach (XmlNode Dana in DaneNodesList3)
                 {
-                    nowy_produkt.Add(new Produkty(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Int32.Parse(Dana.FirstChild.NextSibling.NextSibling.InnerText), Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText, Double.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText.Replace('.', ',')), Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
+                    nowy_produkt.Add(new ProductsClass(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Int32.Parse(Dana.FirstChild.NextSibling.NextSibling.InnerText), Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText, Double.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText.Replace('.', ',')), Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
                 }
             }
             catch
@@ -164,31 +164,10 @@ namespace BakeryAssistant
                 jednostka = "gram";
             else
                 MessageBox.Show("Prosze wybrać jednostkę");
-            nowy_produkt.Add(new Produkty(nowy_produkt.Count + 1,textBox3.Text, 1, jednostka, Double.Parse(textBox5.Text), idskladnika, iloscskladnika));
-            /* Początek serializacji */
-
-            XmlRootAttribute oRootAttr = new XmlRootAttribute();
-            oRootAttr.ElementName = "Products";
-            oRootAttr.IsNullable = true;
-            XmlSerializer oSerializer = new XmlSerializer(typeof(List<Produkty>), oRootAttr);
-            StreamWriter oStreamWriter = null;
-            try
-            {
-                oStreamWriter = new StreamWriter("produkty.xml");
-                oSerializer.Serialize(oStreamWriter, nowy_produkt);
-            }
-            catch (Exception oException)
-            {
-                Console.WriteLine("Aplikacja wygenerowała następujący wyjątek: " + oException.Message);
-            }
-            finally
-            {
-                if (null != oStreamWriter)
-                {
-                    oStreamWriter.Dispose();
-                }
-            }
-            /* Koniec serializacji do pliku skladniki.xml*/
+            nowy_produkt.Add(new ProductsClass(nowy_produkt.Count + 1,textBox3.Text, 1, jednostka, Double.Parse(textBox5.Text), idskladnika, iloscskladnika));
+            /* Starting serialization */
+            SaveData.serialization(("produkty.xml"), nowy_produkt, "Products");
+            /* Ending serialization */
             this.Hide();                                                   // Hide form AddNewProduct
             MainWindow s = new MainWindow();                               // Create new form - MainWindow
             s.Show();

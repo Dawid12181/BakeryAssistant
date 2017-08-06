@@ -70,21 +70,25 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1300, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1733, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(13, 186);
+            this.button1.Location = new System.Drawing.Point(17, 229);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 26);
+            this.button1.Size = new System.Drawing.Size(169, 32);
             this.button1.TabIndex = 3;
             this.button1.Text = "Dodaj nowy produkt";
             this.button1.UseVisualStyleBackColor = true;
@@ -93,9 +97,11 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 46);
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(16, 57);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(128, 134);
+            this.listBox1.Size = new System.Drawing.Size(169, 164);
             this.listBox1.TabIndex = 5;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -103,10 +109,11 @@
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(29, 27);
+            this.textBox1.Location = new System.Drawing.Point(39, 33);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
             this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox1.Size = new System.Drawing.Size(100, 13);
+            this.textBox1.Size = new System.Drawing.Size(133, 15);
             this.textBox1.TabIndex = 7;
             this.textBox1.Text = "Wszystkie produkty";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -117,10 +124,11 @@
             this.textBox2.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBox2.Location = new System.Drawing.Point(925, 27);
+            this.textBox2.Location = new System.Drawing.Point(1233, 33);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox2.Name = "textBox2";
             this.textBox2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox2.Size = new System.Drawing.Size(110, 23);
+            this.textBox2.Size = new System.Drawing.Size(147, 29);
             this.textBox2.TabIndex = 8;
             this.textBox2.Text = "Zamówienia";
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
@@ -136,9 +144,10 @@
             this.columnHeader2});
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(658, 55);
+            this.listView1.Location = new System.Drawing.Point(877, 68);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(630, 197);
+            this.listView1.Size = new System.Drawing.Size(839, 242);
             this.listView1.TabIndex = 9;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -171,9 +180,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(658, 258);
+            this.button2.Location = new System.Drawing.Point(877, 318);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(186, 37);
+            this.button2.Size = new System.Drawing.Size(248, 46);
             this.button2.TabIndex = 10;
             this.button2.Text = "Dodaj/usuń zamówienie";
             this.button2.UseVisualStyleBackColor = true;
@@ -181,9 +191,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(865, 258);
+            this.button3.Location = new System.Drawing.Point(1153, 318);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(423, 37);
+            this.button3.Size = new System.Drawing.Size(564, 46);
             this.button3.TabIndex = 11;
             this.button3.Text = "Pokaż więcej";
             this.button3.UseVisualStyleBackColor = true;
@@ -193,17 +204,19 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(813, 312);
+            this.label1.Location = new System.Drawing.Point(1084, 384);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(323, 25);
+            this.label1.Size = new System.Drawing.Size(418, 29);
             this.label1.TabIndex = 12;
             this.label1.Text = "Składniki potrzebujące uzupełnienia";
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(847, 543);
+            this.button5.Location = new System.Drawing.Point(1129, 668);
+            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(267, 41);
+            this.button5.Size = new System.Drawing.Size(356, 50);
             this.button5.TabIndex = 15;
             this.button5.Text = "Edycja/Więcej informacji";
             this.button5.UseVisualStyleBackColor = true;
@@ -213,10 +226,11 @@
             // 
             this.textBox3.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Location = new System.Drawing.Point(364, 27);
+            this.textBox3.Location = new System.Drawing.Point(485, 33);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox3.Name = "textBox3";
             this.textBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox3.Size = new System.Drawing.Size(171, 13);
+            this.textBox3.Size = new System.Drawing.Size(228, 15);
             this.textBox3.TabIndex = 16;
             this.textBox3.Text = "Produkty do zrobienia dzisiaj";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -225,10 +239,11 @@
             // 
             this.textBox4.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Location = new System.Drawing.Point(387, 321);
+            this.textBox4.Location = new System.Drawing.Point(516, 395);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox4.Name = "textBox4";
             this.textBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox4.Size = new System.Drawing.Size(171, 13);
+            this.textBox4.Size = new System.Drawing.Size(228, 15);
             this.textBox4.TabIndex = 17;
             this.textBox4.Text = "Produkty dostępne na wydanie";
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -245,9 +260,10 @@
             this.listView2.Cursor = System.Windows.Forms.Cursors.Default;
             this.listView2.FullRowSelect = true;
             this.listView2.GridLines = true;
-            this.listView2.Location = new System.Drawing.Point(729, 351);
+            this.listView2.Location = new System.Drawing.Point(972, 432);
+            this.listView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(489, 184);
+            this.listView2.Size = new System.Drawing.Size(651, 226);
             this.listView2.TabIndex = 18;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
@@ -283,9 +299,10 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(399, 285);
+            this.button6.Location = new System.Drawing.Point(532, 351);
+            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(146, 23);
+            this.button6.Size = new System.Drawing.Size(195, 28);
             this.button6.TabIndex = 19;
             this.button6.Text = "Zamówienie zrealizowane";
             this.button6.UseVisualStyleBackColor = true;
@@ -301,9 +318,10 @@
             this.columnHeader14});
             this.listView3.FullRowSelect = true;
             this.listView3.GridLines = true;
-            this.listView3.Location = new System.Drawing.Point(307, 46);
+            this.listView3.Location = new System.Drawing.Point(409, 57);
+            this.listView3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(321, 233);
+            this.listView3.Size = new System.Drawing.Size(427, 286);
             this.listView3.TabIndex = 21;
             this.listView3.UseCompatibleStateImageBehavior = false;
             this.listView3.View = System.Windows.Forms.View.Details;
@@ -338,9 +356,10 @@
             this.columnHeader18});
             this.listView4.FullRowSelect = true;
             this.listView4.GridLines = true;
-            this.listView4.Location = new System.Drawing.Point(307, 351);
+            this.listView4.Location = new System.Drawing.Point(409, 432);
+            this.listView4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listView4.Name = "listView4";
-            this.listView4.Size = new System.Drawing.Size(321, 233);
+            this.listView4.Size = new System.Drawing.Size(427, 286);
             this.listView4.TabIndex = 22;
             this.listView4.UseCompatibleStateImageBehavior = false;
             this.listView4.View = System.Windows.Forms.View.Details;
@@ -367,34 +386,38 @@
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(12, 224);
+            this.monthCalendar1.Location = new System.Drawing.Point(16, 276);
+            this.monthCalendar1.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 23;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(170, 66);
+            this.textBox5.Location = new System.Drawing.Point(227, 81);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.Size = new System.Drawing.Size(132, 22);
             this.textBox5.TabIndex = 24;
             // 
             // textBox6
             // 
             this.textBox6.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Location = new System.Drawing.Point(193, 47);
+            this.textBox6.Location = new System.Drawing.Point(257, 58);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox6.Name = "textBox6";
             this.textBox6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox6.Size = new System.Drawing.Size(61, 13);
+            this.textBox6.Size = new System.Drawing.Size(81, 15);
             this.textBox6.TabIndex = 25;
             this.textBox6.Text = "Ilość";
             this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(170, 105);
+            this.button7.Location = new System.Drawing.Point(227, 129);
+            this.button7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(100, 56);
+            this.button7.Size = new System.Drawing.Size(133, 69);
             this.button7.TabIndex = 26;
             this.button7.Text = "Dodaj produkt do zrobienia";
             this.button7.UseVisualStyleBackColor = true;
@@ -407,9 +430,10 @@
             this.button8.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button8.Font = new System.Drawing.Font("Comic Sans MS", 37F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(29, 445);
+            this.button8.Location = new System.Drawing.Point(39, 548);
+            this.button8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(241, 126);
+            this.button8.Size = new System.Drawing.Size(321, 155);
             this.button8.TabIndex = 27;
             this.button8.Text = "Wyjście";
             this.button8.UseVisualStyleBackColor = false;
@@ -417,20 +441,32 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(80, 398);
+            this.button9.Location = new System.Drawing.Point(107, 490);
+            this.button9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(127, 26);
+            this.button9.Size = new System.Drawing.Size(169, 32);
             this.button9.TabIndex = 28;
             this.button9.Text = "Przejdź do raportu";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(1368, 727);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(344, 17);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "Copyright © 2017 Dawid Czubak and Karol Fischbach";
+            // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button8;
-            this.ClientSize = new System.Drawing.Size(1300, 613);
+            this.ClientSize = new System.Drawing.Size(1733, 754);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
@@ -507,5 +543,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Label label2;
     }
 }

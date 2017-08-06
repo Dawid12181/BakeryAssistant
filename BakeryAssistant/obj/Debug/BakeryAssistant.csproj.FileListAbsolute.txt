@@ -139,12 +139,12 @@ C:\Users\DawidC\Desktop\cekratka\28.07\BakeryAssistant\BakeryAssistant\bin\Debug
 C:\Users\DawidC\Desktop\cekratka\28.07\BakeryAssistant\BakeryAssistant\bin\Debug\BakeryAssistant.pdb
 C:\Users\DawidC\Desktop\cekratka\28.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.csprojResolveAssemblyReference.cache
 C:\Users\DawidC\Desktop\cekratka\28.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.AddNewProduct.resources
-C:\Users\DawidC\Desktop\cekratka\28.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.DodajZamowienie.resources
-C:\Users\DawidC\Desktop\cekratka\28.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.Magazyn.resources
 C:\Users\DawidC\Desktop\cekratka\28.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.MainWindow.resources
 C:\Users\DawidC\Desktop\cekratka\28.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.Properties.Resources.resources
 C:\Users\DawidC\Desktop\cekratka\28.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.csproj.GenerateResource.Cache
 C:\Users\DawidC\Desktop\cekratka\28.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.exe
 C:\Users\DawidC\Desktop\cekratka\28.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.pdb
-C:\Users\DawidC\Desktop\cekratka\28.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.Logowanie.resources
 C:\Users\DawidC\Desktop\cekratka\28.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.RaportForm.resources
+C:\Users\DawidC\Desktop\cekratka\28.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.AddOrder.resources
+C:\Users\DawidC\Desktop\cekratka\28.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.LoginForm.resources
+C:\Users\DawidC\Desktop\cekratka\28.07\BakeryAssistant\BakeryAssistant\obj\Debug\BakeryAssistant.Warehouse.resources

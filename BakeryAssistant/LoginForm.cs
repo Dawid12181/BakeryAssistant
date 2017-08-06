@@ -13,11 +13,11 @@ using System.Xml.Serialization;
 
 namespace BakeryAssistant
 {
-    public partial class Logowanie : Form
+    public partial class LoginForm : Form
     {
         List<Login> logins = new List<Login>();//list of our existing users
            
-        public Logowanie()
+        public LoginForm()
         {
             InitializeComponent();
             XmlDocument oXmlDocument = new XmlDocument();
@@ -93,30 +93,10 @@ namespace BakeryAssistant
                             user.Username = user.Cipher(user.Username);
                             user.Password = user.Cipher(user.Password);
                         }
-                        /* Początek serializacji */
-                        XmlRootAttribute oRootAttr = new XmlRootAttribute();
-                        oRootAttr.ElementName = "Login";
-                        oRootAttr.IsNullable = true;
-                        XmlSerializer oSerializer = new XmlSerializer(typeof(List<Login>), oRootAttr);
-                        StreamWriter oStreamWriter = null;
-                        try
-                        {
-                            oStreamWriter = new StreamWriter("users.xml");
-                            oSerializer.Serialize(oStreamWriter, logins);
-                        }
-                        catch (Exception oException)
-                        {
-                            Console.WriteLine("Aplikacja wygenerowała następujący wyjątek: " + oException.Message);
-                        }
-                        finally
-                        {
-                            if (null != oStreamWriter)
-                            {
-                                oStreamWriter.Dispose();
-                            }
-                        }
-                        /* Koniec serializacji do pliku orders.xml*/
-                        this.Hide();                                                   // Hide form languageSelect
+                        /* Starting serialization */
+                        SaveData.serialization(("users.xml"), logins, "Login");
+                        /* Ending serialization */
+                        this.Hide();                                                   // Hide form Login
                         MainWindow s = new MainWindow();                               // Create new form - MainWindow
                         s.Show();
                     }

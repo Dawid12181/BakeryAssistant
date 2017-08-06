@@ -1,75 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Skladniki xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ComponentsInWarehouse>
+  <ProduktyMagazyn>
     <ID>1</ID>
     <nazwa>Mąka</nazwa>
     <jednostka>gram</jednostka>
-    <ilosc>539</ilosc>
+    <ilosc>542</ilosc>
     <wymagana_ilosc>200000</wymagana_ilosc>
     <cena_zakupu>0.03</cena_zakupu>
-  </ComponentsInWarehouse>
-  <ComponentsInWarehouse>
+  </ProduktyMagazyn>
+  <ProduktyMagazyn>
     <ID>2</ID>
     <nazwa>Mleko</nazwa>
     <jednostka>szt</jednostka>
     <ilosc>7</ilosc>
     <wymagana_ilosc>30</wymagana_ilosc>
     <cena_zakupu>3</cena_zakupu>
-  </ComponentsInWarehouse>
-  <ComponentsInWarehouse>
+  </ProduktyMagazyn>
+  <ProduktyMagazyn>
     <ID>3</ID>
     <nazwa>Kakao</nazwa>
     <jednostka>gram</jednostka>
     <ilosc>1100</ilosc>
     <wymagana_ilosc>1000</wymagana_ilosc>
     <cena_zakupu>0.1</cena_zakupu>
-  </ComponentsInWarehouse>
-  <ComponentsInWarehouse>
+  </ProduktyMagazyn>
+  <ProduktyMagazyn>
     <ID>4</ID>
     <nazwa>Rodzynki</nazwa>
     <jednostka>gram</jednostka>
     <ilosc>600</ilosc>
     <wymagana_ilosc>300</wymagana_ilosc>
     <cena_zakupu>0.12</cena_zakupu>
-  </ComponentsInWarehouse>
-  <ComponentsInWarehouse>
+  </ProduktyMagazyn>
+  <ProduktyMagazyn>
     <ID>5</ID>
     <nazwa>Cukier</nazwa>
     <jednostka>gram</jednostka>
     <ilosc>25001</ilosc>
     <wymagana_ilosc>50000</wymagana_ilosc>
     <cena_zakupu>0.04</cena_zakupu>
-  </ComponentsInWarehouse>
-  <ComponentsInWarehouse>
+  </ProduktyMagazyn>
+  <ProduktyMagazyn>
     <ID>6</ID>
     <nazwa>Jajka</nazwa>
     <jednostka>szt</jednostka>
     <ilosc>120</ilosc>
     <wymagana_ilosc>20</wymagana_ilosc>
     <cena_zakupu>0.25</cena_zakupu>
-  </ComponentsInWarehouse>
-  <ComponentsInWarehouse>
-    <ID>7</ID>
-    <nazwa>składnik1</nazwa>
-    <jednostka>szt</jednostka>
-    <ilosc>52</ilosc>
-    <wymagana_ilosc>1</wymagana_ilosc>
-    <cena_zakupu>1.5</cena_zakupu>
-  </ComponentsInWarehouse>
-  <ComponentsInWarehouse>
-    <ID>8</ID>
-    <nazwa>składnik2</nazwa>
-    <jednostka>szt</jednostka>
-    <ilosc>37</ilosc>
-    <wymagana_ilosc>1</wymagana_ilosc>
-    <cena_zakupu>1.6</cena_zakupu>
-  </ComponentsInWarehouse>
-  <ComponentsInWarehouse>
-    <ID>9</ID>
-    <nazwa>składnik3</nazwa>
-    <jednostka>szt</jednostka>
-    <ilosc>65</ilosc>
-    <wymagana_ilosc>1</wymagana_ilosc>
-    <cena_zakupu>1.7</cena_zakupu>
-  </ComponentsInWarehouse>
+  </ProduktyMagazyn>
 </Skladniki>

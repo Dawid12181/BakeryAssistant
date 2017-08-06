@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace BakeryAssistant
 {
-    public class Zamowienie
+    public class Order
     {
         public string ID { get; set; }
         public string Odbiorca { get; set; }
         public string Adres { get; set; }
         public string Data { get; set; }
         public string Zamowienie_tekst { get; set; }
-        public Zamowienie()
+        public Order()
         {
 
         }
-         public Zamowienie(string sID, string sOdbiorca, string sAdres, string sData, string sZamowienie_tekst)
+         public Order(string sID, string sOdbiorca, string sAdres, string sData, string sZamowienie_tekst)
         {
             ID = sID;
             Odbiorca = sOdbiorca;
