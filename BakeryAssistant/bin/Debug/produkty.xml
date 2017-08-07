@@ -45,22 +45,4 @@
     <componentID>4</componentID>
     <quantityofproducts>1</quantityofproducts>
   </ProductsClass>
-  <ProductsClass>
-    <ID>6</ID>
-    <name />
-    <quantity>1</quantity>
-    <unit />
-    <price>1</price>
-    <componentID>j</componentID>
-    <quantityofproducts>2</quantityofproducts>
-  </ProductsClass>
-  <ProductsClass>
-    <ID>7</ID>
-    <name>asd</name>
-    <quantity>1</quantity>
-    <unit>szt</unit>
-    <price>2.9</price>
-    <componentID>4</componentID>
-    <quantityofproducts>3</quantityofproducts>
-  </ProductsClass>
 </Products>

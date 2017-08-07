@@ -29,7 +29,7 @@ namespace BakeryAssistant
             try
             {
                 oXmlDocument.Load("orders.xml");
-                XmlNodeList DaneNodesList = oXmlDocument.GetElementsByTagName("Zamowienie");
+                XmlNodeList DaneNodesList = oXmlDocument.GetElementsByTagName("Order");
                 foreach (XmlNode Dana in DaneNodesList)
                 {
                     my_orders.Add(new Order(Dana.FirstChild.InnerText, Dana.FirstChild.NextSibling.InnerText, Dana.LastChild.PreviousSibling.PreviousSibling.InnerText, Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));

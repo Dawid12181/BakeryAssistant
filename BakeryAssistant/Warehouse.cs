@@ -89,19 +89,19 @@ namespace BakeryAssistant
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBox1.Text)) // validation
+            if (string.IsNullOrWhiteSpace(textBox3.Text)) // validation
                 MessageBox.Show("Wpisz nazwę składnika!");
             else
             {
-                if (string.IsNullOrWhiteSpace(textBox1.Text)) // validation
+                if (string.IsNullOrWhiteSpace(textBox4.Text)) // validation
                     MessageBox.Show("Wpisz początkową ilość!");
                 else
                 {
-                    if (string.IsNullOrWhiteSpace(textBox1.Text)) // validation
+                    if (string.IsNullOrWhiteSpace(textBox5.Text)) // validation
                         MessageBox.Show("Wpisz minimalną wymaganą ilość!");
                     else
                     {
-                        if (string.IsNullOrWhiteSpace(textBox1.Text)) // validation
+                        if (string.IsNullOrWhiteSpace(textBox6.Text)) // validation
                             MessageBox.Show("Wpisz cenę zakupu!");
                         else
                         {
