@@ -9,25 +9,25 @@ namespace BakeryAssistant
     public class ProductsClass
     {
         public int ID { get; set; }
-        public string nazwa { get; set; }
-        public int  ilosc { get; set; }
-        public string jednostka { get; set; }
-        public double cena { get; set; }
-        public string idskladnika { get; set; }
-        public string iloscproduktu { get; set; }
+        public string name { get; set; }
+        public int  quantity { get; set; }
+        public string unit { get; set; }
+        public double price { get; set; }
+        public string componentID { get; set; }
+        public string quantityofproducts { get; set; }
         public ProductsClass()
         {
 
         }
-        public ProductsClass(int sID, string snazwa, int silosc, string sjednostka, double scena, string sidskladnika, string siloscproduktu )
+        public ProductsClass(int sID, string sname, int squantity, string sunit, double sprice, string scomponentID, string squantityofproducts )
         {
             ID = sID;
-            nazwa = snazwa;
-            ilosc = silosc;
-            jednostka = sjednostka;
-            cena = scena;
-            idskladnika = sidskladnika;
-            iloscproduktu = siloscproduktu;
+            name = sname;
+            quantity = squantity;
+            unit = sunit;
+            price = sprice;
+            componentID = scomponentID;
+            quantityofproducts = squantityofproducts;
         }
 
     }

@@ -9,21 +9,21 @@ namespace BakeryAssistant
     public class Order
     {
         public string ID { get; set; }
-        public string Odbiorca { get; set; }
-        public string Adres { get; set; }
-        public string Data { get; set; }
-        public string Zamowienie_tekst { get; set; }
+        public string Receiver { get; set; }
+        public string Address { get; set; }
+        public string Date { get; set; }
+        public string Order_text { get; set; }
         public Order()
         {
 
         }
-         public Order(string sID, string sOdbiorca, string sAdres, string sData, string sZamowienie_tekst)
+         public Order(string sID, string sReceiver, string sAddress, string sDate, string sOrder_text)
         {
             ID = sID;
-            Odbiorca = sOdbiorca;
-            Adres = sAdres;
-            Data = sData;
-            Zamowienie_tekst = sZamowienie_tekst;
+            Receiver = sReceiver;
+            Address = sAddress;
+            Date = sDate;
+            Order_text = sOrder_text;
         }
     }
 }

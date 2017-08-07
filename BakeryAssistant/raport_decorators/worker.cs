@@ -12,10 +12,10 @@ namespace BakeryAssistant.raport_dekorators
         public abstract string GetName();
         public enum Extras
         {
-            nocki = 200,
-            nadgodziny = 150,
+            nights = 200,
+            overtime = 150,
             weekendy = 150,
-            chorobowe = -100,
+            sick = -100,
         }
     }
 }

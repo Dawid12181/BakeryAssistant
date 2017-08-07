@@ -74,7 +74,7 @@
     </Compile>
     <Compile Include="Baker.cs" />
     <Compile Include="SaveData.cs" />
-    <Compile Include="raport_decorators\ChoroboweDekorator.cs" />
+    <Compile Include="raport_decorators\SickDecorator.cs" />
     <Compile Include="AddOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,8 +82,8 @@
       <DependentUpon>AddOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="raport_decorators\driver.cs" />
-    <Compile Include="raport_decorators\NadgodzinyDekorator.cs" />
-    <Compile Include="raport_decorators\NockiDekorator.cs" />
+    <Compile Include="raport_decorators\OverTimeDecorator.cs" />
+    <Compile Include="raport_decorators\NightShiftDecorator.cs" />
     <Compile Include="RaportForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,7 +114,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="raport_decorators\salesman.cs" />
-    <Compile Include="raport_decorators\Skladnik.cs" />
+    <Compile Include="raport_decorators\Component.cs" />
     <Compile Include="raport_decorators\WeekendyDekorator.cs" />
     <Compile Include="raport_decorators\worker.cs" />
     <Compile Include="raport_decorators\WorkerDecorator.cs" />

@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Products xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProductsClass>
-    <ID>1</ID>
-    <name>asd</name>
+    <ID>2</ID>
+    <name>Test1</name>
     <quantity>1</quantity>
     <unit>szt</unit>
-    <price>1</price>
-    <componentID>1</componentID>
-    <quantityofproducts>1</quantityofproducts>
+    <price>12</price>
+    <componentID>7,8,9</componentID>
+    <quantityofproducts>10,11,12</quantityofproducts>
+  </ProductsClass>
+  <ProductsClass>
+    <ID>3</ID>
+    <name>Test2</name>
+    <quantity>1</quantity>
+    <unit>szt</unit>
+    <price>13</price>
+    <componentID>8,9</componentID>
+    <quantityofproducts>5,6</quantityofproducts>
+  </ProductsClass>
+  <ProductsClass>
+    <ID>4</ID>
+    <name>Test3</name>
+    <quantity>1</quantity>
+    <unit>j</unit>
+    <price>14</price>
+    <componentID>7,8</componentID>
+    <quantityofproducts>7,8</quantityofproducts>
   </ProductsClass>
   <ProductsClass>
     <ID>2</ID>
@@ -37,30 +55,30 @@
     <quantityofproducts>7,8</quantityofproducts>
   </ProductsClass>
   <ProductsClass>
+    <ID>1</ID>
+    <name>asd</name>
+    <quantity>5</quantity>
+    <unit>szt</unit>
+    <price>1</price>
+    <componentID>1</componentID>
+    <quantityofproducts>1</quantityofproducts>
+  </ProductsClass>
+  <ProductsClass>
+    <ID>1</ID>
+    <name>asd</name>
+    <quantity>5</quantity>
+    <unit>szt</unit>
+    <price>1</price>
+    <componentID>1</componentID>
+    <quantityofproducts>1</quantityofproducts>
+  </ProductsClass>
+  <ProductsClass>
     <ID>5</ID>
     <name>asd</name>
-    <quantity>1</quantity>
+    <quantity>2</quantity>
     <unit>szt</unit>
     <price>2.5</price>
     <componentID>4</componentID>
     <quantityofproducts>1</quantityofproducts>
-  </ProductsClass>
-  <ProductsClass>
-    <ID>6</ID>
-    <name />
-    <quantity>1</quantity>
-    <unit />
-    <price>1</price>
-    <componentID>j</componentID>
-    <quantityofproducts>2</quantityofproducts>
-  </ProductsClass>
-  <ProductsClass>
-    <ID>7</ID>
-    <name>asd</name>
-    <quantity>1</quantity>
-    <unit>szt</unit>
-    <price>2.9</price>
-    <componentID>4</componentID>
-    <quantityofproducts>3</quantityofproducts>
   </ProductsClass>
 </Products>

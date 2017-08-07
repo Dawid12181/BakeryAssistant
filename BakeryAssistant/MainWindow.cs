@@ -14,13 +14,13 @@ namespace BakeryAssistant
 {
     public partial class MainWindow : Form
     {
-        List<ProductsClass> produkt = new List<ProductsClass>();
+        List<ProductsClass> product = new List<ProductsClass>();
         List<Order> my_orders = new List<Order>();
         List<ComponentsInWarehouse> my_magasin = new List<ComponentsInWarehouse>();
-        List<Skladnik> skladnik = new List<Skladnik>();
-        List<ProductsClass> produkty_do_zrobienia = new List<ProductsClass>();
-        List<ProductsClass> produkty_zrobione = new List<ProductsClass>();
-        string data = DateTime.Now.ToString("dd_MM_yyyy");
+        List<Component> component = new List<Component>();
+        List<ProductsClass> products_to_do = new List<ProductsClass>();
+        List<ProductsClass> products_already_done = new List<ProductsClass>();
+        string date = DateTime.Now.ToString("dd_MM_yyyy");
 
         public MainWindow()
         {
@@ -34,10 +34,10 @@ namespace BakeryAssistant
                 {
                     my_orders.Add(new Order(Dana.FirstChild.InnerText, Dana.FirstChild.NextSibling.InnerText, Dana.LastChild.PreviousSibling.PreviousSibling.InnerText, Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
                     ListViewItem order = new ListViewItem(my_orders[my_orders.Count - 1].ID);
-                    order.SubItems.Add(my_orders[my_orders.Count - 1].Odbiorca);
-                    order.SubItems.Add(my_orders[my_orders.Count - 1].Adres);
-                    order.SubItems.Add(my_orders[my_orders.Count - 1].Data);
-                    order.SubItems.Add(my_orders[my_orders.Count - 1].Zamowienie_tekst);
+                    order.SubItems.Add(my_orders[my_orders.Count - 1].Receiver);
+                    order.SubItems.Add(my_orders[my_orders.Count - 1].Address);
+                    order.SubItems.Add(my_orders[my_orders.Count - 1].Date);
+                    order.SubItems.Add(my_orders[my_orders.Count - 1].Order_text);
                     listView1.Items.Add(order);
                 }
             }
@@ -58,18 +58,17 @@ namespace BakeryAssistant
                 foreach (ComponentsInWarehouse ite in my_magasin)
                 {
 
-                    if (my_magasin[item].ilosc < my_magasin[item].wymagana_ilosc)
+                    if (my_magasin[item].quantity < my_magasin[item].required_quantity)
                     {
                         ListViewItem order = new ListViewItem(my_magasin[item].ID.ToString());
-                        order.SubItems.Add(my_magasin[item].nazwa);
-                        order.SubItems.Add(my_magasin[item].ilosc.ToString());
-                        order.SubItems.Add(my_magasin[item].wymagana_ilosc.ToString());
-                        order.SubItems.Add("To Do");         //o kurwa do zrobienia ;d
-                        order.SubItems.Add(my_magasin[item].jednostka);
+                        order.SubItems.Add(my_magasin[item].name);
+                        order.SubItems.Add(my_magasin[item].quantity.ToString());
+                        order.SubItems.Add(my_magasin[item].required_quantity.ToString());
+                        order.SubItems.Add(my_magasin[item].unit);
                         listView2.Items.Add(order);
-                        if (my_magasin[item].ilosc < my_magasin[item].wymagana_ilosc)
+                        if (my_magasin[item].quantity < my_magasin[item].required_quantity)
                             listView2.Items[k].BackColor = Color.Yellow;
-                        if (my_magasin[item].ilosc < 0.5 * my_magasin[item].wymagana_ilosc)
+                        if (my_magasin[item].quantity < 0.5 * my_magasin[item].required_quantity)
                             listView2.Items[k].BackColor = Color.Red;
 
                         k++;
@@ -77,7 +76,7 @@ namespace BakeryAssistant
                     item++;
                 }
                 item = 0;
-                k = 0; // Wyświetlanie listview2 czyli listy z niedoborem składników.
+                k = 0; // Showing listview2
             }
 
             catch
@@ -90,8 +89,8 @@ namespace BakeryAssistant
                 XmlNodeList DaneNodesList3 = oXm3Document.GetElementsByTagName("ProductsClass");
                 foreach (XmlNode Dana in DaneNodesList3)
                 {
-                    produkt.Add(new ProductsClass(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Int32.Parse(Dana.FirstChild.NextSibling.NextSibling.InnerText), Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText, Double.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText.Replace('.', ',')), Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
-                    listBox1.Items.Add(produkt[produkt.Count - 1].nazwa);
+                    product.Add(new ProductsClass(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Int32.Parse(Dana.FirstChild.NextSibling.NextSibling.InnerText), Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText, Double.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText.Replace('.', ',')), Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
+                    listBox1.Items.Add(product[product.Count - 1].name);
                 }
             }
             catch
@@ -101,19 +100,19 @@ namespace BakeryAssistant
             XmlDocument oXm4Document = new XmlDocument();
             try
             {
-                oXm4Document.Load(data + "do_zrobienia.xml");
+                oXm4Document.Load(date + "do_zrobienia.xml");
                 XmlNodeList DaneNodesList4 = oXm4Document.GetElementsByTagName("ProductsClass");
                 foreach (XmlNode Dana in DaneNodesList4)
                 {
-                    produkty_do_zrobienia.Add(new ProductsClass(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Int32.Parse(Dana.FirstChild.NextSibling.NextSibling.InnerText), Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText, Double.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText.Replace('.', ',')), Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
-                    ListViewItem order = new ListViewItem(produkty_do_zrobienia[produkty_do_zrobienia.Count - 1].ID.ToString());
-                    order.SubItems.Add(produkty_do_zrobienia[produkty_do_zrobienia.Count - 1].nazwa);
-                    order.SubItems.Add(produkty_do_zrobienia[produkty_do_zrobienia.Count - 1].ilosc.ToString());
-                    order.SubItems.Add(produkty_do_zrobienia[produkty_do_zrobienia.Count - 1].jednostka);
+                    products_to_do.Add(new ProductsClass(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Int32.Parse(Dana.FirstChild.NextSibling.NextSibling.InnerText), Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText, Double.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText.Replace('.', ',')), Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
+                    ListViewItem order = new ListViewItem(products_to_do[products_to_do.Count - 1].ID.ToString());
+                    order.SubItems.Add(products_to_do[products_to_do.Count - 1].name);
+                    order.SubItems.Add(products_to_do[products_to_do.Count - 1].quantity.ToString());
+                    order.SubItems.Add(products_to_do[products_to_do.Count - 1].unit);
                     listView3.Items.Add(order);
-                    List<int> ids = new List<int>(Array.ConvertAll(produkty_do_zrobienia[produkty_do_zrobienia.Count - 1].idskladnika.Split(','), int.Parse));
-                    List<int> ilosci = new List<int>(Array.ConvertAll(produkty_do_zrobienia[produkty_do_zrobienia.Count - 1].iloscproduktu.Split(','), int.Parse));
-                    skladnik.Add(new Skladnik(ids, ilosci, produkty_do_zrobienia[produkty_do_zrobienia.Count - 1].ID));
+                    List<int> ids = new List<int>(Array.ConvertAll(products_to_do[products_to_do.Count - 1].componentID.Split(','), int.Parse));
+                    List<int> quantities = new List<int>(Array.ConvertAll(products_to_do[products_to_do.Count - 1].quantityofproducts.Split(','), int.Parse));
+                    component.Add(new Component(ids, quantities, products_to_do[products_to_do.Count - 1].ID));
                 }
             }
             catch
@@ -122,15 +121,15 @@ namespace BakeryAssistant
             XmlDocument oXm5Document = new XmlDocument();
             try
             {
-                oXm5Document.Load(data + "zrobione.xml");
+                oXm5Document.Load(date + "zrobione.xml");
                 XmlNodeList DaneNodesList5 = oXm5Document.GetElementsByTagName("ProductsClass");
                 foreach (XmlNode Dana in DaneNodesList5)
                 {
-                    produkty_zrobione.Add(new ProductsClass(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Int32.Parse(Dana.FirstChild.NextSibling.NextSibling.InnerText), Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText, Double.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText.Replace('.', ',')), Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
-                    ListViewItem order = new ListViewItem(produkty_zrobione[produkty_zrobione.Count - 1].ID.ToString());
-                    order.SubItems.Add(produkty_zrobione[produkty_zrobione.Count - 1].nazwa);
-                    order.SubItems.Add(produkty_zrobione[produkty_zrobione.Count - 1].ilosc.ToString());
-                    order.SubItems.Add(produkty_zrobione[produkty_zrobione.Count - 1].jednostka);
+                    products_already_done.Add(new ProductsClass(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Int32.Parse(Dana.FirstChild.NextSibling.NextSibling.InnerText), Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText, Double.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText.Replace('.', ',')), Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
+                    ListViewItem order = new ListViewItem(products_already_done[products_already_done.Count - 1].ID.ToString());
+                    order.SubItems.Add(products_already_done[products_already_done.Count - 1].name);
+                    order.SubItems.Add(products_already_done[products_already_done.Count - 1].quantity.ToString());
+                    order.SubItems.Add(products_already_done[products_already_done.Count - 1].unit);
                     listView4.Items.Add(order);
                 }
             }
@@ -147,14 +146,14 @@ namespace BakeryAssistant
         private void button1_Click(object sender, EventArgs e)
         {
             /* Starting serialization */
-            SaveData.serialization((data + "do_zrobienia.xml"), produkty_do_zrobienia, "Products");
-            SaveData.serialization((data + "zrobione.xml"), produkty_zrobione, "Products");
+            SaveData.serialization((date + "do_zrobienia.xml"), products_to_do, "Products");
+            SaveData.serialization((date + "zrobione.xml"), products_already_done, "Products");
             SaveData.serialization(("skladniki.xml"), my_magasin, "Skladniki");
             /* Ending serialization */
 
             this.Hide();                                                   // Hide form MainWindow
-            AddNewProduct produkt = new AddNewProduct();                   // Create new form - AddNewProduct
-            produkt.Show();
+            AddNewProduct productt = new AddNewProduct();                   // Create new form - AddNewProduct
+            productt.Show();
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -188,22 +187,22 @@ namespace BakeryAssistant
         private void button2_Click(object sender, EventArgs e)
         {
             /* Starting serialization */
-            SaveData.serialization((data + "do_zrobienia.xml"), produkty_do_zrobienia, "Products");
-            SaveData.serialization((data + "zrobione.xml"), produkty_zrobione, "Products");
+            SaveData.serialization((date + "do_zrobienia.xml"), products_to_do, "Products");
+            SaveData.serialization((date + "zrobione.xml"), products_already_done, "Products");
             SaveData.serialization(("skladniki.xml"), my_magasin, "Skladniki");
             /* Ending serialization */
             this.Hide();                                                   // Hide form MainWindow
-            AddOrder zamowienia = new AddOrder();                     // Create new form - DodajZamowienie
-            zamowienia.Show();
+            AddOrder orders = new AddOrder();                     // Create new form - DodajZamowienie
+            orders.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string zamowienie;
+            string order_string;
             try
             {
-                zamowienie = listView1.SelectedItems[0].SubItems[4].Text;
-                MessageBox.Show("Twoje zamowienie to:  " + zamowienie);
+                order_string = listView1.SelectedItems[0].SubItems[4].Text;
+                MessageBox.Show("Twoje zamowienie to:  " + order_string);
             }
             catch
             {
@@ -219,127 +218,143 @@ namespace BakeryAssistant
         private void button5_Click(object sender, EventArgs e)
         {
             /* Starting serialization */
-            SaveData.serialization((data + "do_zrobienia.xml"), produkty_do_zrobienia, "Products");
-            SaveData.serialization((data + "zrobione.xml"), produkty_zrobione, "Products");
+            SaveData.serialization((date + "do_zrobienia.xml"), products_to_do, "Products");
+            SaveData.serialization((date + "zrobione.xml"), products_already_done, "Products");
             SaveData.serialization(("skladniki.xml"), my_magasin, "Skladniki");
             /* Ending serialization */
             this.Hide();                                                   // Hide form MainWindow
-            Warehouse magazyn = new Warehouse(produkt);                     // Create new form - Magazyn
-            magazyn.Show();
+            Warehouse warehouse = new Warehouse(product);                     // Create new form - Magazyn
+            warehouse.Show();
         }
 
         private void button6_Click(object sender, EventArgs e) // done button
         {
-            int usunID = Int32.Parse(listView3.SelectedItems[0].SubItems[0].Text);
-            listView3.SelectedItems[0].Remove();
-            int iteracja = 0;
-            bool jest = false;
-            foreach (ProductsClass item in produkty_do_zrobienia)
+            int deleteID = Int32.Parse(listView3.SelectedItems[0].SubItems[0].Text);
+            try
             {
-                if (item.ID == usunID)
+                // Substracting quantity
+                foreach (Component s in component)
                 {
-                    produkty_zrobione.Add(item);
-                    jest = true;
-                    break;
-                }
-                iteracja++;
-            }
-            if (jest)
-                produkty_do_zrobienia.RemoveAt(iteracja);
-            listView4.Items.Clear();
-            int it = 0;
-            foreach (ProductsClass ite in produkty_zrobione)
-            {
-                ListViewItem order = new ListViewItem(produkty_zrobione[it].ID.ToString());
-                order.SubItems.Add(produkty_zrobione[it].nazwa);
-                order.SubItems.Add(produkty_zrobione[it].ilosc.ToString());
-                order.SubItems.Add(produkty_zrobione[it].jednostka);
-                listView4.Items.Add(order);
-                it++;
-            }
-            it = 0;
-            // Odejmowanie ilosci
-            foreach (Skladnik s in skladnik)
-            {
-                if (s.IDproduktu == usunID)
-                {
-                    int p = 0;
-                    foreach (int k in s.ID)
+                    if (s.productID == deleteID)
                     {
-                        int o = 0;
-                        foreach (ComponentsInWarehouse prod in my_magasin)
+                        int p = 0;
+                        foreach (int k in s.ID)
                         {
-                            if (prod.ID == k)
+                            int o = 0;
+                            foreach (ComponentsInWarehouse prod in my_magasin)
                             {
-                                //MessageBox.Show("id: " + prod.ID.ToString());
-                                //MessageBox.Show("ilosc: " + s.ilosc[p].ToString());
-                                my_magasin[o].ilosc = my_magasin[o].ilosc - s.ilosc[p] * produkt[usunID-1].ilosc;
+                                if (prod.ID == k)
+                                {
+                                    //MessageBox.Show("id: " + prod.ID.ToString());
+                                    //MessageBox.Show("ilosc: " + s.ilosc[p].ToString());
+                                    if (my_magasin[o].quantity - s.quantity[p] * product[deleteID - 1].quantity > 0)
+                                        my_magasin[o].quantity = my_magasin[o].quantity - s.quantity[p] * product[deleteID - 1].quantity;
+                                    else
+                                    {
+                                        MessageBox.Show("Masz za mało składników aby zrobić to zamówienie!!!");
+                                        goto et1;
+                                    }
+                                }
+                                o++;
                             }
-                            o++;
+
                         }
-
+                        p++;
                     }
-                    p++;
                 }
-            }
-            listView2.Items.Clear();
-            int l = 0;
-            int op = 0;
-            foreach (ComponentsInWarehouse ite in my_magasin)
-            {
-                if (my_magasin[op].ilosc < my_magasin[op].wymagana_ilosc)
+                listView2.Items.Clear();
+                int l = 0;
+                int op = 0;
+                foreach (ComponentsInWarehouse ite in my_magasin)
                 {
-                    ListViewItem order1 = new ListViewItem(ite.ID.ToString());
-                    order1.SubItems.Add(ite.nazwa);
-                    order1.SubItems.Add(ite.ilosc.ToString());
-                    order1.SubItems.Add(ite.wymagana_ilosc.ToString());
-                    order1.SubItems.Add("To Do");
-                    order1.SubItems.Add(ite.jednostka);
-                    listView2.Items.Add(order1);
-                    if (my_magasin[op].ilosc < my_magasin[op].wymagana_ilosc)
-                        listView2.Items[l].BackColor = Color.Yellow;
-                    if (my_magasin[op].ilosc < 0.5 * my_magasin[op].wymagana_ilosc)
-                        listView2.Items[l].BackColor = Color.Red;
+                    if (my_magasin[op].quantity < my_magasin[op].required_quantity)
+                    {
+                        ListViewItem order1 = new ListViewItem(ite.ID.ToString());
+                        order1.SubItems.Add(ite.name);
+                        order1.SubItems.Add(ite.quantity.ToString());
+                        order1.SubItems.Add(ite.required_quantity.ToString());
+                        order1.SubItems.Add(ite.unit);
+                        listView2.Items.Add(order1);
+                        if (my_magasin[op].quantity < my_magasin[op].required_quantity)
+                            listView2.Items[l].BackColor = Color.Yellow;
+                        if (my_magasin[op].quantity < 0.5 * my_magasin[op].required_quantity)
+                            listView2.Items[l].BackColor = Color.Red;
 
-                    l++;
+                        l++;
+                    }
+                    op++;
                 }
-                op++;
+                op = 0;
+                l = 0; // Showing listview2
+                listView3.SelectedItems[0].Remove();
+                int i = 0;
+                bool j = false;
+                foreach (ProductsClass item in products_to_do)
+                {
+                    if (item.ID == deleteID)
+                    {
+                        products_already_done.Add(item);
+                        j = true;
+                        break;
+                    }
+                    i++;
+                }
+                if (j)
+                    products_to_do.RemoveAt(i);
+                listView4.Items.Clear();
+                int it = 0;
+                foreach (ProductsClass ite in products_already_done)
+                {
+                    ListViewItem order = new ListViewItem(products_already_done[it].ID.ToString());
+                    order.SubItems.Add(products_already_done[it].name);
+                    order.SubItems.Add(products_already_done[it].quantity.ToString());
+                    order.SubItems.Add(products_already_done[it].unit);
+                    listView4.Items.Add(order);
+                    it++;
+                }
+                it = 0;
             }
-            op = 0;
-            l = 0; // Wyświetlanie listview2 czyli listy z niedoborem składników.
+            catch
+            {
+                MessageBox.Show("Proszę podświetlić zrobione zamówienie.");
+            }
+            et1: deleteID++;
         }
 
-
-        private void button7_Click(object sender, EventArgs e) //Dodanie produktu do zrobienia
+        private void button7_Click(object sender, EventArgs e) // Adding product to do
         {
-            int ID;
-            ID = listBox1.SelectedIndex+1;
-            foreach (ProductsClass item in produkt)
+            if (string.IsNullOrWhiteSpace(textBox5.Text)) // Validation
+                MessageBox.Show("Wpisz Ilość!");
+            else
             {
-                if (item.ID == ID)
+                int ID;
+                ID = listBox1.SelectedIndex + 1;
+                foreach (ProductsClass item in product)
                 {
-                    produkty_do_zrobienia.Add(item);
-                    produkt[ID-1].ilosc = Int32.Parse(textBox5.Text);
-                    ListViewItem order = new ListViewItem(produkty_do_zrobienia[produkty_do_zrobienia.Count - 1].ID.ToString());
-                    order.SubItems.Add(produkty_do_zrobienia[produkty_do_zrobienia.Count - 1].nazwa);
-                    order.SubItems.Add(produkty_do_zrobienia[produkty_do_zrobienia.Count - 1].ilosc.ToString());
-                    order.SubItems.Add(produkty_do_zrobienia[produkty_do_zrobienia.Count - 1].jednostka);
-                    listView3.Items.Add(order);
-                    List<int> ids = new List<int>(Array.ConvertAll(produkty_do_zrobienia[produkty_do_zrobienia.Count - 1].idskladnika.Split(','), int.Parse));
-                    List<int> ilosci = new List<int>(Array.ConvertAll(produkty_do_zrobienia[produkty_do_zrobienia.Count - 1].iloscproduktu.Split(','), int.Parse));
-                    skladnik.Add(new Skladnik(ids, ilosci, produkty_do_zrobienia[produkty_do_zrobienia.Count - 1].ID));
+                    if (item.ID == ID)
+                    {
+                        products_to_do.Add(item);
+                        product[ID - 1].quantity = Int32.Parse(textBox5.Text);
+                        ListViewItem order = new ListViewItem(products_to_do[products_to_do.Count - 1].ID.ToString());
+                        order.SubItems.Add(products_to_do[products_to_do.Count - 1].name);
+                        order.SubItems.Add(products_to_do[products_to_do.Count - 1].quantity.ToString());
+                        order.SubItems.Add(products_to_do[products_to_do.Count - 1].unit);
+                        listView3.Items.Add(order);
+                        List<int> ids = new List<int>(Array.ConvertAll(products_to_do[products_to_do.Count - 1].componentID.Split(','), int.Parse));
+                        List<int> ilosci = new List<int>(Array.ConvertAll(products_to_do[products_to_do.Count - 1].quantityofproducts.Split(','), int.Parse));
+                        component.Add(new Component(ids, ilosci, products_to_do[products_to_do.Count - 1].ID));
+                    }
                 }
-            }
-            //Ilosc Po Zamowieniu
-                
+                // Quantity after order
 
+            }
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
             /* Starting serialization */
-            SaveData.serialization((data + "do_zrobienia.xml"), produkty_do_zrobienia, "Products");
-            SaveData.serialization((data + "zrobione.xml"), produkty_zrobione, "Products");
+            SaveData.serialization((date + "do_zrobienia.xml"), products_to_do, "Products");
+            SaveData.serialization((date + "zrobione.xml"), products_already_done, "Products");
             SaveData.serialization(("skladniki.xml"), my_magasin, "Skladniki");
             /* Ending serialization */
             Application.Exit();
@@ -358,8 +373,8 @@ namespace BakeryAssistant
         private void button9_Click(object sender, EventArgs e)     // Button which opens RaportForm
         {
             /* Starting serialization */
-            SaveData.serialization((data + "do_zrobienia.xml"), produkty_do_zrobienia, "Products");
-            SaveData.serialization((data + "zrobione.xml"), produkty_zrobione, "Products");
+            SaveData.serialization((date + "do_zrobienia.xml"), products_to_do, "Products");
+            SaveData.serialization((date + "zrobione.xml"), products_already_done, "Products");
             SaveData.serialization(("skladniki.xml"), my_magasin, "Skladniki");
             /* Ending serialization */
             this.Hide();                                                   // Hide form MainWindow

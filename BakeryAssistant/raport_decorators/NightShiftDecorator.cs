@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace BakeryAssistant.raport_dekorators
 {
-    class NockiDekorator : WorkerDecorator
+    class NightShiftDecorator : WorkerDecorator
     {
-        public NockiDekorator(Worker worker) : base(worker)
+        public NightShiftDecorator(Worker worker) : base(worker)
         {
         }
         public override int salary()
         {
-            Extras add = Extras.nocki;
+            Extras add = Extras.nights;
             return base.salary() + (int)add;
         }
         

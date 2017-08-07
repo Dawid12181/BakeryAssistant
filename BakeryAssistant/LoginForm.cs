@@ -15,7 +15,7 @@ namespace BakeryAssistant
 {
     public partial class LoginForm : Form
     {
-        List<Login> logins = new List<Login>();//list of our existing users
+        List<Login> logins = new List<Login>();// list of our existing users
            
         public LoginForm()
         {
@@ -58,7 +58,7 @@ namespace BakeryAssistant
         private void button1_Click(object sender, EventArgs e)
         {
             /*
-             ----LOGINY I HASLA DLA NASZYCH UZYTKOWNIKOW----
+             ----Logins and Passwords for our users----
              logins.Add(new Login("admin", "admin1"));
             logins.Add(new Login("SzefTomek", "bulka69"));
             logins.Add(new Login("KierowcaJan", "honda8"));

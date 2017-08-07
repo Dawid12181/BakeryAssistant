@@ -28,10 +28,10 @@ namespace BakeryAssistant
                 {
                     my_orders.Add(new Order(Dana.FirstChild.InnerText, Dana.FirstChild.NextSibling.InnerText, Dana.LastChild.PreviousSibling.PreviousSibling.InnerText, Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
                     ListViewItem order = new ListViewItem(my_orders[my_orders.Count - 1].ID);
-                    order.SubItems.Add(my_orders[my_orders.Count - 1].Odbiorca);
-                    order.SubItems.Add(my_orders[my_orders.Count - 1].Adres);
-                    order.SubItems.Add(my_orders[my_orders.Count - 1].Data);
-                    order.SubItems.Add(my_orders[my_orders.Count - 1].Zamowienie_tekst);
+                    order.SubItems.Add(my_orders[my_orders.Count - 1].Receiver);
+                    order.SubItems.Add(my_orders[my_orders.Count - 1].Address);
+                    order.SubItems.Add(my_orders[my_orders.Count - 1].Date);
+                    order.SubItems.Add(my_orders[my_orders.Count - 1].Order_text);
                     listView1.Items.Add(order);
                 }
             }
@@ -50,25 +50,45 @@ namespace BakeryAssistant
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            my_orders.Add(new Order((Int32.Parse(my_orders[my_orders.Count - 1].ID)+1).ToString(), textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text));
-            textBox1.Text = String.Empty;
-            textBox2.Text = String.Empty;
-            textBox3.Text = String.Empty;
-            textBox4.Text = String.Empty;
-            ListViewItem order = new ListViewItem(my_orders[my_orders.Count-1].ID);
-            order.SubItems.Add(my_orders[my_orders.Count-1].Odbiorca);
-            order.SubItems.Add(my_orders[my_orders.Count-1].Adres);
-            order.SubItems.Add(my_orders[my_orders.Count-1].Data);
-            order.SubItems.Add(my_orders[my_orders.Count-1].Zamowienie_tekst);
-            listView1.Items.Add(order);
+            if (string.IsNullOrWhiteSpace(textBox1.Text)) // Validation
+                MessageBox.Show("Wpisz odbiorcę!");
+            else
+            {
+                if (string.IsNullOrWhiteSpace(textBox2.Text)) // Validation
+                    MessageBox.Show("Wpisz adres!");
+                else
+                {
+                    if (string.IsNullOrWhiteSpace(textBox3.Text)) // Validation
+                        MessageBox.Show("Wpisz datę!");
+                    else
+                    {
+                        if (string.IsNullOrWhiteSpace(textBox4.Text)) // Validation
+                            MessageBox.Show("Wpisz treść zamówenia!");
+                        else
+                        {
+                            my_orders.Add(new Order((Int32.Parse(my_orders[my_orders.Count - 1].ID) + 1).ToString(), textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text));
+                            textBox1.Text = String.Empty;
+                            textBox2.Text = String.Empty;
+                            textBox3.Text = String.Empty;
+                            textBox4.Text = String.Empty;
+                            ListViewItem order = new ListViewItem(my_orders[my_orders.Count - 1].ID);
+                            order.SubItems.Add(my_orders[my_orders.Count - 1].Receiver);
+                            order.SubItems.Add(my_orders[my_orders.Count - 1].Address);
+                            order.SubItems.Add(my_orders[my_orders.Count - 1].Date);
+                            order.SubItems.Add(my_orders[my_orders.Count - 1].Order_text);
+                            listView1.Items.Add(order);
+                        }
+                    }
+                }
+            }
         }
         private void button2_Click_1(object sender, EventArgs e)
         {
-            string zamowienie;
+            string orderstring;
             try
             {
-                zamowienie = listView1.SelectedItems[0].SubItems[4].Text;
-                MessageBox.Show("Twoje zamowienie to:  " + zamowienie);
+                orderstring = listView1.SelectedItems[0].SubItems[4].Text;
+                MessageBox.Show("Twoje zamowienie to:  " + orderstring);
             }
             catch
             {
@@ -88,21 +108,21 @@ namespace BakeryAssistant
 
         private void button4_Click(object sender, EventArgs e) // Button Usuń zamówienie
         {
-            int iteracja=0;
-            bool jest=false;
-            Order usun = new Order(listView1.SelectedItems[0].SubItems[0].Text, listView1.SelectedItems[0].SubItems[1].Text, listView1.SelectedItems[0].SubItems[2].Text, listView1.SelectedItems[0].SubItems[3].Text, listView1.SelectedItems[0].SubItems[4].Text);
+            int i=0;
+            bool j=false;
+            Order delete = new Order(listView1.SelectedItems[0].SubItems[0].Text, listView1.SelectedItems[0].SubItems[1].Text, listView1.SelectedItems[0].SubItems[2].Text, listView1.SelectedItems[0].SubItems[3].Text, listView1.SelectedItems[0].SubItems[4].Text);
             listView1.SelectedItems[0].Remove();
             foreach (Order item in my_orders)
             {
-                if (item.ID == usun.ID)
+                if (item.ID == delete.ID)
                 {
-                    jest = true;
+                    j = true;
                     break;
                 }
-                iteracja++;
+                i++;
             }
-            if(jest)
-            my_orders.RemoveAt(iteracja);
+            if(j)
+            my_orders.RemoveAt(i);
         }
         private const int CP_NOCLOSE_BUTTON = 0x200;      // X Button kill
         protected override CreateParams CreateParams

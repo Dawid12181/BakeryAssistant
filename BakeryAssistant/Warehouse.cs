@@ -15,9 +15,9 @@ namespace BakeryAssistant
 {
     public partial class Warehouse : Form
     {
-        List<ProductsClass> produkty = new List<ProductsClass>();
+        List<ProductsClass> products = new List<ProductsClass>();
         List<ComponentsInWarehouse> my_magasin = new List<ComponentsInWarehouse>();
-        public Warehouse(List<ProductsClass> produkt)
+        public Warehouse(List<ProductsClass> product)
         {
             InitializeComponent();
             XmlDocument oXm2Document = new XmlDocument();
@@ -29,17 +29,17 @@ namespace BakeryAssistant
                 {
                     my_magasin.Add(new ComponentsInWarehouse(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Dana.FirstChild.NextSibling.NextSibling.InnerText, Int32.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText), Int32.Parse(Dana.LastChild.PreviousSibling.InnerText), Double.Parse(Dana.LastChild.InnerText.Replace('.', ','))));
                     ListViewItem order = new ListViewItem(my_magasin[my_magasin.Count - 1].ID.ToString());
-                    order.SubItems.Add(my_magasin[my_magasin.Count - 1].nazwa);
-                    order.SubItems.Add(my_magasin[my_magasin.Count - 1].ilosc.ToString());
-                    order.SubItems.Add(my_magasin[my_magasin.Count - 1].wymagana_ilosc.ToString());
-                    order.SubItems.Add(my_magasin[my_magasin.Count - 1].jednostka);
+                    order.SubItems.Add(my_magasin[my_magasin.Count - 1].name);
+                    order.SubItems.Add(my_magasin[my_magasin.Count - 1].quantity.ToString());
+                    order.SubItems.Add(my_magasin[my_magasin.Count - 1].required_quantity.ToString());
+                    order.SubItems.Add(my_magasin[my_magasin.Count - 1].unit);
                     listView1.Items.Add(order);
                 }
             }
             catch
             {
             }
-            produkty = produkt;
+            products = product;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -49,57 +49,80 @@ namespace BakeryAssistant
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int iteracja = 0;
-            bool jest = false;
-            string skladnikid = listView1.SelectedItems[0].SubItems[0].Text;
-            listView1.SelectedItems[0].Remove();
-            foreach (ComponentsInWarehouse item in my_magasin)
+            if (string.IsNullOrWhiteSpace(textBox1.Text)) // validation
+                MessageBox.Show("Wpisz ilość!");
+            else
             {
-                if (item.ID == Int32.Parse(skladnikid))
+                int p = 0;
+                bool o = false;
+                string skladnikid = listView1.SelectedItems[0].SubItems[0].Text;
+                listView1.SelectedItems[0].Remove();
+                foreach (ComponentsInWarehouse item in my_magasin)
                 {
-                    jest = true;
-                    break;
+                    if (item.ID == Int32.Parse(skladnikid))
+                    {
+                        o = true;
+                        break;
+                    }
+                    p++;
                 }
-                iteracja++;
-            }
-            if (jest)
-            {
-                my_magasin[iteracja].ilosc = my_magasin[iteracja].ilosc + Int32.Parse(textBox1.Text);
-                listView1.Items.Clear();
-                int item=0;
-                foreach(ComponentsInWarehouse ite in my_magasin)
+                if (o)
                 {
-                    ListViewItem order = new ListViewItem(my_magasin[item].ID.ToString());
-                    order.SubItems.Add(my_magasin[item].nazwa);
-                    order.SubItems.Add(my_magasin[item].ilosc.ToString());
-                    order.SubItems.Add(my_magasin[item].wymagana_ilosc.ToString());
-                    order.SubItems.Add(my_magasin[item].jednostka);
-                    listView1.Items.Add(order);
-                    item++;
+                    my_magasin[p].quantity = my_magasin[p].quantity + Int32.Parse(textBox1.Text);
+                    listView1.Items.Clear();
+                    int item = 0;
+                    foreach (ComponentsInWarehouse ite in my_magasin)
+                    {
+                        ListViewItem order = new ListViewItem(my_magasin[item].ID.ToString());
+                        order.SubItems.Add(my_magasin[item].name);
+                        order.SubItems.Add(my_magasin[item].quantity.ToString());
+                        order.SubItems.Add(my_magasin[item].required_quantity.ToString());
+                        order.SubItems.Add(my_magasin[item].unit);
+                        listView1.Items.Add(order);
+                        item++;
+                    }
+                    item = 0;
                 }
-                item = 0;
+
             }
-
-
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
-            string jednostka="j";
-            if (radioButton1.Checked)
-                jednostka = "szt";
-            else if (radioButton2.Checked)
-                jednostka = "gram";
+            if (string.IsNullOrWhiteSpace(textBox1.Text)) // validation
+                MessageBox.Show("Wpisz nazwę składnika!");
             else
-                MessageBox.Show("Prosze wybrać jednostkę");
-            my_magasin.Add(new ComponentsInWarehouse(my_magasin.Count + 1,textBox3.Text, jednostka, Int32.Parse(textBox4.Text), Int32.Parse(textBox5.Text), Double.Parse(textBox6.Text)));  //wyjebać cenedetal
-            ListViewItem order = new ListViewItem(my_magasin[my_magasin.Count - 1].ID.ToString());
-            order.SubItems.Add(my_magasin[my_magasin.Count - 1].nazwa);
-            order.SubItems.Add(my_magasin[my_magasin.Count - 1].ilosc.ToString());
-            order.SubItems.Add(my_magasin[my_magasin.Count - 1].wymagana_ilosc.ToString());
-            order.SubItems.Add(my_magasin[my_magasin.Count - 1].jednostka);
-            listView1.Items.Add(order);
+            {
+                if (string.IsNullOrWhiteSpace(textBox1.Text)) // validation
+                    MessageBox.Show("Wpisz początkową ilość!");
+                else
+                {
+                    if (string.IsNullOrWhiteSpace(textBox1.Text)) // validation
+                        MessageBox.Show("Wpisz minimalną wymaganą ilość!");
+                    else
+                    {
+                        if (string.IsNullOrWhiteSpace(textBox1.Text)) // validation
+                            MessageBox.Show("Wpisz cenę zakupu!");
+                        else
+                        {
+                            string jednostka = "j";
+                        if (radioButton1.Checked)
+                            jednostka = "szt";
+                        else if (radioButton2.Checked)
+                            jednostka = "gram";
+                        else
+                            MessageBox.Show("Prosze wybrać jednostkę");
+                        my_magasin.Add(new ComponentsInWarehouse(my_magasin.Count + 1, textBox3.Text, jednostka, Int32.Parse(textBox4.Text), Int32.Parse(textBox5.Text), Double.Parse(textBox6.Text.Replace('.', ','))));
+                        ListViewItem order = new ListViewItem(my_magasin[my_magasin.Count - 1].ID.ToString());
+                        order.SubItems.Add(my_magasin[my_magasin.Count - 1].name);
+                        order.SubItems.Add(my_magasin[my_magasin.Count - 1].quantity.ToString());
+                        order.SubItems.Add(my_magasin[my_magasin.Count - 1].required_quantity.ToString());
+                        order.SubItems.Add(my_magasin[my_magasin.Count - 1].unit);
+                        listView1.Items.Add(order);
+                    }
+                }
+            }
+        }
             }
         private void button3_Click(object sender, EventArgs e)
         {
@@ -126,6 +149,11 @@ namespace BakeryAssistant
                 myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
                 return myCp;
             }
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

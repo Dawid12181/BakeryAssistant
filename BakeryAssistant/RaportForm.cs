@@ -15,11 +15,11 @@ namespace BakeryAssistant
 {
     public partial class RaportForm : Form
     {
-        List<ProductsClass> produkty_zrobione = new List<ProductsClass>();
+        List<ProductsClass> already_done_products = new List<ProductsClass>();
         List<ComponentsInWarehouse> my_magasin = new List<ComponentsInWarehouse>();
-        List<Skladnik> skladnik = new List<Skladnik>();
+        List<Component> component = new List<Component>();
         DateTime startdate = DateTime.Now.AddMonths(-1);
-        double koszt, obrot;
+        double expense, revenue;
         public RaportForm()
         {
             InitializeComponent();
@@ -47,10 +47,10 @@ namespace BakeryAssistant
                         XmlNodeList DaneNodesList4 = oXm4Document.GetElementsByTagName("ProductsClass");
                         foreach (XmlNode Dana in DaneNodesList4)
                         {
-                            produkty_zrobione.Add(new ProductsClass(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Int32.Parse(Dana.FirstChild.NextSibling.NextSibling.InnerText), Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText, Double.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText.Replace('.', ',')), Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
-                            List<int> ids = new List<int>(Array.ConvertAll(produkty_zrobione[produkty_zrobione.Count - 1].idskladnika.Split(','), int.Parse));
-                            List<int> ilosci = new List<int>(Array.ConvertAll(produkty_zrobione[produkty_zrobione.Count - 1].iloscproduktu.Split(','), int.Parse));
-                            skladnik.Add(new Skladnik(ids, ilosci, produkty_zrobione[produkty_zrobione.Count - 1].ID));
+                            already_done_products.Add(new ProductsClass(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Int32.Parse(Dana.FirstChild.NextSibling.NextSibling.InnerText), Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText, Double.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText.Replace('.', ',')), Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
+                            List<int> ids = new List<int>(Array.ConvertAll(already_done_products[already_done_products.Count - 1].componentID.Split(','), int.Parse));
+                            List<int> quantities = new List<int>(Array.ConvertAll(already_done_products[already_done_products.Count - 1].quantityofproducts.Split(','), int.Parse));
+                            component.Add(new Component(ids, quantities, already_done_products[already_done_products.Count - 1].ID));
                         }
                     }
                     catch
@@ -58,12 +58,12 @@ namespace BakeryAssistant
                     }
     
 
-                    foreach (ProductsClass produkt in produkty_zrobione)
+                    foreach (ProductsClass produkt in already_done_products)
                     {
-                        obrot = obrot + produkt.cena*produkt.ilosc;
+                        revenue = revenue + produkt.price*produkt.quantity;
                     }
                     int j=0;
-                    foreach (Skladnik s in skladnik)
+                    foreach (Component s in component)
                     {
                         int o = 0;
                         foreach (int id in s.ID)
@@ -75,7 +75,7 @@ namespace BakeryAssistant
                                 if (k.ID == id)
                                 {
                                     //MessageBox.Show("Ilość składnika: " + s.ilosc[o] + "  Ilość produktu: " + produkty_zrobione[j].ilosc );
-                                    koszt = koszt + (k.cena_zakupu * s.ilosc[o]) * produkty_zrobione[j].ilosc;
+                                    expense = expense + (k.seller_price * s.quantity[o]) * already_done_products[j].quantity;
                                 }
                                 p++;
                             }
@@ -84,9 +84,9 @@ namespace BakeryAssistant
                             j++;
                     }
                     ListViewItem order = new ListViewItem(startdate.ToString("dd.MM.yyyy"));
-                    order.SubItems.Add(koszt.ToString() + " zł");
-                    order.SubItems.Add(obrot.ToString() + " zł");
-                    order.SubItems.Add((obrot-koszt).ToString() + " zł");
+                    order.SubItems.Add(expense.ToString() + " zł");
+                    order.SubItems.Add(revenue.ToString() + " zł");
+                    order.SubItems.Add((revenue-expense).ToString() + " zł");
                     listView1.Items.Add(order);
                 }
                 else
@@ -98,10 +98,10 @@ namespace BakeryAssistant
                     listView1.Items.Add(order);
                 }
                 startdate=startdate.AddDays(1);
-                obrot = 0;
-                koszt = 0;
-                produkty_zrobione.Clear();
-                skladnik.Clear();
+                revenue = 0;
+                expense = 0;
+                already_done_products.Clear();
+                component.Clear();
             }
         }
 
@@ -118,20 +118,20 @@ namespace BakeryAssistant
         private void button1_Click(object sender, EventArgs e)
         {
            if (comboBox1.SelectedItem != null){
-                List<Worker> pracownik = new List<Worker>();
-                pracownik.Add(new Salesman());
-                pracownik.Add(new Driver());
-                pracownik.Add(new Baker());
+                List<Worker> worker = new List<Worker>();
+                worker.Add(new Salesman());
+                worker.Add(new Driver());
+                worker.Add(new Baker());
                 int g = comboBox1.SelectedIndex;
                 if (checkBox1.Checked)
-                    pracownik[g] = new NockiDekorator(pracownik[g]);
+                    worker[g] = new NightShiftDecorator(worker[g]);
                 if (checkBox2.Checked)
-                    pracownik[g] = new NadgodzinyDekorator(pracownik[g]);
+                    worker[g] = new OverTimeDecorator(worker[g]);
                 if (checkBox3.Checked)
-                    pracownik[g] = new WeekendyDekorator(pracownik[g]);
+                    worker[g] = new WeekendyDekorator(worker[g]);
                 if (checkBox4.Checked)
-                    pracownik[g] = new ChoroboweDekorator(pracownik[g]);
-                MessageBox.Show(pracownik[g].GetName() + " " + pracownik[g].salary().ToString() + "pln");
+                    worker[g] = new SickDecorator(worker[g]);
+                MessageBox.Show(worker[g].GetName() + " " + worker[g].salary().ToString() + "pln");
             }
            else
             {

@@ -10,27 +10,23 @@ namespace BakeryAssistant
 
     {
         public int ID { get; set; }
-        public string nazwa { get; set; }
-        public string jednostka { get; set; }
-        public int ilosc { get; set; }
-        public int wymagana_ilosc { get; set; }
-        public double cena_zakupu { get; set; }
+        public string name { get; set; }
+        public string unit { get; set; }
+        public int quantity { get; set; }
+        public int required_quantity { get; set; }
+        public double seller_price { get; set; }
         public ComponentsInWarehouse()
         {
 
         }
-        public ComponentsInWarehouse(int sID, string snazwa, string sjednostka,  int silosc, int swymagana_ilosc, double scena_zakupu)
+        public ComponentsInWarehouse(int sID, string sname, string sunit,  int squantity, int srequired_quantity, double sseller_price)
         {
             ID = sID;
-            nazwa = snazwa;
-            wymagana_ilosc = swymagana_ilosc;
-            jednostka = sjednostka;
-            ilosc = silosc;
-            cena_zakupu = scena_zakupu;
-        }
-        int KomponentyNaStanie(ComponentsInWarehouse skladnik)
-        {
-            return skladnik.wymagana_ilosc - skladnik.ilosc;
+            name = sname;
+            required_quantity = srequired_quantity;
+            unit = sunit;
+            quantity = squantity;
+            seller_price = sseller_price;
         }
     }
 }

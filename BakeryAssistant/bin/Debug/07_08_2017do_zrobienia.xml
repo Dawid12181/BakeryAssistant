@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Products xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProductsClass>
+    <ID>3</ID>
+    <name>Test2</name>
+    <quantity>1</quantity>
+    <unit>szt</unit>
+    <price>13</price>
+    <componentID>8,9</componentID>
+    <quantityofproducts>5,6</quantityofproducts>
+  </ProductsClass>
+  <ProductsClass>
+    <ID>2</ID>
+    <name>Test1</name>
+    <quantity>1</quantity>
+    <unit>szt</unit>
+    <price>12</price>
+    <componentID>7,8,9</componentID>
+    <quantityofproducts>10,11,12</quantityofproducts>
+  </ProductsClass>
+</Products>

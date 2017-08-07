@@ -14,7 +14,7 @@ namespace BakeryAssistant
 {
     public partial class AddNewProduct : Form
     {
-        List<ProductsClass> nowy_produkt = new List<ProductsClass>();
+        List<ProductsClass> new_product = new List<ProductsClass>();
         List<ComponentsInWarehouse> my_magasin = new List<ComponentsInWarehouse>();
 
         string idskladnika, iloscskladnika;
@@ -29,7 +29,7 @@ namespace BakeryAssistant
                 foreach (XmlNode Dana in DaneNodesList2)
                 {
                     my_magasin.Add(new ComponentsInWarehouse(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Dana.FirstChild.NextSibling.NextSibling.InnerText, Int32.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText), Int32.Parse(Dana.LastChild.PreviousSibling.InnerText), Double.Parse(Dana.LastChild.InnerText.Replace('.', ','))));
-                    checkedListBox1.Items.Insert(my_magasin[my_magasin.Count - 1].ID-1, my_magasin[my_magasin.Count - 1].nazwa);
+                    checkedListBox1.Items.Insert(my_magasin[my_magasin.Count - 1].ID-1, my_magasin[my_magasin.Count - 1].name);
                     /* Adding components from list my_magasin to checkedlistbox, IMPORTANT ID-1! */
                 }
             }
@@ -43,7 +43,7 @@ namespace BakeryAssistant
                 XmlNodeList DaneNodesList3 = oXm3Document.GetElementsByTagName("ProductsClass");
                 foreach (XmlNode Dana in DaneNodesList3)
                 {
-                    nowy_produkt.Add(new ProductsClass(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Int32.Parse(Dana.FirstChild.NextSibling.NextSibling.InnerText), Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText, Double.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText.Replace('.', ',')), Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
+                    new_product.Add(new ProductsClass(Int32.Parse(Dana.FirstChild.InnerText), Dana.FirstChild.NextSibling.InnerText, Int32.Parse(Dana.FirstChild.NextSibling.NextSibling.InnerText), Dana.LastChild.PreviousSibling.PreviousSibling.PreviousSibling.InnerText, Double.Parse(Dana.LastChild.PreviousSibling.PreviousSibling.InnerText.Replace('.', ',')), Dana.LastChild.PreviousSibling.InnerText, Dana.LastChild.InnerText));
                 }
             }
             catch
@@ -124,9 +124,9 @@ namespace BakeryAssistant
                                     iloscskladnika = iloscskladnika + ",";
                                 iloscskladnika = iloscskladnika + quantity.ToString();
                             }
-                            string ComponentString = name + ' ' + quantity.ToString()+ ' ' + unit; //final message to listBox
-                            listBox1.Items.Add(ComponentString);//sending to listBox
-                            foreach (int indx in checkedListBox1.CheckedIndices) //uncheck checkBoxList after adding new component to our product
+                            string ComponentString = name + ' ' + quantity.ToString()+ ' ' + unit; // Final message to listBox
+                            listBox1.Items.Add(ComponentString);// Sending to listBox
+                            foreach (int indx in checkedListBox1.CheckedIndices) // Uncheck checkBoxList after adding new component to our product
                                 checkedListBox1.SetItemCheckState(indx, CheckState.Unchecked);
                         }
                     }
@@ -149,28 +149,41 @@ namespace BakeryAssistant
         {
         }
 
-        private void button5_Click(object sender, EventArgs e)//Przycisk usun
+        private void button5_Click(object sender, EventArgs e)// Button usun
         {
             if (listBox1.SelectedIndices.Count>0)
                 listBox1.Items.Remove(listBox1.SelectedItems[0]);
         }
 
-        private void button2_Click(object sender, EventArgs e)//Dodanie produktu do listy produktów. XML
+        private void button2_Click(object sender, EventArgs e)// Adding product to the list
         {
-            string jednostka = "j";
-            if (radioButton1.Checked)
-                jednostka = "szt";
-            else if (radioButton2.Checked)
-                jednostka = "gram";
-            else
-                MessageBox.Show("Prosze wybrać jednostkę");
-            nowy_produkt.Add(new ProductsClass(nowy_produkt.Count + 1,textBox3.Text, 1, jednostka, Double.Parse(textBox5.Text), idskladnika, iloscskladnika));
-            /* Starting serialization */
-            SaveData.serialization(("produkty.xml"), nowy_produkt, "Products");
-            /* Ending serialization */
-            this.Hide();                                                   // Hide form AddNewProduct
-            MainWindow s = new MainWindow();                               // Create new form - MainWindow
-            s.Show();
+            if (string.IsNullOrWhiteSpace(textBox3.Text))
+            {
+                MessageBox.Show("Wpisz nazwę produktu");
+            }
+            else {
+                if (string.IsNullOrWhiteSpace(textBox5.Text))
+                {
+                    MessageBox.Show("Wpisz cenę produktu!");
+                }
+                else
+                { 
+                    string unit = "j";
+                    if (radioButton1.Checked)
+                        unit = "szt";
+                    else if (radioButton2.Checked)
+                        unit = "gram";
+                    else
+                        MessageBox.Show("Prosze wybrać jednostkę");
+                    new_product.Add(new ProductsClass(new_product.Count + 1, textBox3.Text, 1, unit, Double.Parse(textBox5.Text.Replace('.', ',')), idskladnika, iloscskladnika));
+                    /* Starting serialization */
+                    SaveData.serialization(("produkty.xml"), new_product, "Products");
+                    /* Ending serialization */
+                    this.Hide();                                                   // Hide form AddNewProduct
+                    MainWindow s = new MainWindow();                               // Create new form - MainWindow
+                    s.Show();
+                }
+            }
         }
         private const int CP_NOCLOSE_BUTTON = 0x200;      // X Button kill
         protected override CreateParams CreateParams

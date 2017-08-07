@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Orders xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Zamowienie>
+  <Order>
     <ID>11</ID>
-    <Odbiorca>Andrzej</Odbiorca>
-    <Adres>Kosiny</Adres>
-    <Data>23.05.2017</Data>
-    <Zamowienie_tekst>Chlep tostowy</Zamowienie_tekst>
-  </Zamowienie>
-  <Zamowienie>
+    <Receiver>Andrzej</Receiver>
+    <Address>Kosiny</Address>
+    <Date>23.05.2017</Date>
+    <Order_text>Chlep tostowy</Order_text>
+  </Order>
+  <Order>
     <ID>14</ID>
-    <Odbiorca>Dawid</Odbiorca>
-    <Adres>Gdańsk</Adres>
-    <Data>23.06.2017</Data>
-    <Zamowienie_tekst>Chlep i Bułki</Zamowienie_tekst>
-  </Zamowienie>
-  <Zamowienie>
+    <Receiver>Dawid</Receiver>
+    <Address>Gdańsk</Address>
+    <Date>23.06.2017</Date>
+    <Order_text>Chlep i Bułki</Order_text>
+  </Order>
+  <Order>
     <ID>15</ID>
-    <Odbiorca>Karol</Odbiorca>
-    <Adres>Tczew</Adres>
-    <Data>23.09.2017</Data>
-    <Zamowienie_tekst>Bułki i Chlep</Zamowienie_tekst>
-  </Zamowienie>
-  <Zamowienie>
+    <Receiver>Karol</Receiver>
+    <Address>Tczew</Address>
+    <Date>23.09.2017</Date>
+    <Order_text>Bułki i Chlep</Order_text>
+  </Order>
+  <Order>
     <ID>71</ID>
-    <Odbiorca>Jaro Dziekan</Odbiorca>
-    <Adres>PG ETI</Adres>
-    <Data>21.37.69</Data>
-    <Zamowienie_tekst>Placek z haszem</Zamowienie_tekst>
-  </Zamowienie>
-  <Zamowienie>
+    <Receiver>Jaro Dziekan</Receiver>
+    <Address>PG ETI</Address>
+    <Date>21.37.69</Date>
+    <Order_text>Placek z haszem</Order_text>
+  </Order>
+  <Order>
     <ID>72</ID>
-    <Odbiorca>Kamil</Odbiorca>
-    <Adres>Gdańsk</Adres>
-    <Data>23.08.15</Data>
-    <Zamowienie_tekst>5x Chleb razowy i 3 bagietki </Zamowienie_tekst>
-  </Zamowienie>
+    <Receiver>Kamil</Receiver>
+    <Address>Gdańsk</Address>
+    <Date>23.08.15</Date>
+    <Order_text>5x Chleb razowy i 3 bagietki </Order_text>
+  </Order>
 </Orders>
