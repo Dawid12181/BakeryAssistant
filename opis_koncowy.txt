@@ -1,0 +1,21 @@
+Karol Fischbach, Dawid Czubak
+Opis koñcowy aplikacji Bakery Assistant
+	
+	Projekt Bakery Assistant to nic innego jak asystent niezbêdny w ka¿dej piekarni; zarówno tej ma³ej jak i wiêkszej. Dziêki temu produktowi wszystko bêdzie zarz¹dzane z jednego miejsca i ju¿ nigdy nie bêdzie potrzeby u¿ywania zbêdnych karteczek albo ciê¿kich notesów. Tak, naprawdê! Mo¿esz dodawaæ zamówienia wraz z opisem, tworzyæ nowe produkty ze sk³adników, które sam definiujesz i które automatycznie bêd¹ kontrolowane z uprzednio wprowadzanym stanem magazynu a tak¿e spisywaæ raporty, czy obliczaæ wyp³aty. Zoptymalizuj swoje zyski i wydajnoœæ swoich pracowników, a to wszystko ju¿ dziœ w wersji beta naszej aplikacji. 
+
+„Czas jest naturalnym surowcem, który dostajesz od ¿ycia. Jak przetwarzasz ten surowiec?”
+Brian Tracy
+
+1.Login.cs
+Jest to pocz¹tek programu, gdzie u¿ytkownik loguje siê w celu uzyskania dostêpu do programu. Nie ma tutaj rejestracji; odbywa siê ona poprzez kod programu, niedostêpny dla u¿ytkowników, poniewa¿ rejestracja wymaga³aby jakiegoœ rodzaju potwierdzenia z zewn¹trz, tak ¿eby unikn¹æ dostêpu osób trzecich. Jednym z kont jest login: admin has³o: admin1 oraz kilka innych kont utworzonych jednorazowo. Przed zapisem kont do pliku .xml s¹ one szyfrowane prostym szyfrem cezara, co pozwala unikn¹æ szybkiego przejrzenia notepadem pliku .xml; jest to utrudnienie ale doœæ ³atwe do przeskoczenia. Do szyfrowania i deszyfrowania u¿yto zmiennych s³ownikowych(przechowywanie alfabetu) oraz zapytañ SQL query i LINQ wraz z wyra¿eniami lambda(czêœæ szyfru cezara). Uprzednio wspomniane zapytania(SQL QUERY i LINQ) u¿yto równie¿ do szukania czy login i has³o jest w bazie danych; innymi s³owy, czy u¿ytkownik mo¿e siê zalogowaæ. Dodatkowo serializacja, zapis do pliku zosta³ wydzielony do odrêbnej klasy(metody), gdzie u¿yto przeci¹¿enia(polimorfizm statyczny). 
+2. MainWindow.cs
+W MainWindow jest tak naprawdê serce ca³ego programu gdzie poprzez akcje poszczególnych butonów, list view albo list box uzyskano mo¿liwoœæ definiowania nowych produktów, zamówieñ czy uzupe³nianie magazynu a to wszystko na podstawie obiektowoœci(dziedziczenie, metody czy w³aœciwoœci), zapisywania do .xml, odczytywania do List oraz przekazywania pomiêdzy poszczególnymi formularzami. Tak naprawdê funkcjonalnoœæ w wiêkszoœci formularzy siê powtarza i oparta jest na tym samym.
+3.RaportForm.cs
+W tym formularzu, u¿yto dekoratorów, typów wyliczeniowych(enum; patrz worker.cs) oraz polimorfizmu dynamicznego(override). Wszystko to zosta³o u¿yte w celu „udekorowania” wyp³aty pracownika np. kierowcy(podstawowa pensja) wraz z dodatkami na nocki czy nadgodziny lub z „kar¹” za „chorobowe”. Jest to wersja bardzo uproszczona obliczania pensji, aczkolwiek na razie powinno wystarczyæ i dodatkowo umo¿liwia u¿ycie tych¿e technologii w naszym programie. 
+
+S³owem podsumowania, Bakery Assistant to aplikacja, w której na pocz¹tku skupiliœmy siê na funkcjonalnoœci i w miarê tworzenia zauwa¿yliœmy widoczne zastosowanie technologii przedstawionych na kursie, które wczeœniej wydawa³y siê ma³o u¿yteczne a teraz s¹ niemal¿e niezbêdne. Kiedy zaczêliœmy pisaæ program zauwa¿yliœmy, ¿e trochê odbiegniemy od za³o¿eñ zawartych w opisie wstêpnym aczkolwiek koñcowy efekt jest bardzo zbli¿ony do tego co mieliœmy w planach.  Dodatkowo wiêkszoœæ(albo i wszystkie) sugerowane technologie zosta³y przez nas wykorzystane. 
+Link do filmu z prezentacj¹: https://youtu.be/7NNqZUApPVw
+Dziêkujemy, 
+Dawid Czubak, Karol Fischbach.
+
+
